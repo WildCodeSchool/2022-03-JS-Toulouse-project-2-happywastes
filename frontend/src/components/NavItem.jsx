@@ -8,7 +8,7 @@ function NavItem(props) {
   const { name, color } = props;
   return (
     <div className={`menu-item ${color}`}>
-      <p className={`menu-item-text ${color}`}>{name}</p>
+      <p className={`menu-item-text ${`${color}stroke`}`}>{name}</p>
     </div>
   );
 }
