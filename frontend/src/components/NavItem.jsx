@@ -21,7 +21,7 @@ function NavItem() {
   const { name, color } = navItem;
   return (
     <div className={`menu-item ${color}`}>
-      <p>{name}</p>
+      <p className={`menu-item-text ${color}`}>{name}</p>
     </div>
   );
 }
