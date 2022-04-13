@@ -4,16 +4,16 @@ import NavItem from "./NavItem";
 
 const navItem = [
   {
-    name: "Dashboard",
+    name: "DASHBOARD",
     color: "red",
   },
   {
-    name: "Recycler",
-    color: "Green",
+    name: "RECYCLER",
+    color: "green",
   },
   {
-    name: "Prochainement",
-    color: "Gold",
+    name: "PROCHAINEMENT",
+    color: "gold",
   },
 ];
 
