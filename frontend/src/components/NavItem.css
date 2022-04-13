@@ -4,27 +4,46 @@
 }
 
 .menu-item {
-  border: 1px solid red;
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .menu-item-text {
-  border: 1px dotted red;
+  position: absolute;
+  text-align: center;
+  font-family: var(--title-font);
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .red {
-  background-image: url("../assets/img/iconRed -large.png");
+  display: grid;
+  place-items: center;
   color: white;
-  stroke: #ef6461;
+}
+
+.redstroke {
+  -webkit-text-stroke: 1.6px #ef6461;
 }
 
 .green {
-  background-image: url("../assets/img/iconGreen -large.png");
+  display: grid;
+  place-items: center;
   color: white;
-  stroke: #629c94;
+}
+
+.greenstroke {
+  -webkit-text-stroke: 1.6px #629c94;
 }
 
 .gold {
-  background-image: url("../assets/img/iconYellow -large.png");
+  display: grid;
+  place-items: center;
   color: white;
-  stroke: #e4b363;
+}
+
+.goldstroke {
+  -webkit-text-stroke: 1.6px #d29839;
 }
