@@ -1,3 +1,7 @@
 export default function Home() {
-  return <p>placeholder</p>;
+  return (
+    <div>
+      <p>placeholder</p>
+    </div>
+  );
 }
