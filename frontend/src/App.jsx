@@ -1,6 +1,4 @@
 import Home from "./pages/Home";
-
-
 import "./assets/css/main.css";
 
 function App() {
