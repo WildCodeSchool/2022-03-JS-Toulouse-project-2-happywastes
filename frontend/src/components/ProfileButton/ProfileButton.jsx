@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProfileButton.sass";
+import "./ProfileButton.scss";
 
 function ProfileButton() {
   return <span className="ProfileButton-btn" />;
