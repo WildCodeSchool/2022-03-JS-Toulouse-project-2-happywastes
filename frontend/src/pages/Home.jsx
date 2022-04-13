@@ -1,8 +1,9 @@
-import "../assets/css/main.css";
+import ProfileButton from "../components/ProfileButton/ProfileButton";
 
 export default function Home() {
   return (
     <div className="home">
+      <ProfileButton />
       <p>Todo delete-me</p>
     </div>
   );
