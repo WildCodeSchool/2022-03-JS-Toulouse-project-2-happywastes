@@ -1,3 +1,5 @@
+import "../assets/css/main.css";
+
 export default function Home() {
   return (
     <div className="home">
