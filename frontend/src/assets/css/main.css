@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background:url("../img/Background_Hexagon.png") 0 -50px, linear-gradient(#3F7984  -4.24%, #11323D 93.3%);
+  background: url("../img/Background_Hexagon.png") 0 -50px, linear-gradient(#3F7984  -4.24%, #11323D 93.3%);
   background-size: cover;
 }
 
