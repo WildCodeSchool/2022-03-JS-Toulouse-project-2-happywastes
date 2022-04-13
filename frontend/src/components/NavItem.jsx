@@ -1,3 +1,4 @@
+import "./NavItem.css";
 import React from "react";
 
 // TODO a integrer et mapper dans
