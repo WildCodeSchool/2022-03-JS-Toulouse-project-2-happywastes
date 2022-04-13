@@ -1,5 +1,5 @@
 import MenuList from "../components/MenuList";
-import ProfileButton from "../components/ProfileButton/ProfileButton";
+import ProfileButton from "../components/Common/ProfileButton/ProfileButton";
 
 export default function Home() {
   return (
