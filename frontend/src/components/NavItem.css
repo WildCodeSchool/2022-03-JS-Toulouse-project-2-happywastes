@@ -1,0 +1,30 @@
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+
+.menu-item {
+  border: 1px solid red;
+}
+
+.menu-item-text {
+  border: 1px dotted red;
+}
+
+.red {
+  background-image: url("../assets/img/iconRed -large.png");
+  color: white;
+  stroke: #ef6461;
+}
+
+.green {
+  background-image: url("../assets/img/iconGreen -large.png");
+  color: white;
+  stroke: #629c94;
+}
+
+.gold {
+  background-image: url("../assets/img/iconYellow -large.png");
+  color: white;
+  stroke: #e4b363;
+}
