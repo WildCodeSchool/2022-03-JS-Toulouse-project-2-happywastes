@@ -2,17 +2,18 @@
   &btn {
     display: block;
     position: absolute;
-    right: 0.5rem;
-    top: 0.5rem;
+    right: 1rem;
+    top: 1rem;
     width: 43px;
     height: 50px;
     background-image: url("../../assets/img/iconParams-small.png");
     background-size: contain;
     background-repeat: no-repeat;
-    transition: transform 1s;
+    z-index: 2;
+    transition: transform 0.5s;
 
     &:hover {
-      transform: rotateZ(45deg);
+      transform: rotateZ(90deg);
     }
   }
 }
