@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <div className="home">
       <ProfileButton />
-      <p>Todo delete-me</p>
       <MenuList />
     </div>
   );
