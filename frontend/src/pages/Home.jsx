@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <div>
-      <p>placeholder</p>
+    <div className="home">
+      <p>Todo delete-me</p>
     </div>
   );
 }
