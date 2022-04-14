@@ -9,3 +9,13 @@
   width: 46px;
   height: 46px;
 }
+
+.btn-back {
+  background-color: transparent;
+  border: none;
+  background-image: url("../../assets/img/back-button.png");
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}

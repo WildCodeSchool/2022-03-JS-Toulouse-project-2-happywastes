@@ -9,6 +9,7 @@
   transition: height 0.3s;
   height: 6rem;
   overflow: hidden;
+  z-index: 1;
 }
 
 .NavBottom-Top {
@@ -36,4 +37,18 @@
 
 .Icon-Menu-Btn-Opened {
   transform: rotateZ(180deg);
+}
+
+.NavBottomMain {
+  z-index: 0;
+  height: 100vh;
+
+}
+
+.NavBottom-On {
+  height: 100%;
+}
+
+.NavBottom-Off {
+  display: none;
 }
