@@ -4,12 +4,8 @@ import "./ProfileButton.scss";
 
 function ProfileButton() {
   return (
-    <Link to="settings">
-      <img
-        src="src/assets/img/iconParams-small.png"
-        alt="parameters"
-        className="ProfileButton-btn"
-      />
+    <Link to="/settings">
+      <span className="ProfileButton-btn" />
     </Link>
   );
 }
