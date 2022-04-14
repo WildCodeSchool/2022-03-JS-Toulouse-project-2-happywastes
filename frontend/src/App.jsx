@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import "./assets/css/main.css";
 import BigMap from "./pages/BigMap";
 import NavBottom from "./components/Common/NavBottom/NavBottom";

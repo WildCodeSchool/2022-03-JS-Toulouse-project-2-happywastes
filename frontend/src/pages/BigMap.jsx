@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MapContainer } from "react-leaflet";
-import L from "leaflet";
-
 import Map from "../components/Map/Map";
 
 function BigMap() {

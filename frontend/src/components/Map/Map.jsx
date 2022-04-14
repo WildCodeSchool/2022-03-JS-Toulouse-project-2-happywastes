@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TileLayer, useMapEvents } from "react-leaflet";
 import "./Map.scss";
 
 function Map() {
-  
   const map = useMapEvents({
-    click: (ev) => map.flyTo([46.604652, 1.444209]),
+    click: () => map.flyTo([46.604652, 1.444209]),
   });
 
-  console.log(map);
-  
   // useEffect(() => {
   //   console.log("ready");
   //   setMapReady();
