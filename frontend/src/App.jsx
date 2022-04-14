@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import "./assets/css/main.css";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
+import BigMap from "./pages/BigMap";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="map" element={<BigMap />} />
         </Routes>
       </div>
     </BrowserRouter>
