@@ -8,7 +8,7 @@ const navItem = [
     name: "DASHBOARD",
     color: "red",
     image: "src/assets/img/iconRed -large.png",
-    routePath: "journal",
+    routePath: "dashboard",
   },
   {
     id: 2,
