@@ -5,7 +5,11 @@ import "./ProfileButton.scss";
 function ProfileButton() {
   return (
     <Link to="settings">
-      <span className="ProfileButton-btn" />
+      <img
+        src="src/assets/img/iconParams-small.png"
+        alt="parameters"
+        className="ProfileButton-btn"
+      />
     </Link>
   );
 }
