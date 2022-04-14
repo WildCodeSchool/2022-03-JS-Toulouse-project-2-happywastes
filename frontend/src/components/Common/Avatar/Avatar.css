@@ -1,0 +1,34 @@
+.avatar-container {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.hexagon {
+  z-index: 5;
+  position: relative;
+  width: 150px;
+  height: 86.6px;
+  background-color: #64c7cc;
+  margin: 43.3px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 43.3px solid #64c7cc;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 43.3px solid #64c7cc;
+}
