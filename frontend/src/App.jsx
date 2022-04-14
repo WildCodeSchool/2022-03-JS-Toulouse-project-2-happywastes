@@ -1,15 +1,20 @@
-// import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import "./assets/css/main.css";
-import BigMap from "./pages/BigMap";
-import NavBottom from "./components/Common/NavBottom/NavBottom";
+import Settings from "./pages/Settings";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Home /> */}
-      <BigMap />
-      <NavBottom />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="dashboard" element={<Dashboard />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
