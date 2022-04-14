@@ -5,7 +5,7 @@
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100vh;
   width: 100vw;
   background: url("../img/Background_Hexagon.png") 0 -50px,

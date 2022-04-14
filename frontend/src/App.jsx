@@ -1,10 +1,14 @@
 import Home from "./pages/Home";
 import "./assets/css/main.css";
+import BigMap from "./pages/BigMap";
+import NavBottom from "./components/Common/NavBottom/NavBottom";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      {/* <Home /> */}
+      <BigMap />
+      <NavBottom />
     </div>
   );
 }

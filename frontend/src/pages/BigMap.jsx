@@ -1,26 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { MapContainer } from "react-leaflet";
+import L from "leaflet";
+
 import Map from "../components/Map/Map";
 
 function BigMap() {
-  function getGPSPosition() {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      return [pos.coords.latitude, pos.coords.longitude];
-    });
-  }
+  const [mapReady, setMapReady] = useState(true);
 
-  const [localisation, setLocalisation] = useState([43.604652, 1.444209]);
-
-  // useEffect(() => {
-  //   setLocalisation(getGPSPosition());
-  // }, []);
-
-  return (
+  return mapReady ? (
     <div id="map-id">
-      <Map gps={localisation} getPos={() => getGPSPosition()} />
-      <button type="button" onClick={() => setLocalisation(getGPSPosition())}>
-        GPS
-      </button>
+      <MapContainer center={[43.604652, 1.444209]} zoom={13} id="map">
+        <Map setMapReady={setMapReady} />
+      </MapContainer>
     </div>
+  ) : (
+    <p>Loading..</p>
   );
 }
 
