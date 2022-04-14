@@ -8,18 +8,21 @@ const navItem = [
     name: "DASHBOARD",
     color: "red",
     image: "src/assets/img/iconRed -large.png",
+    routePath: "journal",
   },
   {
     id: 2,
     name: "RECYCLER",
     color: "green",
     image: "src/assets/img/iconGreen-large.png",
+    routePath: "recycler",
   },
   {
     id: 3,
     name: "PROCHAINEMENT",
     color: "gold",
     image: "src/assets/img/iconYellow -large.png",
+    routePath: "prochainement",
   },
 ];
 
@@ -32,6 +35,7 @@ export default function MenuList() {
           image={item.image}
           color={item.color}
           name={item.name}
+          routePath={item.routePath}
         />
       ))}
     </div>
