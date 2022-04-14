@@ -1,7 +1,11 @@
+import MenuList from "../components/MenuList";
+import ProfileButton from "../components/Common/ProfileButton/ProfileButton";
+
 export default function Home() {
   return (
     <div className="home">
-      <p>Todo delete-me</p>
+      <ProfileButton />
+      <MenuList />
     </div>
   );
 }

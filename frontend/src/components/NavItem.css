@@ -1,0 +1,49 @@
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+
+.menu-item {
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu-item-text {
+  position: absolute;
+  text-align: center;
+  font-family: var(--title-font);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.red {
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.redstroke {
+  -webkit-text-stroke: 1.6px #ef6461;
+}
+
+.green {
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.greenstroke {
+  -webkit-text-stroke: 1.6px #629c94;
+}
+
+.gold {
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.goldstroke {
+  -webkit-text-stroke: 1.6px #d29839;
+}

@@ -1,0 +1,18 @@
+.ProfileButton- {
+  &btn {
+    display: block;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 43px;
+    height: 50px;
+    background-image: url("../../assets/img/iconParams-small.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 1s;
+
+    &:hover {
+      transform: rotateZ(45deg);
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.NavBottom {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: -6rem;
+  background: url("src/assets/img/background-acces-rapide.png") no-repeat center
+    45px;
+  flex-direction: column;
+  justify-content: center;
+  transition: bottom 0.3s;
+}
+
+.NavBottom-Top {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.NavBottom-Bottom {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.NavBottom-Opened {
+  bottom: 0;
+}
+
+.Icon-Menu-Btn {
+  transition: transform 0.5s;
+}
+
+.Icon-Menu-Btn-Opened {
+  transform: rotateZ(180deg);
+}
