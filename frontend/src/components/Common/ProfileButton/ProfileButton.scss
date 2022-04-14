@@ -1,15 +1,15 @@
-.ProfileButton- {
+span.ProfileButton- {
   &btn {
     display: block;
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    right: 0.5rem;
+    top: 0.5rem;
     width: 43px;
     height: 50px;
-    background-image: url("../../assets/img/iconParams-small.png");
+    background-image: url("src/assets/img/iconParams-small.png");
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 2;
+    z-index: 1000;
     transition: transform 0.5s;
 
     &:hover {

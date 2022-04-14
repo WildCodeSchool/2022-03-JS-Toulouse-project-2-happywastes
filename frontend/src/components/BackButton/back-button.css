@@ -2,6 +2,7 @@
   position: absolute;
   top: 10px;
   margin-left: 5px;
+  z-index: 1000;
 }
 
 .back-btn-img {

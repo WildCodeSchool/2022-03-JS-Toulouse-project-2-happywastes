@@ -1,39 +1,35 @@
-import React, { useEffect, useState } from "react";
-import { TileLayer, Marker, Popup, useMap, ZoomControl } from "react-leaflet";
+import React from "react";
+import { TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "./Map.scss";
-import marker from "../../assets/img/map-marker-shield.svg";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStreetView } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import marker from "../../assets/img/iconBlue-small.png";
 
-function Map({ setMapCenter, userPos }) {
-  const [apiData, setApiData] = useState([]);
+library.add(faStreetView);
 
+function Map({ userPos, data }) {
   const map = useMap();
   const iconDechet = new L.Icon({
     iconUrl: marker,
-    iconSize: [50, 50],
+    iconSize: [30, 37],
   });
-
-  async function getAPIData(url) {
-    await fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setApiData(data.records);
-      });
-  }
-
-  useEffect(() => {
-    getAPIData(
-      "https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dinteret&q=&facet=categorie&refine.categorie=Déchetterie&rows=100"
-    );
-  }, []);
 
   return (
     <>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <ZoomControl position="bottomleft" />
+      <FontAwesomeIcon
+        icon={faStreetView}
+        size="2xl"
+        className="centerIcon"
+        onClick={() => {
+          map.flyTo(userPos, 17);
+        }}
+      />
       <Marker position={userPos} icon={iconDechet} />
-      {apiData.length > 0
-        ? apiData.map((el) => (
+      {data.length > 0
+        ? data.map((el) => (
             <Marker
               eventHandlers={{ click: () => map.flyTo(el.fields.geo_point_2d) }}
               key={el.recordid}

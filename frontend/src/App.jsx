@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="map" element={<BigMap />} />
+          <Route path="recycler" element={<BigMap />} />
         </Routes>
       </div>
     </BrowserRouter>
