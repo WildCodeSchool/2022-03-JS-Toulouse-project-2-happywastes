@@ -1,0 +1,10 @@
+.back-button {
+  position: absolute;
+  top: 10px;
+  margin-left: 5px;
+}
+
+.back-btn-img {
+  width: 46px;
+  height: 46px;
+}
