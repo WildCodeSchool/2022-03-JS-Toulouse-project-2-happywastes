@@ -27,8 +27,8 @@ function NavBottom() {
             <img
               className={
                 showMenu
-                  ? "icon-Menu-Btn icon-Menu-Btn-Opened"
-                  : "icon-Menu-Btn"
+                  ? "icon-menu-btn icon-menu-btn-opened"
+                  : "icon-menu-btn"
               }
               src="src/assets/img/MENU-BTN.png"
               alt="icon Menu Btn"
