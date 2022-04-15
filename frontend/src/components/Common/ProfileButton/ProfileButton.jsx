@@ -4,7 +4,7 @@ import "./ProfileButton.scss";
 
 function ProfileButton() {
   return (
-    <Link to="settings">
+    <Link to="/settings">
       <span className="ProfileButton-btn" />
     </Link>
   );

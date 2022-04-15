@@ -1,0 +1,14 @@
+#map {
+  height: 100vh;
+  z-index: 0;
+}
+
+.centerIcon {
+  z-index: 1001;
+  position: absolute;
+  bottom: 6rem;
+  left: 1.5rem;
+  color: #444;
+  height: 3rem;
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.5));
+}

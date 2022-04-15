@@ -9,6 +9,7 @@ export default function Settings() {
       <BackButton />
       <Avatar />
       {/* TODO add individual setting popups component */}
+      <BackButton />
       <NavBottom />
     </div>
   );

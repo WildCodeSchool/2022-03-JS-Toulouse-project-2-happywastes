@@ -2,12 +2,14 @@
   display: flex;
   position: absolute;
   width: 100%;
-  bottom: -6rem;
-  background: url("src/assets/img/background-acces-rapide.png") no-repeat center
-    45px;
+  bottom: 0rem;
+  background: url("src/assets/img/background-acces-rapide.png") no-repeat center 45px;
   flex-direction: column;
-  justify-content: center;
-  transition: bottom 0.3s;
+  justify-content: flex-start;
+  transition: height 0.3s;
+  height: 6rem;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .NavBottom-Top {
@@ -26,7 +28,7 @@
 }
 
 .NavBottom-Opened {
-  bottom: 0;
+  height: 13.2rem;
 }
 
 .Icon-Menu-Btn {
@@ -35,4 +37,18 @@
 
 .Icon-Menu-Btn-Opened {
   transform: rotateZ(180deg);
+}
+
+.NavBottomMain {
+  z-index: 0;
+  height: 100vh;
+
+}
+
+.NavBottom-On {
+  height: 100%;
+}
+
+.NavBottom-Off {
+  display: none;
 }
