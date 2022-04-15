@@ -1,12 +1,15 @@
 import React from "react";
 
-import BackButton from "../components/BackButton/BackButton";
+import Avatar from "../components/Common/Avatar/Avatar";
 import NavBottom from "../components/Common/NavBottom/NavBottom";
+
+import BackButton from "../components/BackButton/BackButton";
 
 export default function Settings() {
   return (
     <div>
-      {/* TODO add Avatar component */}
+      <BackButton />
+      <Avatar />
       {/* TODO add individual setting popups component */}
 
       <BackButton />
