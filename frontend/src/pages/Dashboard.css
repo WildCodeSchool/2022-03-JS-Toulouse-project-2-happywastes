@@ -1,0 +1,9 @@
+
+
+.Container-Avatar {
+  height: calc(100vh / 3 - 6rem);
+};
+
+.Container-Reward {
+  height: calc(100vh / 3 - 6rem);
+};
