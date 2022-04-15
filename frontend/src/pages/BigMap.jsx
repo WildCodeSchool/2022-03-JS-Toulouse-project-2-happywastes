@@ -53,5 +53,3 @@ function BigMap() {
 }
 
 export default BigMap;
-
-// [43.604652, 1.444209]
