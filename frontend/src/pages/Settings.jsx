@@ -1,4 +1,6 @@
 import React from "react";
+import MenuList from "../components/Settings/SettingsMenuList/MenuList";
+import BackButton from "../components/BackButton/BackButton";
 import NavBottom from "../components/Common/NavBottom/NavBottom";
 
 export default function Settings() {
@@ -6,7 +8,9 @@ export default function Settings() {
     <div>
       {/* TODO add Avatar component */}
       {/* TODO add individual setting popups component */}
+      <MenuList />
       <NavBottom />
+      <BackButton />
     </div>
   );
 }
