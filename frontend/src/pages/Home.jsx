@@ -4,8 +4,8 @@ import ProfileButton from "../components/Common/ProfileButton/ProfileButton";
 export default function Home() {
   return (
     <div className="home">
-      <ProfileButton />
       <MenuList />
+      <ProfileButton />
     </div>
   );
 }

@@ -1,0 +1,21 @@
+.back-button {
+  position: absolute;
+  top: 10px;
+  margin-left: 5px;
+  z-index: 1000;
+}
+
+.back-btn-img {
+  width: 46px;
+  height: 46px;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: none;
+  background-image: url("../../assets/img/back-button.png");
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
