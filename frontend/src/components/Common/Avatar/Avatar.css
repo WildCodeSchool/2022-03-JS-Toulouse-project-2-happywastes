@@ -1,34 +1,46 @@
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+
 .avatar-container {
   display: grid;
   place-items: center;
   padding: 2rem;
 }
 
+.avatar-title {
+  font-family: var(--title-font);
+  font-size: 1.4rem;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
 .hexagon {
-  z-index: 5;
-  position: relative;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   width: 150px;
-  height: 86.6px;
-  background-color: #64c7cc;
-  margin: 43.3px 0;
+  height: 150px;
 }
 
-.hexagon:before,
-.hexagon:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 75px solid transparent;
-  border-right: 75px solid transparent;
+.hexagon-border-1 {
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 160px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: white;
 }
 
-.hexagon:before {
-  bottom: 100%;
-  border-bottom: 43.3px solid #64c7cc;
+.hexagon-border-2 {
+  display: grid;
+  place-items: center;
+  width: 170px;
+  height: 170px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: black;
 }
 
-.hexagon:after {
-  top: 100%;
-  width: 0;
-  border-top: 43.3px solid #64c7cc;
+.hexagon img {
+  width: 150px;
+  height: 150px;
 }
