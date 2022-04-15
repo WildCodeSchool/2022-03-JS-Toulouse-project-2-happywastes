@@ -6,18 +6,18 @@ function NavBottom() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="NavBottomMain">
+    <div className="nav-bottom-main">
       <div
         onClick={() => setShowMenu(false)}
         role="button"
         tabIndex="0"
         onKeyDown={() => setShowMenu(false)}
-        className={showMenu ? " NavBottom-On" : "NavBottom-Off"}
+        className={showMenu ? " nav-bottom-on" : "nav-bottom-off"}
       >
         &nbsp;
       </div>
-      <div className={showMenu ? "NavBottom NavBottom-Opened" : "NavBottom"}>
-        <div className="NavBottom-Top">
+      <div className={showMenu ? "nav-bottom nav-bottom-opened" : "nav-bottom"}>
+        <div className="nav-bottom-top">
           <div
             onClick={() => setShowMenu(!showMenu)}
             role="button"
@@ -27,15 +27,15 @@ function NavBottom() {
             <img
               className={
                 showMenu
-                  ? "Icon-Menu-Btn Icon-Menu-Btn-Opened"
-                  : "Icon-Menu-Btn"
+                  ? "icon-Menu-Btn icon-Menu-Btn-Opened"
+                  : "icon-Menu-Btn"
               }
               src="src/assets/img/MENU-BTN.png"
               alt="icon Menu Btn"
             />
           </div>
         </div>
-        <ul className="NavBottom-Bottom">
+        <ul className="nav-bottom-bottom">
           <li>
             <Link to="/dashboard">
               <img src="src/assets/img/iconRed-small.png" alt="icon Red" />
