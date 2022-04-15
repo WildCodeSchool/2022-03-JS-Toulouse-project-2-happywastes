@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./NavBottom.css";
 
 function NavBottom() {
@@ -36,10 +37,14 @@ function NavBottom() {
         </div>
         <ul className="NavBottom-Bottom">
           <li>
-            <img src="src/assets/img/iconRed-small.png" alt="icon Red" />
+            <Link to="/dashboard">
+              <img src="src/assets/img/iconRed-small.png" alt="icon Red" />
+            </Link>
           </li>
           <li>
-            <img src="src/assets/img/iconGreen-small.png" alt="icon Green" />
+            <Link to="/recycler">
+              <img src="src/assets/img/iconGreen-small.png" alt="icon Green" />
+            </Link>
           </li>
           <li>
             <img src="src/assets/img/iconYellow-small.png" alt="icon Yellow" />

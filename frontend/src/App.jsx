@@ -12,8 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="recycler" element={<BigMap />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/recycler" element={<BigMap />} />
         </Routes>
       </div>
     </BrowserRouter>
