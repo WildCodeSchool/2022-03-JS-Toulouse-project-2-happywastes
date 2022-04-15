@@ -1,9 +1,7 @@
 import React from "react";
 import Avatar from "../components/Common/Avatar/Avatar";
 import NavBottom from "../components/Common/NavBottom/NavBottom";
-import MenuList from "../components/Settings/SettingsMenuList/MenuList";
 import BackButton from "../components/BackButton/BackButton";
-import NavBottom from "../components/Common/NavBottom/NavBottom";
 
 export default function Settings() {
   return (
@@ -11,7 +9,7 @@ export default function Settings() {
       <BackButton />
       <Avatar />
       {/* TODO add individual setting popups component */}
-      <MenuList />
+
       <BackButton />
       <NavBottom />
       <BackButton />
