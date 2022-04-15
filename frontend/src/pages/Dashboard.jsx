@@ -14,9 +14,9 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <div className="Container-Avatar" />
+      <div className="container-avatar" />
       {reward.map((element) => (
-        <ul className="Container-Reward">
+        <ul className="container-reward">
           <li>
             <img src={element.icon} alt="" />
           </li>

@@ -1,9 +1,7 @@
-
-
-.Container-Avatar {
+.container-avatar {
   height: calc(100vh / 3 - 6rem);
-};
+}
 
-.Container-Reward {
+.container-reward {
   height: calc(100vh / 3 - 6rem);
-};
+}
