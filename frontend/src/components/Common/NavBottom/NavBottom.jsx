@@ -47,12 +47,7 @@ function NavBottom() {
             </Link>
           </li>
           <li>
-            <Link to="/">
-              <img
-                src="src/assets/img/iconYellow-small.png"
-                alt="icon Yellow"
-              />
-            </Link>
+            <img src="src/assets/img/iconYellow-small.png" alt="icon Yellow" />
           </li>
         </ul>
       </div>
