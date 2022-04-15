@@ -32,11 +32,11 @@
   height: 13.2rem;
 }
 
-.icon-Menu-btn {
+.icon-menu-btn {
   transition: transform 0.5s;
 }
 
-.icon-Menu-btn-opened {
+.icon-menu-btn-opened {
   transform: rotateZ(180deg);
 }
 
