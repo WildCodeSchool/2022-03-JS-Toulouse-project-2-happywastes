@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
-import Popup from "../Common/Popup/Popup";
+import Popup from "./Popup/Popup";
 
 function MapMarker({ iconURL, position, iconSize: size, content }) {
   const [showPopup, setShowPopup] = useState(false);

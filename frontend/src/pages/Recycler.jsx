@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ProfileButton from "../components/Common/ProfileButton/ProfileButton";
-import NavBottom from "../components/Common/NavBottom/NavBottom";
-
+import ProfileButton from "../components/ProfileButton/ProfileButton";
+import NavBottom from "../components/NavBottom/NavBottom";
 import Map from "../components/Map/Map";
 import BackButton from "../components/BackButton/BackButton";
 
