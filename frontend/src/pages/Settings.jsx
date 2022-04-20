@@ -1,6 +1,6 @@
 import React from "react";
-import Avatar from "../components/Common/Avatar/Avatar";
-import NavBottom from "../components/Common/NavBottom/NavBottom";
+import Avatar from "../components/Avatar/Avatar";
+import NavBottom from "../components/NavBottom/NavBottom";
 import BackButton from "../components/BackButton/BackButton";
 
 export default function Settings() {

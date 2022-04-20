@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer } from "react-leaflet";
-import ProfileButton from "../components/Common/ProfileButton/ProfileButton";
-import NavBottom from "../components/Common/NavBottom/NavBottom";
+import ProfileButton from "../components/ProfileButton/ProfileButton";
+import NavBottom from "../components/NavBottom/NavBottom";
 import MapPOI from "../components/Map/MapPOI";
 import Map from "../components/Map/Map";
 import BackButton from "../components/BackButton/BackButton";

@@ -1,6 +1,6 @@
 import React from "react";
-import "./menuList.css";
-import NavItem from "./NavItem";
+import "./MainMenu.css";
+import NavItem from "../NavItem/NavItem";
 
 const navItem = [
   {
@@ -26,7 +26,7 @@ const navItem = [
   },
 ];
 
-export default function MenuList() {
+export default function MainMenu() {
   return (
     <div className="menu-list">
       {navItem.map((item) => (
