@@ -1,4 +1,3 @@
-import RewardResume from "../components/RewardResumeList/RewardResumeList";
 import BackButton from "../components/BackButton/BackButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
@@ -15,7 +14,6 @@ export default function Dashboard() {
       <div className="container-map" />
       <BackButton />
       <ProfileButton />
-      <RewardResume />
       <NavBottom />
     </div>
   );
