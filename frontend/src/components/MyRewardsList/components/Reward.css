@@ -1,0 +1,25 @@
+:root {
+    --title-font: "Arvo", serif;
+    --primary-font: "Lato", sans-serif;
+    --text-color: #fbfbfd;
+}
+
+.reward {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.jauge {
+    width: 8rem;
+    height: 1rem;
+    background-color: #313638;
+}
+
+#level-title {
+    font-size: var(--primary-font);
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: bold;
+}

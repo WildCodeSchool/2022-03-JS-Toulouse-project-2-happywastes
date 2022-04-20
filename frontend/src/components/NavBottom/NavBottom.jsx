@@ -30,7 +30,7 @@ function NavBottom() {
                   ? "icon-menu-btn icon-menu-btn-opened"
                   : "icon-menu-btn"
               }
-              src="src/assets/img/MENU-BTN.png"
+              src="/src/assets/img/MENU-BTN.png"
               alt="icon Menu Btn"
             />
           </div>
@@ -38,16 +38,16 @@ function NavBottom() {
         <ul className="nav-bottom-bottom">
           <li>
             <Link to="/dashboard">
-              <img src="src/assets/img/iconRed-small.png" alt="icon Red" />
+              <img src="/src/assets/img/iconRed-small.png" alt="icon Red" />
             </Link>
           </li>
           <li>
             <Link to="/recycler">
-              <img src="src/assets/img/iconGreen-small.png" alt="icon Green" />
+              <img src="/src/assets/img/iconGreen-small.png" alt="icon Green" />
             </Link>
           </li>
           <li>
-            <img src="src/assets/img/iconYellow-small.png" alt="icon Yellow" />
+            <img src="/src/assets/img/iconYellow-small.png" alt="icon Yellow" />
           </li>
         </ul>
       </div>
