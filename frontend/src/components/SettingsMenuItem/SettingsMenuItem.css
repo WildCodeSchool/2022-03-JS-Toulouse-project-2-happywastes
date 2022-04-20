@@ -13,13 +13,13 @@
   color: white;
 }
 
-.red {
+.settings-menu-item.red {
   background-color: #ef6461;
 }
-.green {
+.settings-menu-item.green {
   background-color: #629c94;
 }
-.gold {
+.settings-menu-item.gold {
   background-color: #d29839;
 }
 

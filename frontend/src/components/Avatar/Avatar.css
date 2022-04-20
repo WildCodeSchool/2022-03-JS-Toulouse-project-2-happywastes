@@ -1,9 +1,13 @@
+* {
+  box-sizing: border-box;
+}
 :root {
   --title-font: "Arvo", serif;
   --primary-font: "Lato", sans-serif;
 }
 
 .avatar-container {
+  background-color: transparent;
   display: grid;
   place-items: center;
   padding: 2rem;
@@ -18,11 +22,24 @@
 
 .hexagon {
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
+}
+.hexagon img {
+  width: 140px;
+  height: 140px;
 }
 
 .hexagon-border-1 {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: black;
+}
+
+.hexagon-border-2 {
   display: grid;
   place-items: center;
   width: 160px;
@@ -31,16 +48,44 @@
   background-color: white;
 }
 
-.hexagon-border-2 {
+.hexagon-border-3 {
   display: grid;
   place-items: center;
-  width: 170px;
-  height: 170px;
+  width: 180px;
+  height: 180px;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   background-color: black;
 }
 
-.hexagon img {
-  width: 150px;
-  height: 150px;
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+label,
+select {
+  font-family: var(--primary-font);
+  padding: 4px;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+
+label {
+  color: white;
+}
+
+select {
+  background-color: white;
+}
+
+.avatar-container > form:nth-child(2) > label:nth-child(11) {
+  display: flex;
+}
+
+#is-accessoire {
+  align-self: flex-end;
+  width: auto;
 }

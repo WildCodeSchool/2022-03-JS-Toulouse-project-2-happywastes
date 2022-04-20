@@ -1,4 +1,3 @@
-import React from "react";
 import SettingsMenuList from "../components/SettingsMenuList/SettingsMenuList";
 import Avatar from "../components/Avatar/Avatar";
 import NavBottom from "../components/NavBottom/NavBottom";
