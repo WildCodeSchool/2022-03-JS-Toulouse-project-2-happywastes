@@ -1,13 +1,13 @@
 import React from "react";
-import "./Popup.scss";
+import "./MapPopup.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import rewards from "../../Dashboard/DataReward";
+import rewards from "../Dashboard/DataReward";
 
 library.add(faClose);
 
-function Popup({ setShowPopup, title, text }) {
+function MapPopup({ setShowPopup, title, text }) {
   return (
     <div id="popup">
       <div className="card">
@@ -32,4 +32,4 @@ function Popup({ setShowPopup, title, text }) {
   );
 }
 
-export default Popup;
+export default MapPopup;
