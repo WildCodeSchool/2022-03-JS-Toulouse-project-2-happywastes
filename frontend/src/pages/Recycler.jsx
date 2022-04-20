@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer } from "react-leaflet";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
 import NavBottom from "../components/NavBottom/NavBottom";
-import MapPOI from "../components/Map/MapPOI";
 import Map from "../components/Map/Map";
 import BackButton from "../components/BackButton/BackButton";
 
-function BigMap() {
+function Recycler() {
   const [mapCenter, setMapCenter] = useState(null);
   const [apiData, setApiData] = useState([]);
 
@@ -35,15 +33,19 @@ function BigMap() {
   useEffect(() => {
     getGPSLocation();
   }, []);
+
   return (
     <div id="map-id">
       <BackButton />
       <ProfileButton />
+
       {mapCenter !== null ? (
-        <MapContainer center={mapCenter} zoom={17} id="map" zoomControl={false}>
-          <Map userPos={mapCenter} data={apiData} />
-          <MapPOI data={apiData.slice(0, 4)} />
-        </MapContainer>
+        <Map
+          center={mapCenter}
+          userPos={mapCenter}
+          data={apiData}
+          favourites={apiData.slice(0, 4)}
+        />
       ) : (
         ""
       )}
@@ -52,4 +54,4 @@ function BigMap() {
   );
 }
 
-export default BigMap;
+export default Recycler;
