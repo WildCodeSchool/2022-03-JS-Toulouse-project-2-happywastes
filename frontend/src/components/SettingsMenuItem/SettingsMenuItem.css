@@ -1,0 +1,42 @@
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+
+.settings-menu-item {
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.red {
+  background-color: #ef6461;
+}
+.green {
+  background-color: #629c94;
+}
+.gold {
+  background-color: #d29839;
+}
+
+.settings-menu-item-text {
+  margin-left: 2.5rem;
+  position: absolute;
+  text-align: center;
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.settings-menu-item-image {
+  position: fixed;
+  margin-top: -1.1rem;
+  margin-left: 0.5rem;
+  place-self: start;
+  max-width: 80px;
+  max-height: 80px;
+}

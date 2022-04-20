@@ -1,0 +1,46 @@
+import React from "react";
+import SettingsMenuItem from "../SettingsMenuItem/SettingsMenuItem";
+import "./SettingsMenuList.css";
+
+const settingMenuItem = [
+  {
+    id: 1,
+    image: "src/assets/img/iconRed -large.png",
+    title: "Modifier mon avatar",
+    color: "red",
+    routePath: "avatar/popup",
+  },
+  {
+    id: 2,
+    title: "Mon identifiant",
+    image: "src/assets/img/iconGreen-large.png",
+    color: "green",
+    routePath: "identifiant/popup",
+  },
+  {
+    id: 3,
+    title: "Mes favoris",
+    image: "src/assets/img/iconYellow -large.png",
+    color: "gold",
+    routePath: "favoris/popup",
+  },
+];
+
+function SettingsMenuList() {
+  return (
+    <div className="settings-menu-list-container">
+      {settingMenuItem.map((item) => (
+        <SettingsMenuItem
+          className="settings-menu-item"
+          image={item.image}
+          key={item.id}
+          title={item.title}
+          color={item.color}
+          routePath={item.routePath}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default SettingsMenuList;
