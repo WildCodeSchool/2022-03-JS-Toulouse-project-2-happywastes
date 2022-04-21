@@ -56,36 +56,3 @@
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   background-color: black;
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-label,
-select {
-  font-family: var(--primary-font);
-  padding: 4px;
-  border-radius: 6px;
-  width: 100%;
-  margin: 0;
-  border: none;
-}
-
-label {
-  color: white;
-}
-
-select {
-  background-color: white;
-}
-
-.avatar-container > form:nth-child(2) > label:nth-child(11) {
-  display: flex;
-}
-
-#is-accessoire {
-  align-self: flex-end;
-  width: auto;
-}

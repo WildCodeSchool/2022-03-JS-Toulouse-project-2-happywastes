@@ -1,17 +1,37 @@
-import { Link } from "react-router-dom";
 import "./SettingsMenuItem.css";
 import "../../assets/css/main.css";
-import React from "react";
+import React, { useState } from "react";
+import AvatarPopup from "../Avatar/Popup/AvatarPopup";
 
 function SettingsMenuItem(props) {
-  const { title, color, image, routePath } = props;
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const { title, color, image, setAvatarInfo, avatarInfo } = props;
   return (
-    <Link to={routePath}>
+    <div role="button">
       <div className={`settings-menu-item ${color}`}>
         <img className="settings-menu-item-image" src={image} alt="" />
-        <p className="settings-menu-item-text">{title}</p>
+        <button
+          type="button"
+          onClick={() => togglePopup()}
+          className="settings-menu-item-text"
+        >
+          {title}
+        </button>
+        {showPopup && (
+          <AvatarPopup
+            setShowAvatarPopup={setShowPopup}
+            setAvatarInfo={setAvatarInfo}
+            avatarInfo={avatarInfo}
+            title="Modifier son avatar"
+          />
+        )}
       </div>
-    </Link>
+    </div>
   );
 }
 

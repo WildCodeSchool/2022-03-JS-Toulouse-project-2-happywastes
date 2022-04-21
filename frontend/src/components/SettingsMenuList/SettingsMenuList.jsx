@@ -8,7 +8,7 @@ const settingMenuItem = [
     image: "src/assets/img/iconRed -large.png",
     title: "Modifier mon avatar",
     color: "red",
-    routePath: "avatar/popup",
+    routePath: "avatar-popup",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const settingMenuItem = [
   },
 ];
 
-function SettingsMenuList() {
+function SettingsMenuList({ setAvatarInfo, avatarInfo }) {
   return (
     <div className="settings-menu-list-container">
       {settingMenuItem.map((item) => (
@@ -37,6 +37,8 @@ function SettingsMenuList() {
           title={item.title}
           color={item.color}
           routePath={item.routePath}
+          setAvatarInfo={setAvatarInfo}
+          avatarInfo={avatarInfo}
         />
       ))}
     </div>

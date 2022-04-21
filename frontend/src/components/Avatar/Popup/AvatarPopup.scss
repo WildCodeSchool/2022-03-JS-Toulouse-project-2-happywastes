@@ -1,0 +1,83 @@
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+#avatar-popup {
+  font-family: var(--primary-font);
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  z-index: 10000;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+label,
+select {
+  font-family: var(--primary-font);
+  padding: 4px;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+
+input {
+  border: 2px solid white;
+}
+
+label {
+  color: white;
+}
+
+select {
+  border: 2px solid white;
+  background-color: white;
+}
+
+.avatar-container > form:nth-child(2) > label:nth-child(11) {
+  display: flex;
+}
+
+#is-accessoire {
+  align-self: flex-end;
+  width: auto;
+}
+
+.card-body {
+  box-shadow: 3px 2.8px 155.3px rgba(0, 0, 0, 0.047),
+    7.4px 6.9px 162.9px rgba(0, 0, 0, 0.058),
+    14.7px 13.7px 151.8px rgba(0, 0, 0, 0.067),
+    29.3px 27.4px 139.7px rgba(0, 0, 0, 0.081),
+    76px 71px 173px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 1rem;
+  background: url("../img/Background_Hexagon.png") 0 -50px,
+    linear-gradient(#3f7984 -4.24%, #11323d 93.3%);
+  background-size: cover;
+}
+
+.fa-button {
+  margin: 0;
+  align-self: flex-end;
+}
+
+.fa-xmark {
+  width: 20px;
+  height: 20px;
+  color: #ef6461;
+}

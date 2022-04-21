@@ -30,6 +30,7 @@
   font-family: var(--primary-font);
   font-size: 1rem;
   font-weight: 600;
+  color: white;
 }
 
 .settings-menu-item-image {
@@ -39,4 +40,9 @@
   place-self: start;
   max-width: 80px;
   max-height: 80px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
 }
