@@ -37,20 +37,19 @@ function NavBottom() {
         </div>
         <ul className="nav-bottom-bottom">
           <li>
-            <span className="span-dashboard">DASHBOARD</span>
-            <Link to="/dashboard">
-              <img src="src/assets/img/iconRed-small.png" alt="icon Red" />
+            <Link to="/dashboard" className="navBottom-btn icon-dashboard">
+              <span className="span-dashboard">DASHBOARD</span>
             </Link>
           </li>
           <li>
-            <span className="span-recycler">RECYCLER</span>
-            <Link to="/recycler">
-              <img src="src/assets/img/iconGreen-small.png" alt="icon Green" />
+            <Link to="/recycler" className="navBottom-btn icon-recycler">
+              <span className="span-recycler">RECYCLER</span>
             </Link>
           </li>
           <li>
-            <span className="span-prochainement">BIENTÔT !</span>
-            <img src="src/assets/img/iconYellow-small.png" alt="icon Yellow" />
+            <div className="navBottom-btn icon-default">
+              <span className="span-prochainement">BIENTÔT !</span>
+            </div>
           </li>
         </ul>
       </div>
