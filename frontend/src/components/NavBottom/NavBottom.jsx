@@ -39,22 +39,16 @@ function NavBottom() {
           <li>
             <Link to="/dashboard" className="navBottom-btn icon-dashboard">
               <span className="span-dashboard">DASHBOARD</span>
-              {/* <img src="src/assets/img/iconRed-small.png" alt="icon Red" /> */}
             </Link>
           </li>
           <li>
             <Link to="/recycler" className="navBottom-btn icon-recycler">
               <span className="span-recycler">RECYCLER</span>
-              {/* <img src="src/assets/img/iconGreen-small.png" alt="icon Green" /> */}
             </Link>
           </li>
           <li>
             <div className="navBottom-btn icon-default">
               <span className="span-prochainement">BIENTÔT !</span>
-              {/* <img
-                src="src/assets/img/iconYellow-small.png"
-                alt="icon Yellow"
-              /> */}
             </div>
           </li>
         </ul>
