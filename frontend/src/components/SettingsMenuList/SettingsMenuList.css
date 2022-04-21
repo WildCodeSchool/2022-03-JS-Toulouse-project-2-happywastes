@@ -1,0 +1,6 @@
+.settings-menu-list-container {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+  height: 30vh;
+}
