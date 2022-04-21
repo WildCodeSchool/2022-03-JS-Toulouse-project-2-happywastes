@@ -1,8 +1,7 @@
 import React from "react";
 import "./Reward.css";
 
-export default function Reward(props) {
-  const { img, level, color } = props;
+export default function Reward({ img, level, color }) {
   const pourcentage = level * 10;
   const couleur = color;
 
@@ -14,7 +13,7 @@ export default function Reward(props) {
 
   return (
     <div className="reward">
-      <img src={img} alt="img-level" />
+      <img className="img-reward" src={img} alt="img-level" />
       <div className="jauge">
         <div style={myStyle} />
       </div>
