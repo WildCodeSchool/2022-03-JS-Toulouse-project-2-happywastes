@@ -8,7 +8,6 @@ function DashboardReward() {
     <div className="container-reward">
       <h2>Mes dernières récompenses</h2>
       <ul className="container-img">
-        {" "}
         {rewards.slice(rewards.length - 4).map((reward) => {
           return (
             <li>
