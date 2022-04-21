@@ -6,7 +6,7 @@ function NavBottom() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="nav-bottom-main">
+    <div className="nav-bottom-main" style={showMenu ? { height: "100%" } : {}}>
       <div
         onClick={() => setShowMenu(false)}
         role="button"
@@ -37,16 +37,19 @@ function NavBottom() {
         </div>
         <ul className="nav-bottom-bottom">
           <li>
+            <span className="span-dashboard">DASHBOARD</span>
             <Link to="/dashboard">
               <img src="src/assets/img/iconRed-small.png" alt="icon Red" />
             </Link>
           </li>
           <li>
+            <span className="span-recycler">RECYCLER</span>
             <Link to="/recycler">
               <img src="src/assets/img/iconGreen-small.png" alt="icon Green" />
             </Link>
           </li>
           <li>
+            <span className="span-prochainement">BIENTÔT !</span>
             <img src="src/assets/img/iconYellow-small.png" alt="icon Yellow" />
           </li>
         </ul>
