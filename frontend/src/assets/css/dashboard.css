@@ -3,16 +3,30 @@
 }
 
 .container-avatar {
-  border: 1px solid red;
   height: 25vh;
 }
 
 .container-reward {
-  border: 1px solid red;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   height: 35vh;
 }
 
 .container-map {
-  border: 1px solid red;
-  height: 35vh;
+  border-top: 4px solid #7A998B;
+  border-bottom: 4px solid #7A998B;
+  box-shadow: inset 0px 6px 4px rgba(0, 0, 0, 0.35);
+  z-index: 0;
+  height: 34vh;
+}
+
+.img-magnifying-glass {
+  z-index: 11000;
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: 90vw;
+  color: rgba(0, 0, 0, 0.678);
 }

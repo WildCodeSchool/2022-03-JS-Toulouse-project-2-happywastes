@@ -1,17 +1,36 @@
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 import BackButton from "../components/BackButton/BackButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
 import "../assets/css/dashboard.css";
-// import DashboardAvatar from "../components/Dashboard/DashboardAvatar";
-// import DashboardMap from "../components/Dashboard/DashboardMap";
 import DashboardReward from "../components/Dashboard/DashboardReward";
+import Avatar from "../components/Avatar/Avatar";
+import Map from "../components/Map/Map";
 
 export default function Dashboard() {
   return (
     <div className="dashboard">
-      <div className="container-avatar" />
+      <Avatar className="container-avatar" />
       <DashboardReward />
-      <div className="container-map" />
+      <div className="container-map">
+        <Link to="/recycler">
+          {" "}
+          <FontAwesomeIcon
+            className="img-magnifying-glass"
+            icon={faSearchPlus}
+            size="xl"
+          />
+        </Link>
+
+        <Map
+          size="small"
+          center={[45.236, 0.8992]}
+          userPos={[45.236, 0.8992]}
+        />
+      </div>
+
       <BackButton />
       <ProfileButton />
       <NavBottom />
