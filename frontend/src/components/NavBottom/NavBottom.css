@@ -41,8 +41,10 @@
 }
 
 .nav-bottom-main {
-  z-index: 0;
-  height: 100%;
+  z-index: 20000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .nav-bottom-on {
@@ -51,4 +53,30 @@
 
 .nav-bottom-off {
   display: none;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  font-family: var(--title-font);
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.span-dashboard {
+  text-shadow: 1px 1px 0 #EF6461, 1px -1px 0 #EF6461, -1px 1px 0 #EF6461, -1px -1px 0 #EF6461, 1px 0px 0 #EF6461, 0px 1px 0 #EF6461, -1px 0px 0 #EF6461, 0px -1px 0 #EF6461;
+}
+
+.span-recycler {
+  text-shadow: 1px 1px 0 #629C94, 1px -1px 0 #629C94, -1px 1px 0 #629C94, -1px -1px 0 #629C94, 1px 0px 0 #629C94, 0px 1px 0 #629C94, -1px 0px 0 #629C94, 0px -1px 0 #629C94;
+}
+
+.span-prochainement {
+  text-shadow: 1px 1px 0 #D29839, 1px -1px 0 #D29839, -1px 1px 0 #D29839, -1px -1px 0 #D29839, 1px 0px 0 #D29839, 0px 1px 0 #D29839, -1px 0px 0 #D29839, 0px -1px 0 #D29839;
 }
