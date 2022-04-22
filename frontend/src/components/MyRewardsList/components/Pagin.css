@@ -1,0 +1,13 @@
+.round-selected {
+    background-image: url("../../../assets/img/pagination-clair.png");
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+}
+
+.round-not-selected {
+    background-image: url("../../../assets/img/pagination-foncee.png");
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+}
