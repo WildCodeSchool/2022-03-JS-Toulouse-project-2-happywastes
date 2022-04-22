@@ -12,7 +12,10 @@ import Map from "../components/Map/Map";
 export default function Dashboard() {
   return (
     <div className="dashboard">
-      <Avatar className="container-avatar" />
+      <Avatar
+        avatarImg="https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=variant01&eyebrows[]=variant01&mouth[]=variant01&accessoiresProbability=0&accessoires[]=sunglasses&backgroundColor[]=variant01"
+        className="container-avatar"
+      />
       <DashboardReward />
       <div className="container-map">
         <Link to="/recycler">
