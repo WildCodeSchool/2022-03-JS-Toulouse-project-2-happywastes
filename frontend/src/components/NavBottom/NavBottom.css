@@ -70,15 +70,15 @@
 }
 
 .icon-dashboard {
-  background: url("src/assets/img/iconRed-small.png") center;
+  background: url("/src/assets/img/iconRed-small.png") center;
 }
 
 .icon-recycler {
-  background: url("src/assets/img/iconGreen-small.png") center;
+  background: url("/src/assets/img/iconGreen-small.png") center;
 }
 
 .icon-default {
-  background: url("src/assets/img/iconYellow-small.png") center;
+  background: url("/src/assets/img/iconYellow-small.png") center;
 }
 
 .nav-bottom-bottom span {
