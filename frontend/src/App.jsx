@@ -3,8 +3,9 @@ import Home from "./pages/Home";
 import "./assets/css/main.css";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
-import BigMap from "./pages/BigMap";
 import MyRewards from "./pages/MyRewards";
+import Recycler from "./pages/Recycler";
+
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/recycler" element={<BigMap />} />
           <Route path="/dashboard/my-rewards" element={<MyRewards />} />
+          <Route path="/recycler" element={<Recycler />} />
         </Routes>
       </div>
     </BrowserRouter>
