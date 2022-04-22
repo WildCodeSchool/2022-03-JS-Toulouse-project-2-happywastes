@@ -16,23 +16,13 @@ export default function MyRewardsSwitch({
 
   return (
     <div className="switch-rewards">
-      {slicing === 0 ? (
-        <button
-          className="previous-button none"
-          type="button"
-          onClick={funcPrevious}
-        >
-          &nbsp;
-        </button>
-      ) : (
-        <button
-          className="previous-button"
-          type="button"
-          onClick={funcPrevious}
-        >
-          &nbsp;
-        </button>
-      )}
+      <button
+        className={slicing === 0 ? "none" : "previous-button"}
+        type="button"
+        onClick={funcPrevious}
+      >
+        &nbsp;
+      </button>
       {paginationTable.map((el) => (
         <Pagin
           key={el}
@@ -41,15 +31,13 @@ export default function MyRewardsSwitch({
           }
         />
       ))}
-      {slicing === dataLength - 5 ? (
-        <button className="next-button none" type="button" onClick={funcNext}>
-          &nbsp;
-        </button>
-      ) : (
-        <button className="next-button" type="button" onClick={funcNext}>
-          &nbsp;
-        </button>
-      )}
+      <button
+        className={slicing === dataLength - 5 ? "none" : "next-button"}
+        type="button"
+        onClick={funcNext}
+      >
+        &nbsp;
+      </button>
     </div>
   );
 }
