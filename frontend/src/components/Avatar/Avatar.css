@@ -10,7 +10,7 @@
   background-color: transparent;
   display: grid;
   place-items: center;
-  padding: 2rem;
+  padding: 2em;
 }
 
 .avatar-title {

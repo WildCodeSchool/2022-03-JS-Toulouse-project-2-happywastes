@@ -7,4 +7,6 @@
 #my-rewards-title {
     color: var(--text-color);
     font-family: var(--title-font);
+    font-weight: bold;
+    font-size: 1.5rem;
 }
