@@ -4,6 +4,7 @@ import "./assets/css/main.css";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
 import Recycler from "./pages/Recycler";
+import Influence from "./pages/Influence";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/recycler" element={<Recycler />} />
+          <Route path="/influence" element={<Influence />} />
         </Routes>
       </div>
     </BrowserRouter>
