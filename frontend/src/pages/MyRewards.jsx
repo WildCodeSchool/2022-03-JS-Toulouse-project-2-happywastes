@@ -11,6 +11,7 @@ import rewards from "../components/Dashboard/DataReward";
 export default function MyRewards() {
   const [slicing, setSlicing] = useState(0);
   const pagination = Math.ceil(rewards.length / 5);
+  const lengthRewardsData = rewards.length;
 
   const nextSlicing = () => {
     setSlicing(slicing + 5);
@@ -30,6 +31,7 @@ export default function MyRewards() {
           pagination={pagination}
           funcNext={nextSlicing}
           funcPrevious={previousSlicing}
+          dataLength={lengthRewardsData}
         />
       </div>
 
