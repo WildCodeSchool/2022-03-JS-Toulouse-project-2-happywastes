@@ -6,7 +6,7 @@ import rewards from "../Dashboard/DataReward";
 export default function MyRewardsList({ slicing }) {
   return (
     <div className="my-rewards-list">
-      {rewards.slice(slicing, slicing + 4).map((element) => (
+      {rewards.slice(slicing, slicing + 5).map((element) => (
         <Reward
           key={element.id}
           img={element.img}

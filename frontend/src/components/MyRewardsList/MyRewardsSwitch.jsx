@@ -9,7 +9,7 @@ export default function MyRewardsSwitch({
   pagination,
 }) {
   const paginationTable = [];
-  for (let i = 0; i < pagination; i++) {
+  for (let i = 0; i < pagination; i += 1) {
     paginationTable.push(i);
   }
 
@@ -22,7 +22,7 @@ export default function MyRewardsSwitch({
         <Pagin
           key={el}
           roundSelected={
-            slicing / 4 === el ? "round-selected" : "round-not-selected"
+            slicing / 5 === el ? "round-selected" : "round-not-selected"
           }
         />
       ))}
