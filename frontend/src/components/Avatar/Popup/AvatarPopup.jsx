@@ -7,7 +7,6 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 library.add(faClose);
 
 function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
-  // const [selectBackgroundColor, setSelectBackgroundColor] = useState("white");
   const [background, setBackground] = useState(avatarInfo.options.background);
   const [eyes, setEyes] = useState(avatarInfo.options.eyes);
   const [eyebrows, setEyebrows] = useState(avatarInfo.options.eyebrows);
