@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import "./assets/css/main.css";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
+import MyRewards from "./pages/MyRewards";
 import Recycler from "./pages/Recycler";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/my-rewards" element={<MyRewards />} />
           <Route path="/recycler" element={<Recycler />} />
         </Routes>
       </div>

@@ -30,7 +30,7 @@ function NavBottom() {
                   ? "icon-menu-btn icon-menu-btn-opened"
                   : "icon-menu-btn"
               }
-              src="src/assets/img/MENU-BTN.png"
+              src="/src/assets/img/MENU-BTN.png"
               alt="icon Menu Btn"
             />
           </div>
