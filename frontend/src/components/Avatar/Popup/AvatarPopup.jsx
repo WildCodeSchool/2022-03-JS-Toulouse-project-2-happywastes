@@ -7,7 +7,6 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 library.add(faClose);
 
 function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
-  const [name, setName] = useState(avatarInfo.name);
   const [background, setBackground] = useState(avatarInfo.options.background);
   const [eyes, setEyes] = useState(avatarInfo.options.eyes);
   const [eyebrows, setEyebrows] = useState(avatarInfo.options.eyebrows);
@@ -31,8 +30,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
 
   useEffect(() => {
     setAvatarInfo({
-      name,
-      img: `https://avatars.dicebear.com/api/adventurer-neutral/${name}.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`,
+      img: `https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`,
       options: {
         background,
         eyes,
@@ -42,19 +40,11 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
         accessoires,
       },
     });
-  }, [
-    name,
-    background,
-    eyes,
-    eyebrows,
-    mouth,
-    accessoiresProbability,
-    accessoires,
-  ]);
+  }, [background, eyes, eyebrows, mouth, accessoiresProbability, accessoires]);
 
   return (
     <div id="avatar-popup">
-      <div className="card">
+      <div className="avatar-card">
         <div className="card-header">
           <h3>{title}</h3>
         </div>
@@ -67,35 +57,22 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
             <FontAwesomeIcon icon={faClose} />
           </button>
 
-          <div className="avatar-container">
-            <div className="hexagon-border-3">
-              <div className="hexagon-border-2">
-                <div className="hexagon-border-1">
-                  <div className="hexagon">
+          <div className="avatar-popup-container">
+            <div className="avatar-hexagon-border-3">
+              <div className="avatar-hexagon-border-2">
+                <div className="avatar-hexagon-border-1">
+                  <div className="avatar-hexagon">
                     <img
-                      src={`https://avatars.dicebear.com/api/adventurer-neutral/${name}.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`}
+                      src={`https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`}
                       alt="Customized Avatar"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <h2 className="avatar-title">{name}</h2>
           </div>
 
           <form onSubmit={setUserAvatar}>
-            <label htmlFor="name">
-              Prénom
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                id="name"
-                placeholder="Name"
-                name="name"
-              />
-            </label>
-            <br />
             <label htmlFor="accessoires">
               Couleur
               <select
@@ -103,6 +80,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 name="background"
                 id="background"
                 defaultValue={background}
+                className={background}
               >
                 <option value="variant01">1</option>
                 <option value="variant02">2</option>
@@ -111,7 +89,6 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 <option value="variant05">5</option>
               </select>
             </label>
-            <br />
             <label htmlFor="eyes">
               Yeux
               <select
@@ -148,7 +125,6 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 <option value="variant26">26</option>
               </select>
             </label>
-            <br />
             <label htmlFor="eyebrows">
               Sourcils
               <select
@@ -169,7 +145,6 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 <option value="variant10">10</option>
               </select>
             </label>
-            <br />
             <label htmlFor="mouth">
               Bouche
               <select
@@ -210,8 +185,10 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 <option value="variant30">30</option>
               </select>
             </label>
-            <br />
-            <label htmlFor="isAccessoire">
+            <label
+              className="avatar-is-accessoires-container"
+              htmlFor="isAccessoire"
+            >
               Accessoire?
               <input
                 id="is-accessoire"
@@ -222,8 +199,10 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 name="isAccessoire"
               />
             </label>
-            <br />
-            <label htmlFor="accessoires">
+            <label
+              className="avatar-accessoires-container"
+              htmlFor="accessoires"
+            >
               Accessoires
               <select
                 onChange={(e) => setAccessoires(e.target.value)}
@@ -238,6 +217,13 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 <option value="birthmark">tache de naissance</option>
               </select>
             </label>
+            <button
+              className="avatar-validate-button"
+              type="submit"
+              onClick={() => setShowAvatarPopup(false)}
+            >
+              Valider
+            </button>
           </form>
         </div>
       </div>
