@@ -18,7 +18,7 @@ export default function Dashboard() {
       />
       <DashboardReward />
       <div className="container-map">
-        <Link to="/recycler">
+        <Link to="/influence">
           {" "}
           <FontAwesomeIcon
             className="img-magnifying-glass"
