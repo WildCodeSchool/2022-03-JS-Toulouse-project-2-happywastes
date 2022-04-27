@@ -5,6 +5,7 @@ import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
 import MyRewards from "./pages/MyRewards";
 import Recycler from "./pages/Recycler";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/my-rewards" element={<MyRewards />} />
           <Route path="/recycler" element={<Recycler />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </BrowserRouter>
