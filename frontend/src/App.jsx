@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import MyRewards from "./pages/MyRewards";
 import Recycler from "./pages/Recycler";
 import Login from "./pages/Login";
+import Influence from "./pages/Influence";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/dashboard/my-rewards" element={<MyRewards />} />
           <Route path="/recycler" element={<Recycler />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/influence" element={<Influence />} />
         </Routes>
       </div>
     </BrowserRouter>

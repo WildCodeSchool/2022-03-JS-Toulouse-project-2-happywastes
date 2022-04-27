@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Form from "../components/Form/Form";
 import Splashscreen from "../components/Splashscreen/Splashscreen";
 
 function Login() {
@@ -10,7 +11,12 @@ function Login() {
     }, 2000);
   }, []);
 
-  return <div>{showSplashscreen && <Splashscreen />}</div>;
+  return (
+    <div>
+      {showSplashscreen && <Splashscreen />}
+      <Form />
+    </div>
+  );
 }
 
 export default Login;

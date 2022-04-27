@@ -3,6 +3,7 @@ import "./AvatarPopup.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import "../../../assets/css/popup.scss";
 
 library.add(faClose);
 
@@ -43,7 +44,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
   }, [background, eyes, eyebrows, mouth, accessoiresProbability, accessoires]);
 
   return (
-    <div id="avatar-popup">
+    <div className="popup" id="avatar-popup">
       <div className="avatar-card">
         <div className="card-header">
           <h3>{title}</h3>
@@ -218,7 +219,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
               </select>
             </label>
             <button
-              className="avatar-validate-button"
+              id="avatar-validate-button"
               type="submit"
               onClick={() => setShowAvatarPopup(false)}
             >

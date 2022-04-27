@@ -1,0 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
