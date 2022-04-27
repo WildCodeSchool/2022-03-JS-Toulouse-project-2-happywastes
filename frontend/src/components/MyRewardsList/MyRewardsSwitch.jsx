@@ -7,6 +7,7 @@ export default function MyRewardsSwitch({
   funcPrevious,
   funcNext,
   pagination,
+  dataLength,
 }) {
   const paginationTable = [];
   for (let i = 0; i < pagination; i += 1) {
@@ -15,7 +16,11 @@ export default function MyRewardsSwitch({
 
   return (
     <div className="switch-rewards">
-      <button className="previous-button" type="button" onClick={funcPrevious}>
+      <button
+        className={slicing === 0 ? "none" : "previous-button"}
+        type="button"
+        onClick={funcPrevious}
+      >
         &nbsp;
       </button>
       {paginationTable.map((el) => (
@@ -26,7 +31,11 @@ export default function MyRewardsSwitch({
           }
         />
       ))}
-      <button className="next-button" type="button" onClick={funcNext}>
+      <button
+        className={slicing === dataLength - 5 ? "none" : "next-button"}
+        type="button"
+        onClick={funcNext}
+      >
         &nbsp;
       </button>
     </div>
