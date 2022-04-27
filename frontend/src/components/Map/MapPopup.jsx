@@ -21,7 +21,7 @@ function MapPopup({ setShowPopup, title, text }) {
           <p>{text}</p>
           <ul>
             {rewards.slice(rewards.length - 4).map((reward) => (
-              <li>
+              <li key={reward.id}>
                 <img src={reward.img} alt="" className="reward-small" />
               </li>
             ))}
