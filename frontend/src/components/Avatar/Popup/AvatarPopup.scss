@@ -3,18 +3,8 @@
   --primary-font: "Lato", sans-serif;
 }
 #avatar-popup {
-  font-family: var(--primary-font);
-  background-color: rgba($color: #000000, $alpha: 0.8);
-  z-index: 10000;
   position: fixed;
-  height: 100%;
-  width: 100%;
   top: -20px;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: white;
 }
 
@@ -150,16 +140,18 @@ select {
   justify-content: space-between;
 }
 
-.avatar-validate-button {
+#avatar-validate-button {
   font-family: var(--primary-font);
   font-size: 1rem;
   font-weight: 900;
   color: white;
   width: 100%;
+  height: 2rem;
   background-color: #629c94;
   border-radius: 6px;
   padding: 8px;
   grid-column: 1 / span 2;
+  box-shadow: none;
 }
 
 .avatar-background-color-1 {
@@ -168,6 +160,14 @@ select {
 
 .fa-button {
   margin: 0;
+  color: #bbb;
+  border: none;
+  background-color: #555;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.3);
+
   align-self: flex-end;
 }
 
