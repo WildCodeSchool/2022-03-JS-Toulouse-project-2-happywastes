@@ -1,0 +1,16 @@
+.popup-container {
+    position: fixed;
+    width: 100px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.on {
+    position: relative;
+    background-color: red;
+}
+
+.off {
+    display: none;
+}

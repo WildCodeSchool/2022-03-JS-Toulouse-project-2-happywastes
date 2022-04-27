@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+// import axios from "axios";
 import "./Form.css";
 
 export default function Form() {
@@ -13,6 +13,10 @@ export default function Form() {
     e.preventDefault();
     console.log("j'ai appuyé sur le bouton");
   };
+  // TO DO REMOVE !!!!
+  useEffect(() => {
+    console.warn(firstname, lastname, mail, password, confirmPassword);
+  }, []);
 
   return (
     <form onSubmit={HandleSubmit} className="formulaire">
