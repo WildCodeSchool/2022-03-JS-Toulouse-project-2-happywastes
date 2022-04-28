@@ -29,7 +29,7 @@ const variants = {
 
 export default function Dashboard() {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <div>
       <motion.div
         variants={variants}
         key="Dashboard"
@@ -67,6 +67,6 @@ export default function Dashboard() {
           <NavBottom />
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </div>
   );
 }
