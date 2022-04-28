@@ -29,6 +29,7 @@ const variants = {
 
 export default function Dashboard() {
   return (
+
     <AnimatePresence exitBeforeEnter>
       <motion.div
         variants={variants}
@@ -38,9 +39,26 @@ export default function Dashboard() {
         exit="exit"
         className="dashboard"
       >
-        <Avatar
-          avatarImg="https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=variant01&eyebrows[]=variant01&mouth[]=variant01&accessoiresProbability=0&accessoires[]=sunglasses&backgroundColor[]=variant01"
-          className="container-avatar"
+      <Avatar
+        avatarImg="https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=variant01&eyebrows[]=variant01&mouth[]=variant01&accessoiresProbability=0&accessoires[]=sunglasses&backgroundColor[]=variant01"
+        className="container-avatar"
+      />
+      <DashboardReward />
+      <div className="container-map">
+        <Link to="/influence">
+          {" "}
+          <FontAwesomeIcon
+            className="img-magnifying-glass"
+            icon={faSearchPlus}
+            size="xl"
+          />
+        </Link>
+
+        <Map
+          size="small"
+          center={[45.236, 0.8992]}
+          userPos={[45.236, 0.8992]}
+
         />
         <DashboardReward />
         <div className="container-map">
