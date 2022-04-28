@@ -44,7 +44,7 @@ export default function Dashboard() {
         />
         <DashboardReward />
         <div className="container-map">
-          <Link to="/recycler">
+          <Link to="/influence">
             {" "}
             <FontAwesomeIcon
               className="img-magnifying-glass"
@@ -52,20 +52,37 @@ export default function Dashboard() {
               size="xl"
             />
           </Link>
+
           <Map
             size="small"
             center={[45.236, 0.8992]}
             userPos={[45.236, 0.8992]}
           />
+          <DashboardReward />
+          <div className="container-map">
+            <Link to="/recycler">
+              {" "}
+              <FontAwesomeIcon
+                className="img-magnifying-glass"
+                icon={faSearchPlus}
+                size="xl"
+              />
+            </Link>
+            <Map
+              size="small"
+              center={[45.236, 0.8992]}
+              userPos={[45.236, 0.8992]}
+            />
+          </div>
+          <BackButton />
+          <ProfileButton />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.5 } }}
+          >
+            <NavBottom />
+          </motion.div>
         </div>
-        <BackButton />
-        <ProfileButton />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.5 } }}
-        >
-          <NavBottom />
-        </motion.div>
       </motion.div>
     </div>
   );
