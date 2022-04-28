@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import MyRewardsList from "../components/MyRewardsList/MyRewardsList";
 import MyRewardsTitle from "../components/MyRewardsList/MyRewardsTitle";
@@ -19,23 +20,54 @@ export default function MyRewards() {
   const previousSlicing = () => {
     setSlicing(slicing - 5);
   };
-  return (
-    <div>
-      <ProfileButton />
-      <BackButton />
-      <div className="my-rewards-container">
-        <MyRewardsTitle />
-        <MyRewardsList slicing={slicing} />
-        <MyRewardsSwitch
-          slicing={slicing}
-          pagination={pagination}
-          funcNext={nextSlicing}
-          funcPrevious={previousSlicing}
-          dataLength={lengthRewardsData}
-        />
-      </div>
 
-      <NavBottom />
-    </div>
+  const variants = {
+    hidden: {
+      x: 400,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "Inertia", duration: 0.18 },
+    },
+    exit: {
+      x: -400,
+      opacity: 0,
+      transition: { ease: "easeInOut", duration: 0.18 },
+    },
+  };
+
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        variants={variants}
+        key="Rewards"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="dashboard"
+      >
+        <ProfileButton />
+        <BackButton />
+        <div className="my-rewards-container">
+          <MyRewardsTitle />
+          <MyRewardsList slicing={slicing} />
+          <MyRewardsSwitch
+            slicing={slicing}
+            pagination={pagination}
+            funcNext={nextSlicing}
+            funcPrevious={previousSlicing}
+            dataLength={lengthRewardsData}
+          />
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.5 } }}
+        >
+          <NavBottom />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }

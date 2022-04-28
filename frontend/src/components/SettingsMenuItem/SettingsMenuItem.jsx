@@ -1,6 +1,7 @@
 import "./SettingsMenuItem.css";
 import "../../assets/css/main.css";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import AvatarPopup from "../Avatar/Popup/AvatarPopup";
 
 function SettingsMenuItem(props) {
@@ -12,7 +13,7 @@ function SettingsMenuItem(props) {
 
   const { title, color, image, setAvatarInfo, avatarInfo } = props;
   return (
-    <div role="button">
+    <motion.div role="button">
       <div className={`settings-menu-item ${color}`}>
         <img className="settings-menu-item-image" src={image} alt="" />
         <button
@@ -31,7 +32,7 @@ function SettingsMenuItem(props) {
           />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
