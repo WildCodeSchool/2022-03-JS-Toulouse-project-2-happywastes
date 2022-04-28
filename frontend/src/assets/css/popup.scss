@@ -23,7 +23,7 @@
     padding: 10px;
     z-index: 0;
 
-    button {
+    .popup-button {
       color: #bbb;
       border: none;
       background-color: #555;
@@ -31,13 +31,14 @@
       width: 1.5rem;
       height: 1.5rem;
       box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.3);
-
-      &-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-      }
     }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    
 
     &-body {
       z-index: 0;

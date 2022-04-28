@@ -32,7 +32,7 @@ function Map({
       {data.length > 0
         ? data.map((el) => (
             <MapMarker
-              key={el.id}
+              key={el.center_id}
               position={[el.coords.lat, el.coords.long]}
               content={{
                 title: `${el.name} - ${el.city} (${el.zip_code})`,
