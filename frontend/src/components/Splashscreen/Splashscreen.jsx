@@ -15,10 +15,10 @@ function Splashscreen() {
         alt="logo"
       />
       <div className="lds-ellipsis">
-        <div />
-        <div />
-        <div />
-        <div />
+        <div className="ellipsis" />
+        <div className="ellipsis" />
+        <div className="ellipsis" />
+        <div className="ellipsis" />
       </div>
     </motion.div>
   );
