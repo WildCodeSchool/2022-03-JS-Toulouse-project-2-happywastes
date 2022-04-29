@@ -6,7 +6,6 @@ export default function Reward({ img, level, color }) {
   const [popupReward, setPopupReward] = useState(false);
   const popupAppear = () => {
     setPopupReward(!popupReward);
-    console.log(popupReward);
   };
 
   const pourcentage = level * 10;
