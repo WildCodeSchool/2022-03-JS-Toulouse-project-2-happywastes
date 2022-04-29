@@ -4,6 +4,7 @@ import ProfileButton from "../components/ProfileButton/ProfileButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import Map from "../components/Map/Map";
 import BackButton from "../components/BackButton/BackButton";
+import variants from "../assets/js/variants";
 
 function Recycler() {
   const [mapCenter, setMapCenter] = useState(null);
@@ -34,23 +35,6 @@ function Recycler() {
   useEffect(() => {
     getGPSLocation();
   }, []);
-
-  const variants = {
-    hidden: {
-      x: 400,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { type: "Inertia", duration: 0.18 },
-    },
-    exit: {
-      x: -400,
-      opacity: 0,
-      transition: { ease: "easeInOut", duration: 0.18 },
-    },
-  };
 
   return (
     <AnimatePresence exitBeforeEnter>

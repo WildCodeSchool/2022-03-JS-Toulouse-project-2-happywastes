@@ -8,20 +8,9 @@ import {
 import React from "react";
 import { useMap } from "react-leaflet";
 import "./MapFavourites.scss";
+import variants from "../../assets/js/variants";
 
 library.add(faLocation, faArrowAltCircleDown);
-
-const variants = {
-  hidden: {
-    y: -400,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "Inertia", duration: 0.18 },
-  },
-};
 
 function MapFavourites({ data }) {
   const map = useMap();

@@ -8,6 +8,7 @@ import ProfileButton from "../components/ProfileButton/ProfileButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import "./MyRewards.css";
 import rewards from "../components/Dashboard/DataReward";
+import variants from "../assets/js/variants";
 
 export default function MyRewards() {
   const [slicing, setSlicing] = useState(0);
@@ -19,23 +20,6 @@ export default function MyRewards() {
   };
   const previousSlicing = () => {
     setSlicing(slicing - 5);
-  };
-
-  const variants = {
-    hidden: {
-      x: 400,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { type: "Inertia", duration: 0.18 },
-    },
-    exit: {
-      x: -400,
-      opacity: 0,
-      transition: { ease: "easeInOut", duration: 0.18 },
-    },
   };
 
   return (

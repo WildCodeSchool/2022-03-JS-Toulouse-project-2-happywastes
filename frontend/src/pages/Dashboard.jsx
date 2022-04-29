@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
+import variants from "../assets/js/variants";
 import BackButton from "../components/BackButton/BackButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
@@ -9,23 +10,6 @@ import "../assets/css/dashboard.css";
 import DashboardReward from "../components/Dashboard/DashboardReward";
 import Avatar from "../components/Avatar/Avatar";
 import Map from "../components/Map/Map";
-
-const variants = {
-  hidden: {
-    x: 400,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { type: "Inertia", duration: 0.18 },
-  },
-  exit: {
-    x: -400,
-    opacity: 0,
-    transition: { ease: "easeInOut", duration: 0.18 },
-  },
-};
 
 export default function Dashboard() {
   return (
