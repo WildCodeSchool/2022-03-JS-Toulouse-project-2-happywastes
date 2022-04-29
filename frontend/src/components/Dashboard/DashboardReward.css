@@ -9,7 +9,6 @@ h2 {
   font-family: var(--title-font);
   text-align: center;
   font-weight: normal;
-  text-decoration: underline;
   text-underline-offset: 3px;
   font-size: 1.2rem;
 }

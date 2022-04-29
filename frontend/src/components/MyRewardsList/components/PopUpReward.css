@@ -1,0 +1,36 @@
+:root {
+    --title-font: "Arvo", serif;
+    --primary-font: "Lato", sans-serif;
+}
+
+* {
+    font-family: var(--title-font);
+    font-weight: bold;
+}
+
+.btn-close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.h1-title {
+    border-bottom: 4px solid;
+}
+
+.img-object-recycled {
+    width: 120px;
+    border-radius: 20px;
+}
+
+.popup-corps {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.text-level {
+    font-size: 1.5rem;
+}
