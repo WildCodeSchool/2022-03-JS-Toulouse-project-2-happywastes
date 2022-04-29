@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import "./assets/css/main.css";
 import Settings from "./pages/Settings";
@@ -9,10 +10,11 @@ import Login from "./pages/Login";
 import Influence from "./pages/Influence";
 
 function App() {
+  const location = useLocation();
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
+    <div className="App">
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Routes location={location} key={location.key}>
           <Route path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -21,8 +23,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/influence" element={<Influence />} />
         </Routes>
-      </div>
-    </BrowserRouter>
+      </AnimatePresence>
+    </div>
   );
 }
 
