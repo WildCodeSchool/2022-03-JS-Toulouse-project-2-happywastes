@@ -31,7 +31,7 @@ export default function PopUpReward({ funcClosePopup, img, level }) {
         </div>
 
         <div className="popup-corps">
-          <h1>Informations</h1>
+          <h1 className="h1-title">Informations</h1>
           <p className="text-level">{level} XP</p>
           <img src={img} alt="badge" />
           <p>Grace à ce badge, vous avez pu recycler un ours en peluche.</p>
