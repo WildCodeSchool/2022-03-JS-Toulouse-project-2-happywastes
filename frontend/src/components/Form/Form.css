@@ -5,3 +5,87 @@
   --title-font: "Arvo", serif;
   --primary-font: "Lato", sans-serif;
 }
+
+h2 {
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-form {
+  margin-top: 0.3rem;
+  position: absolute;
+  height: 9rem;
+  width: auto;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.form {
+
+  border: 2px solid rgba(210, 152, 57, 0.75);;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 4rem;
+  gap: 1.6rem;
+  background: linear-gradient(#e9e9e915, rgba(255, 255, 255, 0.295));
+}
+
+
+.submit {
+  margin-top: 1rem;
+  font-size: 16px;
+  font-weight: bold;
+  align-self: center;
+  border-radius: 0.5rem;
+  background-color: #629c94;
+  color: white;
+  width: 100%;
+  box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.75);
+}
+
+input,
+.submit {
+  padding: 0.5rem;
+  border: none;
+}
+
+.icon {
+  background-color: white;
+  color: #629c94;
+  padding: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+#firstname,
+#lastname,
+#mail,
+#password,
+#confirm-password {
+  border-radius: 0 5px 5px 0;
+}
+
+label {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+.label-text {
+  font-weight: bold;
+  padding-bottom: 5px;
+  grid-column: 1 / span 2;
+}

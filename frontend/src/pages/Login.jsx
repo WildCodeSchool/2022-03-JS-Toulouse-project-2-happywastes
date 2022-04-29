@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "../components/Form/Form";
 import Splashscreen from "../components/Splashscreen/Splashscreen";
 
-function Login() {
+function Login({ setShowMainMenu }) {
   const [showSplashscreen, setShowSplashscreen] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function Login() {
   return (
     <div>
       {showSplashscreen && <Splashscreen />}
-      <Form />
+      <Form setShowMainMenu={setShowMainMenu} />
     </div>
   );
 }
