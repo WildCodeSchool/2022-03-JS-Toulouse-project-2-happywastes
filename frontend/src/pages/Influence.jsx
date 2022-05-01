@@ -23,7 +23,7 @@ function Influence() {
           const parsedData = utilFavourites.parse(result);
           setFavourites(parsedData);
         })
-        .catch((error) => console.error("error %#d", error));
+        .catch((error) => error);
     }
     // getAPIData(
     //   "https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dinteret&q=&facet=categorie&refine.categorie=Déchetterie&rows=100"
