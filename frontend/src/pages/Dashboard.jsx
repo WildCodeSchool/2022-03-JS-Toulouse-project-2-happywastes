@@ -42,22 +42,6 @@ export default function Dashboard() {
             center={[45.236, 0.8992]}
             userPos={[45.236, 0.8992]}
           />
-          <DashboardReward />
-          <div className="container-map">
-            <Link to="/recycler">
-              {" "}
-              <FontAwesomeIcon
-                className="img-magnifying-glass"
-                icon={faSearchPlus}
-                size="xl"
-              />
-            </Link>
-            <Map
-              size="small"
-              center={[45.236, 0.8992]}
-              userPos={[45.236, 0.8992]}
-            />
-          </div>
           <BackButton />
           <ProfileButton />
           <motion.div
