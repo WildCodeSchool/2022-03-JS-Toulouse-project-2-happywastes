@@ -3,6 +3,7 @@ import ProfileButton from "../components/ProfileButton/ProfileButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import Map from "../components/Map/Map";
 import BackButton from "../components/BackButton/BackButton";
+import collectCenters from "../services/collect_centers";
 
 function Recycler() {
   const [mapCenter, setMapCenter] = useState(null);
@@ -25,7 +26,14 @@ function Recycler() {
   function getGPSLocation() {
     const position = undefined;
     navigator.geolocation.getCurrentPosition(
-      (pos) => setMapCenter([pos.coords.latitude, pos.coords.longitude]),
+      (pos) => {
+        collectCenters
+          .inZone(500, [pos.coords.latitude, pos.coords.longitude])
+          .then((data) => {
+            setApiData(data);
+            setMapCenter([pos.coords.latitude, pos.coords.longitude]);
+          });
+      },
       (error) => error
     );
     return position;

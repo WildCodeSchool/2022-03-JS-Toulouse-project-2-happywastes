@@ -32,11 +32,11 @@ function Map({
       {data.length > 0
         ? data.map((el) => (
             <MapMarker
-              key={el.center_id}
-              position={[el.coords.lat, el.coords.long]}
+              key={el.recordid}
+              position={el.fields.geo_point_2d}
               content={{
-                title: `${el.name} - ${el.city} (${el.zip_code})`,
-                text: `${el.schedule.lundi}`,
+                title: `${el.fields.flux} - ${el.fields.commune} (${el.code_insee})`,
+                text: `${el.adresse}`,
               }}
             />
           ))
