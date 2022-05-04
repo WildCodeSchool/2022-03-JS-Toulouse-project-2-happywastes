@@ -1,50 +1,21 @@
-#popup {
-  background-color: rgba($color: #000000, $alpha: 0.8);
-  z-index: 1001;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+.map-card-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #40565a;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
 
-  .map-card {
-    background-color: azure;
-    border-radius: 5px;
-    width: 80%;
-    padding: 10px;
-    z-index: 0;
+.map-card-body {
+  z-index: 0;
 
-    &-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0.5rem 0;
+  }
 
-      button {
-        color: #bbb;
-        border: none;
-        background-color: #555;
-        border-radius: 50%;
-        width: 1.5rem;
-        height: 1.5rem;
-        box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.3);
-      }
-    }
-
-    &-body {
-      z-index: 0;
-      ul {
-        display: flex;
-        justify-content: space-evenly;
-        list-style-type: none;
-        padding: 0.5rem 0;
-      }
-      .reward-small {
-        width: 4rem;
-        clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-      }
-    }
+  .reward-small {
+    width: 4rem;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   }
 }
