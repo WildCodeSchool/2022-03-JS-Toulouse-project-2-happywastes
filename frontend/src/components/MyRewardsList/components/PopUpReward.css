@@ -17,8 +17,9 @@
     border-bottom: 4px solid;
 }
 
-.img-object-recycled {
-    width: 120px;
+#img-object-recycled {
+    clip-path: none;
+    height: 150px;
     border-radius: 20px;
 }
 
@@ -28,7 +29,7 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
 }
 
 .text-level {

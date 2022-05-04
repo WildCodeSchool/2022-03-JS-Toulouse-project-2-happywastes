@@ -22,7 +22,6 @@ export default function Reward({ img, level, color }) {
       <button type="button" onClick={() => popupAppear()}>
         <img className="img-reward" src={img} alt="img-level" />
       </button>
-
       <div className="jauge">
         <div style={myStyle} />
       </div>
