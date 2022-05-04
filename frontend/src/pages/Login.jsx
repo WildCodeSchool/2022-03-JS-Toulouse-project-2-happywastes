@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import Form from "../components/Form/Form";
 import Splashscreen from "../components/Splashscreen/Splashscreen";
+import UserContext from "../components/UserContext";
 
-function Login({ setShowMainMenu }) {
+function Login() {
+  const { setUser } = useContext(UserContext);
   const [showSplashscreen, setShowSplashscreen] = useState(true);
 
   useEffect(() => {
@@ -14,7 +17,13 @@ function Login({ setShowMainMenu }) {
   return (
     <div>
       {showSplashscreen && <Splashscreen />}
-      <Form setShowMainMenu={setShowMainMenu} />
+      <Link
+        onClick={() => {
+          setUser(false);
+        }}
+        to="/"
+      />
+      <Form />
     </div>
   );
 }

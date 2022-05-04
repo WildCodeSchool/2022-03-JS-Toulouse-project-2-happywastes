@@ -1,16 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useContext } from "react";
+import UserContext from "../components/UserContext";
 import MainMenu from "../components/MainMenu/MainMenu";
 import Login from "./Login";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
 import variants from "../assets/js/variants";
 
 export default function Home() {
-  const [showMainMenu, setShowMainMenu] = useState(true);
+  const { user } = useContext(UserContext);
   return (
     <div className="home">
-      {showMainMenu ? (
-        <Login setShowMainMenu={setShowMainMenu} />
+      {user ? (
+        <Login />
       ) : (
         <AnimatePresence exitBeforeEnter>
           <motion.div
