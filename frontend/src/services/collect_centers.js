@@ -33,6 +33,16 @@ const collectCenters = {
         .catch((err) => reject(err));
     });
   },
+  getOne: (recordID) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(
+          `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dapport-volontaire-dechets-et-moyens-techniques&q=recordid%3D${recordID}`
+        )
+        .then((data) => resolve(data.data.records[0]))
+        .catch((error) => reject(error));
+    });
+  },
 };
 
 export default collectCenters;

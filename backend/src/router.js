@@ -21,7 +21,7 @@ connexion.connect((error) => {
   }
 });
 
-router.get("/api/users", (request, response) => {
+router.get("/api/users", (_request, response) => {
   connexion.query("SELECT * FROM user", (error, result) => {
     if (error) {
       response.status(404).send(error);
@@ -53,7 +53,7 @@ router.get("/api/favourites/:userID", (req, res) => {
       if (error) {
         res.status(400).send(error);
       } else {
-        res.status(200).send(result);
+        res.status(200).send(result.map((el) => JSON.parse(el.favourites)));
       }
     }
   );
@@ -62,17 +62,29 @@ router.get("/api/favourites/:userID", (req, res) => {
 router.post("/api/favourites/:userID", (req, res) => {
   const { userID } = req.params;
   const data = req.body;
-  res.send({ userID, data });
-  // connexion.query(
-  //   "UPDATE user WHERE id = ? SET favourites= ?",
-  //   [data, userID],
-  //   (error, result) => {
-  //     if (error) {
-  //       res.status(400).send(error);
-  //     } else {
-  //       res.status(200).send(result);
-  //     }
-  //   }
-  // );
+  connexion.query(
+    "SELECT favourites FROM user WHERE id = ?",
+    [userID],
+    (error, result) => {
+      if (error) {
+        res.status(400).send(error);
+      } else {
+        const favourites = result.map((el) => JSON.parse(el.favourites))[0];
+        data.map(fav => favourites.push(fav));
+        connexion.query(
+          "UPDATE user SET favourites = ? WHERE id = ?",
+          [JSON.stringify(data), userID],
+          (error1, result1) => {
+            if (error1) {
+              res.status(400).send(error1);
+            } else {
+              res.send(result1);
+            }
+          }
+        );
+      }
+    }
+  );
+  
 });
 module.exports = router;
