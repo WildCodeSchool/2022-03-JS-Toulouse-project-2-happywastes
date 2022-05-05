@@ -50,7 +50,7 @@ function Recycler() {
       <BackButton />
       <ProfileButton />
 
-      {mapCenter !== null && userFavourites.length > 0 ? (
+      {mapCenter !== null && userFavourites.length > 0 && apiData.length > 0 ? (
         <Map
           center={mapCenter}
           userPos={mapCenter}

@@ -12,7 +12,6 @@ import "./MapFavourites.scss";
 library.add(faLocation, faArrowAltCircleDown);
 
 function MapFavourites({ data }) {
-  console.log("Map Favourites", data);
   const map = useMap();
 
   return (
@@ -30,7 +29,7 @@ function MapFavourites({ data }) {
                     map.flyTo(el.fields.geo_point_2d, 15);
                   }}
                 />
-                {`${el.fields.commune} (${el.fields.code_postal})`}
+                {`${el.fields.flux} (${el.fields.commune} - ${el.fields.code_insee})`}
                 &nbsp;&nbsp;
               </li>
             ))

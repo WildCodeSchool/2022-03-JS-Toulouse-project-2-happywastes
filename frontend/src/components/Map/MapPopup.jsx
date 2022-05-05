@@ -10,7 +10,7 @@ import UserUtils from "../../services/UserUtils";
 library.add(faClose);
 
 function MapPopup({ setShowPopup, title, text, element }) {
-  const addToFavourite = (e) => {
+  const addToFavourite = () => {
     const user = new UserUtils(1);
     user.addFavourite([
       {

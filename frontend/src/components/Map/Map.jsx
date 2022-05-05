@@ -37,9 +37,9 @@ function Map({
               position={el.fields.geo_point_2d}
               content={{
                 title: `${el.fields.flux}`,
-                text: `${el.fields.adresse.toLowerCase()} ${el.fields.commune.toUpperCase()} (${
-                  el.fields.code_insee
-                })`,
+                text: `${
+                  el.fields.adresse ? el.fields.adresse.toLowerCase() : ""
+                } ${el.fields.commune.toLowerCase()} (${el.fields.code_insee})`,
               }}
             />
           ))
@@ -54,7 +54,11 @@ function Map({
             position={favourite.fields.geo_point_2d}
             content={{
               title: `${favourite.fields.flux}`,
-              text: `${favourite.fields.adresse.toLowerCase()} ${favourite.fields.commune.toUpperCase()} (${
+              text: `${
+                favourite.fields.adresse
+                  ? favourite.fields.adresse.toLowerCase()
+                  : ""
+              } ${favourite.fields.commune.toUpperCase()} (${
                 favourite.fields.code_insee
               })`,
             }}
