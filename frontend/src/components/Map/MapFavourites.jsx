@@ -30,7 +30,6 @@ function MapFavourites({ data }) {
                   }}
                 />
                 {`${el.fields.flux} (${el.fields.commune} - ${el.fields.code_insee})`}
-                &nbsp;&nbsp;
               </li>
             ))
           : "loading"}
