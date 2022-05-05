@@ -6,11 +6,6 @@
     justify-content: center;
 }
 
-
-/* .none {
-    display: none;
-} */
-
 .previous-button {
     background-image: url("../../assets/img/switch-left.png");
     background-repeat: no-repeat;
