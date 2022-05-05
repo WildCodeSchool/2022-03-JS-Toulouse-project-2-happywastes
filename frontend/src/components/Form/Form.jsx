@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import "./Form.css";
+import UserContext from "../UserContext";
 
-export default function Form({ setShowMainMenu }) {
+export default function Form() {
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [mail, setMail] = useState("");
@@ -12,7 +16,8 @@ export default function Form({ setShowMainMenu }) {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    setShowMainMenu(false);
+    navigate("/", { replace: true });
+    setUser(true);
   };
 
   return (
