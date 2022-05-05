@@ -48,12 +48,7 @@ function Recycler() {
     getGPSLocation();
   }, []);
   return (
-    <AnimatePresence exitBefo <Map
-    center={mapCenter}
-    userPos={mapCenter}
-    data={apiData}
-    favourites={apiData.slice(0, 4)}
-  />reEnter>
+    <AnimatePresence exitBeforeEnter>
       <motion.div
         variants={variants}
         key="Recycler"
@@ -66,12 +61,12 @@ function Recycler() {
         <BackButton />
         <ProfileButton />
         {mapCenter !== null ? (
-        <Map
-          center={mapCenter}
-          userPos={mapCenter}
-          data={apiData}
-          favourites={userFavourites}
-        />
+          <Map
+            center={mapCenter}
+            userPos={mapCenter}
+            data={apiData}
+            favourites={userFavourites}
+          />
         ) : (
           ""
         )}
