@@ -12,47 +12,19 @@ function Recycler() {
   const [userFavourites, setUserFavourites] = useState([]);
 
   const user = new UserUtils(1);
-  // user.addFavourite([
-  //   {
-  //     id: "62550ba833e40682b8d456e79a5a62f57f00b07b",
-  //     flux: "Collecte sélective",
-  //     collet_type: 3,
-  //   },
-  //   {
-  //     id: "6dd847cae7a672abf64308ba273ceb38258c9392",
-  //     flux: "Collecte sélective",
-  //     collet_type: 3,
-  //   },
-  //   {
-  //     id: "8d7425130cd9c8af69482c0b746f7e643ed1d41e",
-  //     flux: "Récup'verre",
-  //     collet_type: 1,
-  //   },
-  //   {
-  //     id: "d0f954d74d5095c9a6a903fa64ae8dbd2c138701",
-  //     flux: "Récup'Textile",
-  //     collet_type: 3,
-  //   },
-  //   {
-  //     id: "a676187369dee3686e8ef27042ced4dc18c03ced",
-  //     flux: "Ordures ménagères",
-  //     collet_type: 5,
-  //   },
-  // ]);
-
-  async function getAPIData(url) {
-    await fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setApiData(data.records);
-      });
-  }
 
   useEffect(() => {
-    user.getFavourites().then((response) => setUserFavourites(response));
-    getAPIData(
-      "https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dinteret&q=&facet=categorie&refine.categorie=Déchetterie&rows=100"
-    );
+    user.getFavourites().then((response) => {
+      if (response) {
+        response.map((el) =>
+          collectCenters
+            .getOne(el.id)
+            .then((res) =>
+              setUserFavourites((favourites) => [...favourites, res])
+            )
+        );
+      }
+    });
   }, []);
 
   function getGPSLocation() {
@@ -73,13 +45,12 @@ function Recycler() {
   useEffect(() => {
     getGPSLocation();
   }, []);
-
   return (
     <div id="map-id">
       <BackButton />
       <ProfileButton />
 
-      {mapCenter !== null ? (
+      {mapCenter !== null && userFavourites.length > 0 ? (
         <Map
           center={mapCenter}
           userPos={mapCenter}

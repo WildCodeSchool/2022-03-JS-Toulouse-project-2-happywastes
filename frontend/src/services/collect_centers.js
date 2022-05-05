@@ -33,7 +33,7 @@ const collectCenters = {
         .catch((err) => reject(err));
     });
   },
-  getOne: (recordID) => {
+  getOne: async (recordID) => {
     return new Promise((resolve, reject) => {
       axios
         .get(

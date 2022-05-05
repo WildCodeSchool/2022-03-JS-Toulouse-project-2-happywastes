@@ -21,7 +21,6 @@ class UserUtils {
       axios
         .get(`http://localhost:5000/api/favourites/${this.id}`)
         .then((data) => {
-          
           // const favourites = data.data.map((el) => JSON.parse(el.favourites));
           return resolve(data.data[0]);
         })

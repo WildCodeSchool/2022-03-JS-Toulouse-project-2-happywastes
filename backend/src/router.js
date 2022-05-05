@@ -69,11 +69,15 @@ router.post("/api/favourites/:userID", (req, res) => {
       if (error) {
         res.status(400).send(error);
       } else {
-        const favourites = result.map((el) => JSON.parse(el.favourites))[0];
-        data.map(fav => favourites.push(fav));
+        let favourites = [];
+        if (result[0].favourites) {
+          [favourites] = result.map((el) => JSON.parse(el.favourites));
+        }
+        console.warn("fav", favourites);
+        data.map((fav) => favourites.push(fav));
         connexion.query(
           "UPDATE user SET favourites = ? WHERE id = ?",
-          [JSON.stringify(data), userID],
+          [JSON.stringify(favourites), userID],
           (error1, result1) => {
             if (error1) {
               res.status(400).send(error1);
@@ -85,6 +89,5 @@ router.post("/api/favourites/:userID", (req, res) => {
       }
     }
   );
-  
 });
 module.exports = router;
