@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import rewards from "./DataReward";
 import "../../assets/css/main.css";
 import "./DashboardReward.css";
+
+import PopUpDashboardReward from "./PopUpDashboardReward";
 
 function DashboardReward() {
   return (
@@ -11,7 +14,7 @@ function DashboardReward() {
         {rewards.slice(rewards.length - 4).map((reward) => {
           return (
             <li>
-              <img src={reward.img} alt="test" />
+              <PopUpDashboardReward img={reward.img} level={reward.level} />
             </li>
           );
         })}

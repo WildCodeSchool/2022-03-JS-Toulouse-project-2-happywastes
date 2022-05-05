@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -7,7 +8,7 @@ import {
 // import React, { useEffect, useState } from "react";
 import { useMap } from "react-leaflet";
 import "./MapFavourites.scss";
-// import collectCenters from "../../services/collect_centers";
+import variants from "../../assets/js/variants";
 
 library.add(faLocation, faArrowAltCircleDown);
 
@@ -15,7 +16,12 @@ function MapFavourites({ data }) {
   const map = useMap();
 
   return (
-    <div id="map-list">
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      id="map-list"
+    >
       <h2>Mes Lieux Favoris</h2>
       <ul className="fa-ul">
         {data.length > 0
@@ -34,7 +40,7 @@ function MapFavourites({ data }) {
             ))
           : "loading"}
       </ul>
-    </div>
+    </motion.div>
   );
 }
 

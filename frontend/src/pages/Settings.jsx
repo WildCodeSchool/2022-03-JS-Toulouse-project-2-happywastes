@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import SettingsMenuList from "../components/SettingsMenuList/SettingsMenuList";
 import Avatar from "../components/Avatar/Avatar";
 import NavBottom from "../components/NavBottom/NavBottom";
@@ -24,13 +25,27 @@ export default function Settings() {
     });
   }, []);
   return (
-    <div>
-      <BackButton />
-      <Avatar avatarImg={avatarInfo.img} avatarName={avatarInfo.name} />
-      <SettingsMenuList setAvatarInfo={setAvatarInfo} avatarInfo={avatarInfo} />
-      <BackButton />
-      <NavBottom />
-      <BackButton />
-    </div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        initial={{ y: -300, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -300, opacitiy: 0 }}
+      >
+        <BackButton />
+        <Avatar avatarImg={avatarInfo.img} avatarName={avatarInfo.name} />
+        <SettingsMenuList
+          setAvatarInfo={setAvatarInfo}
+          avatarInfo={avatarInfo}
+        />
+        <BackButton />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.5 } }}
+        >
+          <NavBottom />
+        </motion.div>
+        <BackButton />
+      </motion.div>
+    </AnimatePresence>
   );
 }

@@ -16,8 +16,8 @@
 }
 
 .container-map {
-  border-top: 4px solid #7A998B;
-  border-bottom: 4px solid #7A998B;
+  border-top: 4px solid #7a998b;
+  border-bottom: 4px solid #7a998b;
   box-shadow: inset 0px 6px 4px rgba(0, 0, 0, 0.35);
   z-index: 0;
   height: 34vh;
