@@ -11,7 +11,6 @@ const connexion = mysql.createConnection({
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
 });
-// router.get("/items", ItemController.browse);
 
 connexion.connect((error) => {
   if (error) {

@@ -29,7 +29,6 @@ export default function Dashboard() {
         <DashboardReward />
         <div className="container-map">
           <Link to="/influence">
-            {" "}
             <FontAwesomeIcon
               className="img-magnifying-glass"
               icon={faSearchPlus}

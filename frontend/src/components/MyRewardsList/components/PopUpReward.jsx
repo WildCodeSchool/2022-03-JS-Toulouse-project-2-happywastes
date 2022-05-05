@@ -36,7 +36,7 @@ export default function PopUpReward({ funcClosePopup, img, level }) {
           <img src={img} alt="badge" />
           <p>Grace à ce badge, vous avez pu recycler un ours en peluche.</p>
           <img
-            className="img-object-recycled"
+            id="img-object-recycled"
             src="https://media4.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif?cid=ecf05e47t7o54qc7zubpjlsngcyaohhuai9vb03nlcumxiw4&rid=giphy.gif&ct=g"
             alt="ours en peluche"
           />
