@@ -1,4 +1,5 @@
 require("dotenv").config();
+// const { application } = require("express");
 const express = require("express");
 
 const mysql = require("mysql2");
@@ -28,6 +29,24 @@ router.get("/api/users", (request, response) => {
       response.status(200).json(result);
     }
   });
+});
+
+router.post("/user-submit", (request, response) => {
+  const { firstName, lastName, email, avatarUrl, password, favourites } =
+    request.body;
+  connexion.query(
+    `INSERT INTO user (firstName, lastName, email, avatar_url, password, favourites) VALUES (?, ?, ?, ?, ?, ?)`,
+    [firstName, lastName, email, avatarUrl, password, favourites],
+    (error, result) => {
+      if (error) {
+        response.status(500).send(`Error: ${error}`);
+      } else {
+        response
+          .status(200)
+          .send(`User successfully created with credentials: ${result}`);
+      }
+    }
+  );
 });
 
 module.exports = router;
