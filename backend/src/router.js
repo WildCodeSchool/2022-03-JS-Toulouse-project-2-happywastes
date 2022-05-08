@@ -1,6 +1,12 @@
 require("dotenv").config();
 // const { application } = require("express");
 const express = require("express");
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 const mysql = require("mysql2");
 
@@ -31,7 +37,7 @@ router.get("/api/users", (request, response) => {
   });
 });
 
-router.post("/user-submit", (request, response) => {
+router.post("/api/user/create", cors(corsOptions), (request, response) => {
   const { firstName, lastName, email, avatarUrl, password, favourites } =
     request.body;
   connexion.query(

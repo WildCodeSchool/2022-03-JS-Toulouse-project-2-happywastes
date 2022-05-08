@@ -18,13 +18,13 @@ export default function Form() {
   const HandleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/user-submit", {
+      .post("http://localhost:5000/api/user/create", {
         firstName: firstname,
         lastName: lastname,
         email: mail,
-        avatar_url: null,
+        avatar_url: "null",
         password,
-        favourites: null,
+        favourites: "null",
       })
       .then((response) => console.log(response.status));
     navigate("/", { replace: true });
