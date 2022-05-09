@@ -6,10 +6,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import rewards from "../Dashboard/DataReward";
+import UserUtils from "../../services/UserUtils";
 
 library.add(faClose);
 
-function MapPopup({ setShowPopup, title, text }) {
+function MapPopup({ setShowPopup, title, text, element }) {
+  const addToFavourite = () => {
+    const user = new UserUtils(1);
+    user.addFavourite([
+      {
+        id: element.recordid,
+        flux: element.flux ? element.flux : element.categorie,
+      },
+    ]);
+  };
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="popup">
@@ -32,11 +42,27 @@ function MapPopup({ setShowPopup, title, text }) {
             <p>{text}</p>
             <ul>
               {rewards.slice(rewards.length - 4).map((reward) => (
-                <li>
+                <li key={reward.id}>
                   <img src={reward.img} alt="" className="reward-small" />
                 </li>
               ))}
             </ul>
+            <div className="selection">
+              <button
+                className="selectCenter"
+                type="button"
+                id={element.recordid}
+              >
+                Choisir ce centre de recyclage
+              </button>
+              <button
+                type="button"
+                id={element.recordid}
+                onClick={addToFavourite}
+              >
+                Ajouter aux favoris
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>

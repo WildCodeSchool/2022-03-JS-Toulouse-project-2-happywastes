@@ -4,30 +4,42 @@ import ProfileButton from "../components/ProfileButton/ProfileButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import Map from "../components/Map/Map";
 import BackButton from "../components/BackButton/BackButton";
+import collectCenters from "../services/collect_centers";
+import UserUtils from "../services/UserUtils";
 import variants from "../assets/js/variants";
 
 function Recycler() {
   const [mapCenter, setMapCenter] = useState(null);
   const [apiData, setApiData] = useState([]);
+  const [userFavourites, setUserFavourites] = useState([]);
 
-  async function getAPIData(url) {
-    await fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setApiData(data.records);
-      });
-  }
+  const user = new UserUtils(1);
 
   useEffect(() => {
-    getAPIData(
-      "https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dinteret&q=&facet=categorie&refine.categorie=Déchetterie&rows=100"
-    );
+    user.getFavourites().then((response) => {
+      if (response) {
+        response.map((el) =>
+          collectCenters
+            .getOne(el.id)
+            .then((res) =>
+              setUserFavourites((favourites) => [...favourites, res])
+            )
+        );
+      }
+    });
   }, []);
 
   function getGPSLocation() {
     const position = undefined;
     navigator.geolocation.getCurrentPosition(
-      (pos) => setMapCenter([pos.coords.latitude, pos.coords.longitude]),
+      (pos) => {
+        collectCenters
+          .inZone(500, [pos.coords.latitude, pos.coords.longitude])
+          .then((data) => {
+            setApiData(data);
+            setMapCenter([pos.coords.latitude, pos.coords.longitude]);
+          });
+      },
       (error) => error
     );
     return position;
@@ -35,7 +47,6 @@ function Recycler() {
   useEffect(() => {
     getGPSLocation();
   }, []);
-
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.div
@@ -54,7 +65,7 @@ function Recycler() {
             center={mapCenter}
             userPos={mapCenter}
             data={apiData}
-            favourites={apiData.slice(0, 4)}
+            favourites={userFavourites}
           />
         ) : (
           ""

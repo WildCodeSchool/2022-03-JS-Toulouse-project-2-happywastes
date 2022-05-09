@@ -5,7 +5,7 @@ import {
   faLocation,
   faArrowAltCircleDown,
 } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+// import React, { useEffect, useState } from "react";
 import { useMap } from "react-leaflet";
 import "./MapFavourites.scss";
 import variants from "../../assets/js/variants";
@@ -22,22 +22,25 @@ function MapFavourites({ data }) {
       animate="visible"
       id="map-list"
     >
-      <h2>Mes Lieux Favoris</h2>
+      <h2>
+        Choisir un centre de recylage <br /> ou sélectionner un de vos favoris
+      </h2>
       <ul className="fa-ul">
-        {data.map((el) => (
-          <li key={el.recordid}>
-            <FontAwesomeIcon
-              className="locationIcon"
-              icon={faLocation}
-              size="lg"
-              onClick={() => {
-                map.flyTo(el.fields.geo_point_2d, 15);
-              }}
-            />
-            {`${el.fields.commune} (${el.fields.code_postal})`}
-            &nbsp;&nbsp;
-          </li>
-        ))}
+        {data.length > 0
+          ? data.map((el) => (
+              <li key={el.recordid}>
+                <FontAwesomeIcon
+                  className="locationIcon"
+                  icon={faLocation}
+                  size="lg"
+                  onClick={() => {
+                    map.flyTo(el.fields.geo_point_2d, 15);
+                  }}
+                />
+                {`${el.fields.flux} (${el.fields.commune} - ${el.fields.code_insee})`}
+              </li>
+            ))
+          : "loading"}
       </ul>
     </motion.div>
   );
