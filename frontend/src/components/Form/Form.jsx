@@ -14,21 +14,26 @@ export default function Form() {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [warning, setWarning] = useState("");
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:5000/api/create/user", {
-        firstName: firstname,
-        lastName: lastname,
-        email: mail,
-        avatar_url: "",
-        password,
-        favourites: "",
-      })
-      .then((response) => response.status);
-    navigate("/", { replace: true });
-    setUser(true);
+    if (password !== confirmPassword) {
+      setWarning("Les mots de passes ne correspondent pas !");
+    } else {
+      axios
+        .post("http://localhost:5000/api/create/user", {
+          firstName: firstname,
+          lastName: lastname,
+          email: mail,
+          avatar_url: "",
+          password,
+          favourites: "",
+        })
+        .then((response) => response.status);
+      navigate("/", { replace: true });
+      setUser(true);
+    }
   };
 
   return (
@@ -40,7 +45,8 @@ export default function Form() {
       />
       <div className="container-form">
         <form className="form" onSubmit={HandleSubmit}>
-          <h2>Inscription</h2>
+          <h2 className="title-account-form">Inscription</h2>
+          <h3 className="warning-account-creation">{warning}</h3>
           <div className="input-container">
             <label htmlFor={firstname}>
               <span className="label-text">Prénom :</span>

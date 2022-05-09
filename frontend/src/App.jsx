@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Influence from "./pages/Influence";
 import UserContext from "./components/UserContext";
 import NotifContext from "./components/NotifContext";
+import Form from "./components/Form/Form";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -31,6 +32,7 @@ function App() {
               <Route path="/recycler" element={<Recycler />} />
               <Route path="/login" element={<Login />} />
               <Route path="/influence" element={<Influence />} />
+              <Route path="/create-account" element={<Form />} />
             </Routes>
           </UserContext.Provider>
         </NotifContext.Provider>

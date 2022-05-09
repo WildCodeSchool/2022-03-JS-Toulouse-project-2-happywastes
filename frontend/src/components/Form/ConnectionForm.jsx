@@ -40,7 +40,7 @@ function ConnectionForm() {
       />
       <div className="container-form">
         <form className="form" onSubmit={HandleSubmit}>
-          <h2>Connection</h2>
+          <h2 className="title-account-form">Connection</h2>
           <div className="input-container">
             <label htmlFor={mail}>
               <span className="label-text">Email :</span>
@@ -80,7 +80,7 @@ function ConnectionForm() {
           <button type="submit" className="submit">
             Envoyer
           </button>
-          <Link to="/create-account">
+          <Link className="account-connection-link" to="/create-account">
             Pas encore inscrit ? Créer votre compte ici !
           </Link>
         </form>

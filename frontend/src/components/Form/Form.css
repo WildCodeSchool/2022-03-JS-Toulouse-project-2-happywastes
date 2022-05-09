@@ -87,3 +87,30 @@ label {
   padding-bottom: 5px;
   grid-column: 1 / span 2;
 }
+
+.warning-account-creation {
+  color: darkred;
+  font-family: var(--primary-font);
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.title-account-form {
+  font-family: var(--primary-font);
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.account-connection-link {
+  font-family: var(--primary-font);
+  text-decoration: none;
+  font-size: 1.4rem;
+  text-align: center;
+  color: white;
+}
+.account-connection-link:hover {
+  text-decoration: none;
+  color: black;
+}
