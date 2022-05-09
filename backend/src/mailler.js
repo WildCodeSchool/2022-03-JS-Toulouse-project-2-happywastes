@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const sendMail = (firstname, lastname, email) => {
   const transporter = nodemailer.createTransport({
@@ -7,7 +8,7 @@ const sendMail = (firstname, lastname, email) => {
     secure: false,
     auth: {
       user: "happywastes@outlook.fr",
-      pass: "Admin31!",
+      pass: process.env.MAILLER_PASSWORD,
     },
   });
 
