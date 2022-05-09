@@ -4,16 +4,26 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faLocation,
   faArrowAltCircleDown,
+  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 // import React, { useEffect, useState } from "react";
 import { useMap } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
 import "./MapFavourites.scss";
 import variants from "../../assets/js/variants";
+import UserUtils from "../../services/UserUtils";
 
-library.add(faLocation, faArrowAltCircleDown);
+library.add(faLocation, faArrowAltCircleDown, faClose);
 
 function MapFavourites({ data }) {
   const map = useMap();
+  const navigate = useNavigate();
+  const removeFavourite = (id) => {
+    const user = new UserUtils(1);
+    user.removeFavourite(id);
+    console.log(id);
+    navigate("/recycler");
+  };
 
   return (
     <motion.div
@@ -38,6 +48,11 @@ function MapFavourites({ data }) {
                   }}
                 />
                 {`${el.fields.flux} (${el.fields.commune} - ${el.fields.code_insee})`}
+                <FontAwesomeIcon
+                  icon={faClose}
+                  size="lg"
+                  onClick={() => removeFavourite(el.recordid)}
+                />
               </li>
             ))
           : "loading"}

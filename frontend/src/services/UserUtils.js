@@ -34,6 +34,14 @@ class UserUtils {
         console.log(response.data);
       });
   }
+
+  removeFavourite(favouriteId) {
+    axios
+      .delete(`http://localhost:5000/api/favourites/${this.id}/${favouriteId}`)
+      .then((response) => {
+        console.log(response.data);
+      });
+  }
 }
 
 export default UserUtils;
