@@ -21,7 +21,6 @@ class UserUtils {
       axios
         .get(`http://localhost:5000/api/favourites/${this.id}`)
         .then((data) => {
-          // const favourites = data.data.map((el) => JSON.parse(el.favourites));
           return resolve(data.data[0]);
         })
         .catch((error) => reject(error));
@@ -32,7 +31,6 @@ class UserUtils {
     axios
       .post(`http://localhost:5000/api/favourites/${this.id}`, data)
       .then((response) => {
-        // [this.favourites] = response.data;
         console.log(response.data);
       });
   }

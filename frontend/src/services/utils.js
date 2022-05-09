@@ -54,5 +54,3 @@ export const collectCenters = {
     });
   },
 };
-
-// export default { utilFavourites, collectCenters };

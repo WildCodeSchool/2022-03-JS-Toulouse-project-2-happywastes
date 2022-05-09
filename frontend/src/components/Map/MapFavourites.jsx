@@ -22,7 +22,9 @@ function MapFavourites({ data }) {
       animate="visible"
       id="map-list"
     >
-      <h2>Mes Lieux Favoris</h2>
+      <h2>
+        Choisir un centre de recylage <br /> ou sélectionner un de vos favoris
+      </h2>
       <ul className="fa-ul">
         {data.length > 0
           ? data.map((el) => (

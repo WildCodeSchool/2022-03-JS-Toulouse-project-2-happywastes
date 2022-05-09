@@ -47,13 +47,22 @@ function MapPopup({ setShowPopup, title, text, element }) {
                 </li>
               ))}
             </ul>
-            <button
-              type="button"
-              id={element.recordid}
-              onClick={addToFavourite}
-            >
-              Ajouter aux favoris
-            </button>
+            <div className="selection">
+              <button
+                className="selectCenter"
+                type="button"
+                id={element.recordid}
+              >
+                Choisir ce centre de recyclage
+              </button>
+              <button
+                type="button"
+                id={element.recordid}
+                onClick={addToFavourite}
+              >
+                Ajouter aux favoris
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>
