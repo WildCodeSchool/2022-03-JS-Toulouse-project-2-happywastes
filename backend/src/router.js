@@ -1,5 +1,11 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 const mysql = require("mysql2");
 
@@ -20,14 +26,39 @@ connexion.connect((error) => {
   }
 });
 
-router.get("/api/users", (_request, response) => {
-  connexion.query("SELECT * FROM user", (error, result) => {
-    if (error) {
-      response.status(404).send(error);
-    } else {
-      response.status(200).json(result);
+// Check if user is stored in database
+router.post("/api/user/:mail", cors(corsOptions), (request, response) => {
+  const { mail } = request.params;
+  connexion.query(
+    `SELECT * FROM user WHERE email = ?`,
+    [mail],
+    (error, result) => {
+      if (error) {
+        response.status(500).send(error);
+      } else if (result.length !== 0) {
+        response.status(200).json(result);
+      } else {
+        response.status(404).send(error);
+      }
     }
-  });
+  );
+});
+
+// Create User infos from connection form
+router.post("/api/create/user", cors(corsOptions), (request, response) => {
+  const { firstName, lastName, email, avatarUrl, password, favourites } =
+    request.body;
+  connexion.query(
+    `INSERT INTO user (firstName, lastName, email, avatar_url, password, favourites) VALUES ( ?, ?, ?, ?, ?, ?)`,
+    [firstName, lastName, email, avatarUrl, password, favourites],
+    (error, result) => {
+      if (error) {
+        response.status(500).send(`Error: ${error}`);
+      } else {
+        response.status(200).send(result);
+      }
+    }
+  );
 });
 
 // Get User infos with his ID
@@ -89,4 +120,5 @@ router.post("/api/favourites/:userID", (req, res) => {
     }
   );
 });
+
 module.exports = router;

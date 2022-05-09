@@ -177,3 +177,10 @@ select {
   height: 20px;
   color: #ef6461;
 }
+
+.avatar-inputs,
+#avatar-input,
+.id-inputs {
+  display: flex;
+  flex-direction: column;
+}
