@@ -23,9 +23,6 @@ function ConnectionForm() {
       .then(() => {
         navigate("/", { replace: true });
         setUser(true);
-      })
-      .catch((error) => {
-        console.error(error);
       });
   };
 
