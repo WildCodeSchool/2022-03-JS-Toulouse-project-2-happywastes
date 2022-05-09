@@ -1,10 +1,17 @@
 import React from "react";
 import "../../../assets/css/popup.scss";
 import "./PopUpReward.css";
+import { motion } from "framer-motion";
 
 export default function PopUpReward({ funcClosePopup, img, level }) {
   return (
-    <div className="popup">
+    <motion.div
+      className="popup"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="popup-card header">
         <div className="btn-close">
           <button
@@ -42,6 +49,6 @@ export default function PopUpReward({ funcClosePopup, img, level }) {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
