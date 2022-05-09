@@ -6,7 +6,6 @@ import {
   faArrowAltCircleDown,
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
-// import React, { useEffect, useState } from "react";
 import { useMap } from "react-leaflet";
 import { useNavigate } from "react-router-dom";
 import "./MapFavourites.scss";

@@ -101,10 +101,9 @@ router.delete("/api/favourites/:userID/:favouriteID", (req, res) => {
       } else {
         let favourites = [];
         if (result[0].favourites) {
-          [favourites] = result.map((el) => JSON.parse(el.favourites));
-          favourites = favourites.filter(
-            (favourite) => favourite.id !== favouriteID
-          );
+          [favourites] = result
+            .map((el) => JSON.parse(el.favourites))
+            .filter((favourite) => favourite.id !== favouriteID);
         }
         connexion.query(
           "UPDATE user SET favourites = ? WHERE id = ?",

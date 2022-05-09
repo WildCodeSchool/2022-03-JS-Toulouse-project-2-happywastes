@@ -3,7 +3,6 @@ import axios from "axios";
 class UserUtils {
   constructor(userID) {
     this.id = userID;
-    this.favourites = this.getFavourites();
     this.baseApiUrl = "http://localhost:5000/api";
   }
 
