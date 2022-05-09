@@ -67,7 +67,6 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
             >
               <FontAwesomeIcon icon={faClose} />
             </button>
-
             <motion.div
               positionTransition
               initial={{ opacity: 0, y: 50, scale: 0.3 }}
@@ -90,8 +89,8 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
             </motion.div>
 
             <form onSubmit={setUserAvatar}>
-              <label htmlFor="accessoires">
-                Couleur
+              <label className="avatar-inputs" htmlFor="accessoires">
+                <span>Couleur</span>
                 <select
                   onChange={(e) => setBackground(e.target.value)}
                   name="background"
@@ -106,8 +105,8 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   <option value="variant05">Foncé</option>
                 </select>
               </label>
-              <label htmlFor="eyes">
-                Yeux
+              <label className="avatar-inputs" htmlFor="eyes">
+                <span>Yeux</span>
                 <select
                   onChange={(e) => setEyes(e.target.value)}
                   name="eyes"
@@ -142,8 +141,8 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   <option value="variant26">Surpris droit</option>
                 </select>
               </label>
-              <label htmlFor="eyebrows">
-                Sourcils
+              <label className="avatar-inputs" htmlFor="eyebrows">
+                <span>Sourcils</span>
                 <select
                   onChange={(e) => setEyebrows(e.target.value)}
                   name="eyebrows"
@@ -162,7 +161,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   <option value="variant10">blasé</option>
                 </select>
               </label>
-              <label htmlFor="mouth">
+              <label className="avatar-inputs" htmlFor="mouth">
                 Bouche
                 <select
                   onChange={(e) => setMouth(e.target.value)}
@@ -217,6 +216,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 />
               </label>
               <label
+                id="avatar-input"
                 className="avatar-accessoires-container"
                 htmlFor="accessoires"
               >

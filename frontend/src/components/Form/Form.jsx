@@ -3,6 +3,7 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import "./Form.css";
+import axios from "axios";
 import UserContext from "../UserContext";
 
 export default function Form() {
@@ -16,6 +17,16 @@ export default function Form() {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/create/user", {
+        firstName: firstname,
+        lastName: lastname,
+        email: mail,
+        avatar_url: "",
+        password,
+        favourites: "",
+      })
+      .then((response) => response.status);
     navigate("/", { replace: true });
     setUser(true);
   };
