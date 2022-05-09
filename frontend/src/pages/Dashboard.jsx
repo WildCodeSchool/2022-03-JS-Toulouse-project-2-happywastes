@@ -10,6 +10,7 @@ import "../assets/css/dashboard.css";
 import DashboardReward from "../components/Dashboard/DashboardReward";
 import Avatar from "../components/Avatar/Avatar";
 import Map from "../components/Map/Map";
+import Notification from "../components/Notification/Notification";
 
 export default function Dashboard() {
   return (
@@ -26,6 +27,7 @@ export default function Dashboard() {
           avatarImg="https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=variant01&eyebrows[]=variant01&mouth[]=variant01&accessoiresProbability=0&accessoires[]=sunglasses&backgroundColor[]=variant01"
           className="container-avatar"
         />
+        <Notification />
         <DashboardReward />
         <div className="container-map">
           <Link to="/influence">
