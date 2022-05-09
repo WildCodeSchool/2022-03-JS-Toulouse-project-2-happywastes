@@ -19,8 +19,7 @@ function MapFavourites({ data }) {
   const navigate = useNavigate();
   const removeFavourite = (id) => {
     const user = new UserUtils(1);
-    user.removeFavourite(id);
-    navigate("/recycler");
+    user.removeFavourite(id).then(() => navigate("/recycler"));
   };
 
   return (
