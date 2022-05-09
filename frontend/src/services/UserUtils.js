@@ -3,7 +3,6 @@ import axios from "axios";
 class UserUtils {
   constructor(userID) {
     this.id = userID;
-    this.favourites = this.getFavourites();
     this.baseApiUrl = "http://localhost:5000/api";
   }
 
@@ -30,6 +29,14 @@ class UserUtils {
   addFavourite(data) {
     axios
       .post(`http://localhost:5000/api/favourites/${this.id}`, data)
+      .then((response) => {
+        console.log(response.data);
+      });
+  }
+
+  removeFavourite(favouriteId) {
+    axios
+      .delete(`http://localhost:5000/api/favourites/${this.id}/${favouriteId}`)
       .then((response) => {
         console.log(response.data);
       });

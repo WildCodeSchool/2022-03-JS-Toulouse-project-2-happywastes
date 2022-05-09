@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./MapPopup.scss";
 import "../../assets/css/popup.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +12,8 @@ import UserUtils from "../../services/UserUtils";
 library.add(faClose);
 
 function MapPopup({ setShowPopup, title, text, element }) {
+  const navigate = useNavigate();
+
   const addToFavourite = () => {
     const user = new UserUtils(1);
     user.addFavourite([
@@ -19,6 +22,7 @@ function MapPopup({ setShowPopup, title, text, element }) {
         flux: element.flux ? element.flux : element.categorie,
       },
     ]);
+    navigate("/recycler");
   };
   return (
     <AnimatePresence exitBeforeEnter>

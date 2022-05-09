@@ -121,4 +121,35 @@ router.post("/api/favourites/:userID", (req, res) => {
   );
 });
 
+router.delete("/api/favourites/:userID/:favouriteID", (req, res) => {
+  const { userID, favouriteID } = req.params;
+  connexion.query(
+    "SELECT favourites FROM user WHERE id = ?",
+    [userID],
+    (error, result) => {
+      if (error) {
+        res.status(400).send(error);
+      } else {
+        let favourites = [];
+        if (result[0].favourites) {
+          [favourites] = result
+            .map((el) => JSON.parse(el.favourites))
+            .filter((favourite) => favourite.id !== favouriteID);
+        }
+        connexion.query(
+          "UPDATE user SET favourites = ? WHERE id = ?",
+          [JSON.stringify(favourites), userID],
+          (error1, result1) => {
+            if (error1) {
+              res.status(400).send(error1);
+            } else {
+              res.send(result1);
+            }
+          }
+        );
+      }
+    }
+  );
+});
+
 module.exports = router;
