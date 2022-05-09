@@ -99,11 +99,11 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   defaultValue={background}
                   className={background}
                 >
-                  <option value="variant01">1</option>
-                  <option value="variant02">2</option>
-                  <option value="variant03">3</option>
-                  <option value="variant04">4</option>
-                  <option value="variant05">5</option>
+                  <option value="variant01">Blanc</option>
+                  <option value="variant02">Clair</option>
+                  <option value="variant03">Mate</option>
+                  <option value="variant04">Brun</option>
+                  <option value="variant05">Foncé</option>
                 </select>
               </label>
               <label htmlFor="eyes">
@@ -114,32 +114,32 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   id="eyes"
                   defaultValue={eyes}
                 >
-                  <option value="variant01">1</option>
-                  <option value="variant02">2</option>
-                  <option value="variant03">3</option>
-                  <option value="variant04">4</option>
-                  <option value="variant05">5</option>
-                  <option value="variant06">6</option>
-                  <option value="variant07">7</option>
-                  <option value="variant08">8</option>
-                  <option value="variant09">9</option>
-                  <option value="variant10">10</option>
-                  <option value="variant11">11</option>
-                  <option value="variant12">12</option>
-                  <option value="variant13">13</option>
-                  <option value="variant14">14</option>
-                  <option value="variant15">15</option>
-                  <option value="variant16">16</option>
-                  <option value="variant17">17</option>
-                  <option value="variant18">18</option>
-                  <option value="variant19">19</option>
-                  <option value="variant20">20</option>
-                  <option value="variant21">21</option>
-                  <option value="variant22">22</option>
-                  <option value="variant23">23</option>
-                  <option value="variant24">24</option>
-                  <option value="variant25">25</option>
-                  <option value="variant26">26</option>
+                  <option value="variant01">droite</option>
+                  <option value="variant02">gauche</option>
+                  <option value="variant03">strabisme</option>
+                  <option value="variant04">stone</option>
+                  <option value="variant05">crapuleux</option>
+                  <option value="variant06">méfiant 1</option>
+                  <option value="variant07">mafiant 2</option>
+                  <option value="variant08">Insomnie</option>
+                  <option value="variant09">éméché</option>
+                  <option value="variant10">éméché 2</option>
+                  <option value="variant11">Sceptique 1</option>
+                  <option value="variant12">Sceptique 2</option>
+                  <option value="variant13">colère 1</option>
+                  <option value="variant14">colère 2</option>
+                  <option value="variant15">Déprimé 1</option>
+                  <option value="variant16">Déprimé 2</option>
+                  <option value="variant17">Déprimé 3</option>
+                  <option value="variant18">Déprimé 4</option>
+                  <option value="variant19">Fermé 1</option>
+                  <option value="variant20">Fermé 2</option>
+                  <option value="variant21">Clin d&apos;oeil 1</option>
+                  <option value="variant22">Clin d&apos;oeil 2</option>
+                  <option value="variant23">Captivant</option>
+                  <option value="variant24">Surpris</option>
+                  <option value="variant25">Surpris gauche</option>
+                  <option value="variant26">Surpris droit</option>
                 </select>
               </label>
               <label htmlFor="eyebrows">
@@ -150,16 +150,16 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   id="eyebrows"
                   defaultValue={eyebrows}
                 >
-                  <option value="variant01">1</option>
-                  <option value="variant02">2</option>
-                  <option value="variant03">3</option>
-                  <option value="variant04">4</option>
-                  <option value="variant05">5</option>
-                  <option value="variant06">6</option>
-                  <option value="variant07">7</option>
-                  <option value="variant08">8</option>
-                  <option value="variant09">9</option>
-                  <option value="variant10">10</option>
+                  <option value="variant01">furieux épais</option>
+                  <option value="variant02">furieux</option>
+                  <option value="variant03">déçus</option>
+                  <option value="variant04">surpris</option>
+                  <option value="variant05">surpris court</option>
+                  <option value="variant06">triste</option>
+                  <option value="variant07">inquiet</option>
+                  <option value="variant08">étonné 1</option>
+                  <option value="variant09">étonné 2</option>
+                  <option value="variant10">blasé</option>
                 </select>
               </label>
               <label htmlFor="mouth">
@@ -170,36 +170,36 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   id="mouth"
                   defaultValue={mouth}
                 >
-                  <option value="variant01">1</option>
-                  <option value="variant02">2</option>
-                  <option value="variant03">3</option>
-                  <option value="variant04">4</option>
-                  <option value="variant05">5</option>
-                  <option value="variant06">6</option>
-                  <option value="variant07">7</option>
-                  <option value="variant08">8</option>
-                  <option value="variant09">9</option>
-                  <option value="variant10">10</option>
-                  <option value="variant11">11</option>
-                  <option value="variant12">12</option>
-                  <option value="variant13">13</option>
-                  <option value="variant14">14</option>
-                  <option value="variant15">15</option>
-                  <option value="variant16">16</option>
-                  <option value="variant17">17</option>
-                  <option value="variant18">18</option>
-                  <option value="variant19">19</option>
-                  <option value="variant20">20</option>
-                  <option value="variant21">21</option>
-                  <option value="variant22">22</option>
-                  <option value="variant23">23</option>
-                  <option value="variant24">24</option>
-                  <option value="variant25">25</option>
-                  <option value="variant26">26</option>
-                  <option value="variant27">27</option>
-                  <option value="variant28">28</option>
-                  <option value="variant29">29</option>
-                  <option value="variant30">30</option>
+                  <option value="variant01">sourire 1</option>
+                  <option value="variant02">sourire 2</option>
+                  <option value="variant03">étonné</option>
+                  <option value="variant04">déçus</option>
+                  <option value="variant05">rouge à levres 1</option>
+                  <option value="variant06">rouge à levres 2</option>
+                  <option value="variant07">rouge à levres 3</option>
+                  <option value="variant08">rouge à levres 4</option>
+                  <option value="variant09">neutre</option>
+                  <option value="variant10">bouche pleine</option>
+                  <option value="variant11">serre les dents</option>
+                  <option value="variant12">tire la langue</option>
+                  <option value="variant13">bave</option>
+                  <option value="variant14">surpris 1</option>
+                  <option value="variant15">surpris 2</option>
+                  <option value="variant16">tire la langue</option>
+                  <option value="variant17">cul de poule</option>
+                  <option value="variant18">étonné mignon</option>
+                  <option value="variant19">grimace 1</option>
+                  <option value="variant20">grimace 2</option>
+                  <option value="variant21">grimace 3</option>
+                  <option value="variant22">dents serrées 1</option>
+                  <option value="variant23">dents serrées 2</option>
+                  <option value="variant24">glotte apparente</option>
+                  <option value="variant25">vampyre</option>
+                  <option value="variant26">bouche ouverte</option>
+                  <option value="variant27">sourire triangulaire</option>
+                  <option value="variant28">dents de lapin</option>
+                  <option value="variant29">bouche v</option>
+                  <option value="variant30">bouche triangle</option>
                 </select>
               </label>
               <label
