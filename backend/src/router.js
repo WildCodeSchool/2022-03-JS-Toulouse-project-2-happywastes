@@ -1,12 +1,12 @@
 require("dotenv").config();
 // const { application } = require("express");
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 
-// const corsOptions = {
-//   origin: "http://localhost:3000",
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 const mysql = require("mysql2");
 
@@ -27,9 +27,8 @@ connexion.connect((error) => {
   }
 });
 
-router.post("/api/user/:mail", (request, response) => {
+router.post("/api/user/:mail", cors(corsOptions), (request, response) => {
   const { mail } = request.params;
-  // console.error(request.body);
   connexion.query(
     `SELECT * FROM user WHERE email = ?`,
     [mail],
@@ -45,10 +44,9 @@ router.post("/api/user/:mail", (request, response) => {
   );
 });
 
-router.post("/api/create/user", (request, response) => {
+router.post("/api/create/user", cors(corsOptions), (request, response) => {
   const { firstName, lastName, email, avatarUrl, password, favourites } =
     request.body;
-  console.error(request.body.firstName);
   connexion.query(
     `INSERT INTO user (firstName, lastName, email, avatar_url, password, favourites) VALUES ( ?, ?, ?, ?, ?, ?)`,
     [firstName, lastName, email, avatarUrl, password, favourites],
@@ -56,9 +54,7 @@ router.post("/api/create/user", (request, response) => {
       if (error) {
         response.status(500).send(`Error: ${error}`);
       } else {
-        response
-          .status(200)
-          .send(`User successfully created with credentials: ${result}`);
+        response.status(200).send(result);
       }
     }
   );
