@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
 import Home from "./pages/Home";
 import "./assets/css/main.css";
+import Form from "./components/Form/Form";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
 import MyRewards from "./pages/MyRewards";
@@ -30,6 +31,7 @@ function App() {
               <Route path="/dashboard/my-rewards" element={<MyRewards />} />
               <Route path="/recycler" element={<Recycler />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/create-account" element={<Form />} />
               <Route path="/influence" element={<Influence />} />
             </Routes>
           </UserContext.Provider>
