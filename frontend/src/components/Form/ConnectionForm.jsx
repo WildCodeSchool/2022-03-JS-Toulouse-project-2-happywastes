@@ -81,7 +81,7 @@ function ConnectionForm() {
             Envoyer
           </button>
           <Link to="/create-account">
-            Pas encore inscrit? Créer votre compte ici!
+            Pas encore inscrit ? Créer votre compte ici !
           </Link>
         </form>
       </div>

@@ -3,7 +3,7 @@ import { createContext, useState, useMemo } from "react";
 export const SettingsContext = createContext();
 
 function SettingsProvider({ children }) {
-  const [userSettings, setUserSettings] = useState("PHILLY GOODY");
+  const [userSettings, setUserSettings] = useState("PHILL GOOD");
   const userName = useMemo(
     () => ({ userSettings, setUserSettings }),
     [userSettings]

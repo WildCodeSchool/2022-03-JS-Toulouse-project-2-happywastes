@@ -1,5 +1,4 @@
 require("dotenv").config();
-// const { application } = require("express");
 const express = require("express");
 const cors = require("cors");
 
@@ -27,6 +26,7 @@ connexion.connect((error) => {
   }
 });
 
+// Check if user is stored in database
 router.post("/api/user/:mail", cors(corsOptions), (request, response) => {
   const { mail } = request.params;
   connexion.query(
@@ -44,6 +44,7 @@ router.post("/api/user/:mail", cors(corsOptions), (request, response) => {
   );
 });
 
+// Create User infos from connection form
 router.post("/api/create/user", cors(corsOptions), (request, response) => {
   const { firstName, lastName, email, avatarUrl, password, favourites } =
     request.body;

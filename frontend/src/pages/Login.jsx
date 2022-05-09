@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import ConnectionForm from "../components/Form/ConnectionForm";
-// import Form from "../components/Form/Form";
 import Splashscreen from "../components/Splashscreen/Splashscreen";
 import UserContext from "../components/UserContext";
 
@@ -32,7 +31,6 @@ function Login() {
         to="/"
       />
       {showConnectionForm && <ConnectionForm />}
-      {/* <Form /> */}
     </div>
   );
 }

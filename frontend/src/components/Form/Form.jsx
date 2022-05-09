@@ -26,7 +26,7 @@ export default function Form() {
         password,
         favourites: "",
       })
-      .then((response) => console.log(response.status));
+      .then((response) => response.status);
     navigate("/", { replace: true });
     setUser(true);
   };
