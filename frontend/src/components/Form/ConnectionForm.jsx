@@ -3,6 +3,7 @@ import { FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useNavigate, Link } from "react-router-dom";
 import "./Form.css";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import UserContext from "../UserContext";
 
@@ -13,6 +14,18 @@ function ConnectionForm() {
   const { setUser } = useContext(UserContext);
 
   const HandleSubmit = (e) => {
+    const notify = () => {
+      toast.error("Identifiants invalide", {
+        className: "black-background",
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    };
     e.preventDefault();
     axios
       .post(
@@ -27,12 +40,13 @@ function ConnectionForm() {
       })
       .catch((error) => {
         console.error(error);
-        alert("Identifiants invalide");
+        notify();
       });
   };
 
   return (
     <div className="main-container">
+      <ToastContainer />
       <img
         className="logo-form"
         src="src/assets/img/HW_LogoBlue-large.png"
