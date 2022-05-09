@@ -3,7 +3,7 @@ import L from "leaflet";
 import { Marker } from "react-leaflet";
 import Popup from "./MapPopup";
 
-function MapMarker({ iconURL, position, iconSize: size, content }) {
+function MapMarker({ iconURL, position, iconSize: size, content, element }) {
   const [showPopup, setShowPopup] = useState(false);
   const markerOptions = {
     position,
@@ -23,7 +23,12 @@ function MapMarker({ iconURL, position, iconSize: size, content }) {
       eventHandlers={markerOptions.eventHandlers}
     >
       {content && showPopup && (
-        <Popup title={title} text={text} setShowPopup={setShowPopup} />
+        <Popup
+          title={title}
+          text={text}
+          setShowPopup={setShowPopup}
+          element={element}
+        />
       )}
     </Marker>
   );

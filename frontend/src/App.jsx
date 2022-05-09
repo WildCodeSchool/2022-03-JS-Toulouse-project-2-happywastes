@@ -10,27 +10,30 @@ import Recycler from "./pages/Recycler";
 import Login from "./pages/Login";
 import Influence from "./pages/Influence";
 import UserContext from "./components/UserContext";
-import Form from "./components/Form/Form";
+import NotifContext from "./components/NotifContext";
 
 function App() {
   const [user, setUser] = useState(false);
   const userHasLogged = useMemo(() => ({ user, setUser }), []);
+  const [notif, setNotif] = useState(false);
   const location = useLocation();
+  const notifActive = useMemo(() => ({ notif, setNotif }), []);
   return (
     <div className="App">
       <AnimatePresence exitBeforeEnter initial={false}>
-        <UserContext.Provider value={userHasLogged}>
-          <Routes location={location} key={location.key}>
-            <Route path="/" element={user ? <Home /> : <Login />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/my-rewards" element={<MyRewards />} />
-            <Route path="/recycler" element={<Recycler />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/influence" element={<Influence />} />
-            <Route path="/create-account" element={<Form />} />
-          </Routes>
-        </UserContext.Provider>
+        <NotifContext.Provider value={notifActive}>
+          <UserContext.Provider value={userHasLogged}>
+            <Routes location={location} key={location.key}>
+              <Route path="/" element={user ? <Home /> : <Login />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/my-rewards" element={<MyRewards />} />
+              <Route path="/recycler" element={<Recycler />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/influence" element={<Influence />} />
+            </Routes>
+          </UserContext.Provider>
+        </NotifContext.Provider>
       </AnimatePresence>
     </div>
   );

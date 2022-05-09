@@ -33,17 +33,37 @@ function Map({
         ? data.map((el) => (
             <MapMarker
               key={el.recordid}
-              position={[
-                el.geometry.coordinates[1],
-                el.geometry.coordinates[0],
-              ]}
+              element={el}
+              position={el.fields.geo_point_2d}
               content={{
-                title: `${el.fields.commune} (${el.fields.code_postal})`,
-                text: `${el.fields.horaire}`,
+                title: `${el.fields.flux}`,
+                text: `${
+                  el.fields.adresse ? el.fields.adresse.toLowerCase() : ""
+                } ${el.fields.commune.toLowerCase()} (${el.fields.code_insee})`,
               }}
             />
           ))
         : false}
+      {favourites.length > 0 &&
+        favourites.map((favourite) => (
+          <MapMarker
+            key={favourite.recordid}
+            element={favourite}
+            iconURL="src/assets/img/carton.png"
+            iconSize={[58, 50]}
+            position={favourite.fields.geo_point_2d}
+            content={{
+              title: `${favourite.fields.flux}`,
+              text: `${
+                favourite.fields.adresse
+                  ? favourite.fields.adresse.toLowerCase()
+                  : ""
+              } ${favourite.fields.commune.toUpperCase()} (${
+                favourite.fields.code_insee
+              })`,
+            }}
+          />
+        ))}
       {favourites.length > 0 && <MapFavourites data={favourites} />}
       {userPos && <UserPositionBTN newPos={center} />}
     </MapContainer>
