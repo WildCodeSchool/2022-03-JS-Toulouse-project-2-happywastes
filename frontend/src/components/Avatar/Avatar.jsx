@@ -18,4 +18,3 @@ function Avatar({ avatarImg, avatarName }) {
 }
 
 export default Avatar;
-// `https://avatars.dicebear.com/api/adventurer-neutral/${name}.svg?eyes[]=variant01&eyebrows[]=variant01&mouth[]=variant01&accessoiresProbability=0&accessoires[]=variant01&backgroundColor[]=variant01`
