@@ -21,7 +21,6 @@ function MapFavourites({ data }) {
   const removeFavourite = (id) => {
     const user = new UserUtils(1);
     user.removeFavourite(id);
-    console.log(id);
     navigate("/recycler");
   };
 
