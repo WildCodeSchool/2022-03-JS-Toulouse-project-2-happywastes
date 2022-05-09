@@ -15,13 +15,20 @@ function ConnectionForm() {
   const HandleSubmit = (e) => {
     e.preventDefault();
     axios
-      .get("http://localhost:5000/api/user/create", {
-        email: mail,
-        password,
+      .post(
+        `http://localhost:5000/api/user/${mail}`,
+        { email: mail, password },
+        [mail, password]
+      )
+      .then((response) => {
+        console.log(response, ": bien transmis");
+        navigate("/", { replace: true });
+        setUser(true);
       })
-      .then((response) => console.log(response.status));
-    navigate("/", { replace: true });
-    setUser(true);
+      .catch((error) => {
+        console.error(error);
+        alert("Identifiants invalide");
+      });
   };
 
   return (
