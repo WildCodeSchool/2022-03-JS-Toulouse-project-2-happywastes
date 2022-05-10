@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import Influence from "./pages/Influence";
 import UserContext from "./components/UserContext";
 import NotifContext from "./components/NotifContext";
-import Form from "./components/Form/Form";
 
 function App() {
   const [user, setUser] = useState(false);
