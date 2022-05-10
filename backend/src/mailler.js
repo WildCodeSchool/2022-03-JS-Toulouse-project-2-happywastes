@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer");
-require("dotenv").config();
 
 const sendMail = (firstname, lastname, email) => {
   const transporter = nodemailer.createTransport({
@@ -8,7 +7,7 @@ const sendMail = (firstname, lastname, email) => {
     secure: false,
     auth: {
       user: "happywastes@outlook.fr",
-      pass: process.env.MAILLER_PASSWORD,
+      pass: "Admin31!",
     },
   });
 
@@ -27,7 +26,5 @@ const sendMail = (firstname, lastname, email) => {
     console.error(`sent message${info.response}`);
   });
 };
-
-sendMail("jimmy", "vogt", "vogt.jimmy18@gmail.com");
 
 module.exports = sendMail;
