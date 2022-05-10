@@ -8,7 +8,7 @@ import Confetti from "react-confetti";
 
 function Notification() {
   const [searchParams] = useSearchParams();
-  let notif = searchParams.get("notif");
+  let notifRecyclage = searchParams.get("notif");
 
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
@@ -27,9 +27,9 @@ function Notification() {
   };
 
   useEffect(() => {
-    if (notif === "true") {
+    if (notifRecyclage === "true") {
       notify();
-      notif = false;
+      notifRecyclage = false;
     }
   }, []);
 

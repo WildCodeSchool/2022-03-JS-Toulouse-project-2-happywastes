@@ -62,16 +62,56 @@ router.post("/api/create/user", cors(corsOptions), (request, response) => {
   );
 });
 
-// Get User infos with his ID
-router.get("/api/users/:id", (request, response) => {
-  const { id } = request.params;
-  connexion.query("SELECT * FROM user WHERE id = ?", [id], (error, result) => {
-    if (error) {
-      response.status(404).send(error);
-    } else {
-      response.status(200).json(result[0]);
+// Store avatar url in database
+router.put(
+  "/api/avatar/create/:mail",
+  cors(corsOptions),
+  (request, response) => {
+    const { avatarLink } = request.body;
+    const { mail } = request.params;
+    connexion.query(
+      `UPDATE user SET avatar_url = ? WHERE email = ?`,
+      [avatarLink, mail],
+      (error, result) => {
+        if (error) {
+          response.status(500).send(error);
+        } else {
+          response.status(200).send(result);
+        }
+      }
+    );
+  }
+);
+
+router.get("/api/avatar/obtain/:mail", (request, response) => {
+  const { mail } = request.params;
+  connexion.query(
+    `SELECT avatar_url FROM user WHERE email = ?`,
+    [mail],
+    (error, result) => {
+      if (error) {
+        response.status(404).send(error);
+      } else {
+        response.status(200).send(result[0]);
+      }
     }
-  });
+  );
+});
+
+// Get User infos with his ID
+router.get("/api/users/:mail", (request, response) => {
+  const { mail } = request.params;
+  connexion.query(
+    "SELECT * FROM user WHERE email = ?",
+    [mail],
+    (error, result) => {
+      if (error) {
+        response.status(404).send(error);
+      } else {
+        response.status(200).json(result[0]);
+      }
+    }
+  );
 });
 
 // FAVOURITES ROUTES

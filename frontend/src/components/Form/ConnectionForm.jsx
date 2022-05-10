@@ -1,17 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useNavigate, Link } from "react-router-dom";
 import "./Form.css";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import UserContext from "../UserContext";
+import { GlobalUserContext } from "../GlobalUserContext";
 
 function ConnectionForm() {
+  const userContext = useContext(GlobalUserContext);
+  const setAvatarLink = userContext.avatarLink[1];
+  const [userMail, setUserMail] = userContext.userMail;
   const [mail, setMail] = useState("");
+  const setUser = userContext.user[1];
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { setUser } = useContext(UserContext);
 
   const HandleSubmit = (e) => {
     const notify = () => {
@@ -34,14 +37,22 @@ function ConnectionForm() {
         [mail, password]
       )
       .then(() => {
-        navigate("/", { replace: true });
+        setUserMail(mail);
         setUser(true);
+        navigate("/");
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         notify();
       });
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/avatar/obtain/${userMail}`)
+      .then((response) => {
+        setAvatarLink(response.data.avatar_url);
+      });
+  }, [userMail]);
 
   return (
     <div className="main-container">

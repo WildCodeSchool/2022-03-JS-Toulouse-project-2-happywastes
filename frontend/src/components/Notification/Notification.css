@@ -5,7 +5,7 @@
   -webkit-backdrop-filter: blur(2.3px);
 }
 
-.Toastify__toast-body > div{
+.Toastify__toast-body > div {
   color: #ff6966;
   opacity: 1;
   font-weight: 500;
@@ -13,7 +13,15 @@
 }
 
 .Toastify__progress-bar-theme--light {
-  background: linear-gradient( to right, #ef6361, #ef6361, #ef6361, #ef6361, #ef6361, #ef6361 );
+  background: linear-gradient(
+    to right,
+    #ef6361,
+    #ef6361,
+    #ef6361,
+    #ef6361,
+    #ef6361,
+    #ef6361
+  );
   opacity: 1;
   border: none;
 }
