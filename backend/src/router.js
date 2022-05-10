@@ -65,7 +65,6 @@ router.post("/api/create/user", cors(corsOptions), (request, response) => {
 router.put("/api/avatar/create", (request, response) => {
   const { avatarLink } = request.body;
   const avatarString = avatarLink.toString();
-  console.log(avatarString);
   connexion.query(
     `UPDATE user SET avatar_url = ? WHERE id = 1`,
     [avatarString],
