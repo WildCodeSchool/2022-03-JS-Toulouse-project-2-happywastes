@@ -18,10 +18,17 @@
     font-size: 1rem;
   }
 
+  .info-message {
+    text-align: center;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+  }
+
   ul {
     margin: 1rem 0 0 0;
     width: 100%;
-    li {
+    border: 1px solid geen;
+    li.favourite-item {
       display: flex;
       align-items: center;
       text-transform: uppercase;

@@ -11,7 +11,7 @@ import UserUtils from "../../services/UserUtils";
 
 library.add(faClose);
 
-function MapPopup({ setShowPopup, title, text, element }) {
+function MapPopup({ setShowPopup, title, text, element, fav }) {
   const navigate = useNavigate();
 
   const addToFavourite = () => {
@@ -24,6 +24,10 @@ function MapPopup({ setShowPopup, title, text, element }) {
         },
       ])
       .then(() => navigate("/recycler"));
+  };
+
+  const handleChoice = () => {
+    navigate(`/recycler/centre/${element.recordid}`);
   };
   return (
     <AnimatePresence exitBeforeEnter>
@@ -45,7 +49,7 @@ function MapPopup({ setShowPopup, title, text, element }) {
           </div>
           <div className="map-card-body">
             <p>{text}</p>
-            <ul>
+            <ul className="popup-item">
               {rewards.slice(rewards.length - 4).map((reward) => (
                 <li key={reward.id}>
                   <img src={reward.img} alt="" className="reward-small" />
@@ -57,16 +61,19 @@ function MapPopup({ setShowPopup, title, text, element }) {
                 className="selectCenter"
                 type="button"
                 id={element.recordid}
+                onClick={handleChoice}
               >
                 Choisir ce centre de recyclage
               </button>
-              <button
-                type="button"
-                id={element.recordid}
-                onClick={addToFavourite}
-              >
-                Ajouter aux favoris
-              </button>
+              {!fav && (
+                <button
+                  type="button"
+                  id={element.recordid}
+                  onClick={addToFavourite}
+                >
+                  Ajouter aux favoris
+                </button>
+              )}
             </div>
           </div>
         </motion.div>
