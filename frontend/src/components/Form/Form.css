@@ -18,7 +18,14 @@ h2 {
 }
 
 .logo-form {
-  margin-top: 0.3rem;
+  margin: 0.5rem 0;
+  position: absolute;
+  height: 9rem;
+  width: auto;
+}
+
+.logo-form-connection {
+  margin-top: 2rem;
   position: absolute;
   height: 9rem;
   width: auto;
@@ -36,10 +43,23 @@ h2 {
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  padding: 6rem 4rem;
+  padding: 5rem 4rem;
   gap: 1.6rem;
   background: linear-gradient(#e9e9e915, rgba(255, 255, 255, 0.295));
 }
+
+.form-connection {
+  margin: 0 2rem;
+  border: 2px solid rgba(210, 152, 57, 0.75);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10rem 3rem;
+  gap: 1.6rem;
+  background: linear-gradient(#e9e9e915, rgba(255, 255, 255, 0.295));
+}
+
+
 
 .submit {
   margin-top: 1rem;
@@ -104,9 +124,10 @@ label {
 }
 
 .account-connection-link {
+  padding-top: 3rem;
   font-family: var(--primary-font);
-  text-decoration: none;
-  font-size: 1.4rem;
+  text-decoration: underline;
+  font-size: 1.2rem;
   text-align: center;
   color: white;
 }

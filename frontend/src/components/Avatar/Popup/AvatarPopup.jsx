@@ -38,11 +38,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
     axios
       .put(`http://localhost:5000/api/avatar/create`, { avatarLink })
       .then(() => {
-        console.log(avatarLink);
         setShowAvatarPopup();
-      })
-      .catch((error) => {
-        console.error(error);
       });
 
     setShowAvatarPopup();

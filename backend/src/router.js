@@ -1,13 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const mysql = require("mysql2");
+const nodeMailler = require("./mailler");
 
 const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-
-const mysql = require("mysql2");
 
 const router = express.Router();
 
@@ -55,6 +55,7 @@ router.post("/api/create/user", cors(corsOptions), (request, response) => {
       if (error) {
         response.status(500).send(`Error: ${error}`);
       } else {
+        nodeMailler(firstName, lastName, email);
         response.status(200).send(result);
       }
     }
@@ -64,10 +65,9 @@ router.post("/api/create/user", cors(corsOptions), (request, response) => {
 // Store avatar url in database
 router.put("/api/avatar/create", (request, response) => {
   const { avatarLink } = request.body;
-  const avatarString = avatarLink.toString();
   connexion.query(
     `UPDATE user SET avatar_url = ? WHERE id = 1`,
-    [avatarString],
+    [avatarLink],
     (error, result) => {
       if (error) {
         response.status(500).send(error);

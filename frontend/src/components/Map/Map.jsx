@@ -25,7 +25,7 @@ function Map({
       {userPos && (
         <MapMarker
           position={center}
-          iconURL="src/assets/img/iconBlue-small.png"
+          iconURL="/src/assets/img/iconBlue-small.png"
           iconSize={[30, 35]}
         />
       )}
@@ -64,7 +64,7 @@ function Map({
             }}
           />
         ))}
-      {favourites.length > 0 && <MapFavourites data={favourites} />}
+      <MapFavourites data={favourites} />
       {userPos && <UserPositionBTN newPos={center} />}
     </MapContainer>
   ) : (

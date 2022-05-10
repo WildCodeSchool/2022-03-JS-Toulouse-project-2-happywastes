@@ -1,27 +1,9 @@
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faLocation,
-  faArrowAltCircleDown,
-  faClose,
-} from "@fortawesome/free-solid-svg-icons";
-import { useMap } from "react-leaflet";
-import { useNavigate } from "react-router-dom";
 import "./MapFavourites.scss";
 import variants from "../../assets/js/variants";
-import UserUtils from "../../services/UserUtils";
-
-library.add(faLocation, faArrowAltCircleDown, faClose);
+import MapFavouriteItem from "./MapFavouriteItem";
 
 function MapFavourites({ data }) {
-  const map = useMap();
-  const navigate = useNavigate();
-  const removeFavourite = (id) => {
-    const user = new UserUtils(1);
-    user.removeFavourite(id).then(() => navigate("/recycler"));
-  };
-
   return (
     <motion.div
       variants={variants}
@@ -29,30 +11,13 @@ function MapFavourites({ data }) {
       animate="visible"
       id="map-list"
     >
-      <h2>
-        Choisir un centre de recylage <br /> ou sélectionner un de vos favoris
-      </h2>
+      <h2>Choisir un centre de recylage</h2>
       <ul className="fa-ul">
-        {data.length > 0
-          ? data.map((el) => (
-              <li key={el.recordid}>
-                <FontAwesomeIcon
-                  className="locationIcon"
-                  icon={faLocation}
-                  size="lg"
-                  onClick={() => {
-                    map.flyTo(el.fields.geo_point_2d, 15);
-                  }}
-                />
-                {`${el.fields.flux} (${el.fields.commune} - ${el.fields.code_insee})`}
-                <FontAwesomeIcon
-                  icon={faClose}
-                  size="lg"
-                  onClick={() => removeFavourite(el.recordid)}
-                />
-              </li>
-            ))
-          : "loading"}
+        {data.length > 0 ? (
+          data.map((el) => <MapFavouriteItem key={el.recordid} el={el} />)
+        ) : (
+          <div className="info-message">Pas encore de centres favoris</div>
+        )}
       </ul>
     </motion.div>
   );

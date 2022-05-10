@@ -9,7 +9,7 @@ function MapMarker({ iconURL, position, iconSize: size, content, element }) {
     position,
     eventHandlers: { click: () => setShowPopup(true) },
     icon: new L.Icon({
-      iconUrl: iconURL || "src/assets/img/iconGrey.png",
+      iconUrl: iconURL || "/src/assets/img/iconGrey.png",
       iconSize: size || [40, 45],
     }),
   };
