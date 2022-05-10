@@ -47,12 +47,12 @@ function ConnectionForm() {
     <div className="main-container">
       <ToastContainer />
       <img
-        className="logo-form"
+        className="logo-form-connection"
         src="src/assets/img/HW_LogoBlue-large.png"
         alt="logo"
       />
       <div className="container-form">
-        <form className="form" onSubmit={HandleSubmit}>
+        <form className="form-connection" onSubmit={HandleSubmit}>
           <h2 className="title-account-form">Connection</h2>
           <div className="input-container">
             <label htmlFor={mail}>
@@ -94,7 +94,7 @@ function ConnectionForm() {
             Envoyer
           </button>
           <Link className="account-connection-link" to="/create-account">
-            Pas encore inscrit ? Créer votre compte ici !
+            Créer un compte ici
           </Link>
         </form>
       </div>
