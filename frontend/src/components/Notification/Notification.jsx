@@ -1,13 +1,15 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Notification.css";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
-import NotifContext from "../NotifContext";
 
 function Notification() {
-  const { notif, setNotif } = useContext(NotifContext);
+  const [searchParams] = useSearchParams();
+  let notif = searchParams.get("notif");
+
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
   const notify = () => {
@@ -25,9 +27,9 @@ function Notification() {
   };
 
   useEffect(() => {
-    if (notif) {
+    if (notif === "true") {
       notify();
-      setNotif(false);
+      notif = false;
     }
   }, []);
 

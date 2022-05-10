@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import collectCenters from "../services/collect_centers";
 import NavBottom from "../components/NavBottom/NavBottom";
 import "../assets/css/recycling-center.scss";
 
 function Centre() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [centerData, setCenterData] = useState({});
   const [choices, setChoices] = useState({});
 
   const handleChoice = (e) => {
     const prop = e.target.id;
-    setChoices(...choices, prop);
+    setChoices({ ...choices, [prop]: e.target.checked });
+  };
+
+  const validate = () => {
+    navigate("/dashboard?notif=true");
   };
   useEffect(() => {
     collectCenters.getOne(id).then((response) => setCenterData(response));
@@ -53,7 +58,9 @@ function Centre() {
               <span>Textile</span>
             </li>
           </ul>
-          <button type="button">Valider</button>
+          <button type="button" onClick={validate}>
+            Valider
+          </button>
         </>
       ) : (
         <>Chargement</>
