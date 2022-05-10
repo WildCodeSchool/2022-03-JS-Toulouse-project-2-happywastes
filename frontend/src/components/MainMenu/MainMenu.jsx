@@ -5,7 +5,7 @@ import NavItem from "../NavItem/NavItem";
 const navItem = [
   {
     id: 1,
-    name: "DASHBOARD",
+    name: "JOURNAL",
     color: "red",
     image: "src/assets/img/iconRed -large.png",
     routePath: "dashboard",
