@@ -18,13 +18,9 @@ function Recycler() {
   useEffect(() => {
     user.getFavourites().then((response) => {
       if (response) {
-        response.map((el) =>
-          collectCenters
-            .getOne(el.id)
-            .then((res) =>
-              setUserFavourites((favourites) => [...favourites, res])
-            )
-        );
+        Promise.all(
+          response.map((el) => collectCenters.getOne(el.id).then((res) => res))
+        ).then((values) => setUserFavourites(values));
       }
     });
   }, []);

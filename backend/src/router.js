@@ -133,8 +133,8 @@ router.delete("/api/favourites/:userID/:favouriteID", (req, res) => {
       } else {
         let favourites = [];
         if (result[0].favourites) {
-          [favourites] = result
-            .map((el) => JSON.parse(el.favourites))
+          favourites = result
+            .map((el) => JSON.parse(el.favourites))[0]
             .filter((favourite) => favourite.id !== favouriteID);
         }
         connexion.query(
