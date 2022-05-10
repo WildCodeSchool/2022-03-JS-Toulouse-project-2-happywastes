@@ -1,15 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import UserContext from "../components/UserContext";
+import { GlobalUserContext } from "../components/GlobalUserContext";
 import MainMenu from "../components/MainMenu/MainMenu";
 import Login from "./Login";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
 import variants from "../assets/js/variants";
 
 export default function Home() {
+  const userContext = useContext(GlobalUserContext);
+  const [user] = userContext.user;
+
   const notify = () => {
-    toast.success("Connecté !", {
+    toast.success(`Connecté en tant !`, {
       position: "top-center",
       autoClose: 1000,
       hideProgressBar: false,
@@ -19,13 +22,13 @@ export default function Home() {
       progress: undefined,
     });
   };
+
   useEffect(() => {
     notify();
   }, []);
-  const { user } = useContext(UserContext);
   return (
     <div className="home">
-      {user ? (
+      {!user ? (
         <Login />
       ) : (
         <AnimatePresence exitBeforeEnter>

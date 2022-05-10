@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useContext } from "react";
 import Home from "./pages/Home";
 import "./assets/css/main.css";
 import Form from "./components/Form/Form";
@@ -11,42 +11,28 @@ import Recycler from "./pages/Recycler";
 import Centre from "./pages/Centre";
 import Login from "./pages/Login";
 import Influence from "./pages/Influence";
-import UserContext from "./components/UserContext";
-import NotifContext from "./components/NotifContext";
-import AvatarContext from "./components/AvatarContext";
+
+import { GlobalUserContext } from "./components/GlobalUserContext";
 
 function App() {
-  const [user, setUser] = useState(false);
-  const [avatarLink, setAvatarLink] = useState("");
-  const [notif, setNotif] = useState(false);
-  const userHasLogged = useMemo(() => ({ user, setUser }), [user]);
-  const notifActive = useMemo(() => ({ notif, setNotif }), [notif]);
-  const avatarNewLink = useMemo(
-    () => ({ avatarLink, setAvatarLink }),
-    [avatarLink]
-  );
+  const userContext = useContext(GlobalUserContext);
+  const [userValue] = userContext.user;
   const location = useLocation();
 
   return (
     <div className="App">
       <AnimatePresence exitBeforeEnter initial={false}>
-        <NotifContext.Provider value={notifActive}>
-          <UserContext.Provider value={userHasLogged}>
-            <AvatarContext.Provider value={avatarNewLink}>
-              <Routes location={location} key={location.key}>
-                <Route path="/" element={user ? <Home /> : <Login />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/dashboard/my-rewards" element={<MyRewards />} />
-                <Route path="/recycler" element={<Recycler />} />
-                <Route path="/recycler/centre/:id" element={<Centre />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/create-account" element={<Form />} />
-                <Route path="/influence" element={<Influence />} />
-              </Routes>
-            </AvatarContext.Provider>
-          </UserContext.Provider>
-        </NotifContext.Provider>
+        <Routes location={location} key={location.key}>
+          <Route path="/" element={userValue ? <Home /> : <Login />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/my-rewards" element={<MyRewards />} />
+          <Route path="/recycler" element={<Recycler />} />
+          <Route path="/recycler/centre/:id" element={<Centre />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/create-account" element={<Form />} />
+          <Route path="/influence" element={<Influence />} />
+        </Routes>
       </AnimatePresence>
     </div>
   );

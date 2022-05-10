@@ -6,12 +6,14 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import "../../../assets/css/popup.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import axios from "axios";
-import AvatarContext from "../../AvatarContext";
+import { GlobalUserContext } from "../../GlobalUserContext";
 
 library.add(faClose);
 
 function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
-  const { avatarLink, setAvatarLink } = useContext(AvatarContext);
+  const userContext = useContext(GlobalUserContext);
+  const [avatarLink, setAvatarLink] = userContext.avatarLink;
+  const [userMail] = userContext.userMail;
   const [background, setBackground] = useState(avatarInfo.options.background);
   const [eyes, setEyes] = useState(avatarInfo.options.eyes);
   const [eyebrows, setEyebrows] = useState(avatarInfo.options.eyebrows);
@@ -34,9 +36,10 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
   const setUserAvatar = (e) => {
     e.preventDefault();
     setAvatarLink(avatarInfo.img);
-
     axios
-      .put(`http://localhost:5000/api/avatar/create`, { avatarLink })
+      .put(`http://localhost:5000/api/avatar/create/${userMail}`, {
+        avatarLink,
+      })
       .then(() => {
         setShowAvatarPopup();
       });

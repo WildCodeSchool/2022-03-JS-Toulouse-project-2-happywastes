@@ -63,16 +63,36 @@ router.post("/api/create/user", cors(corsOptions), (request, response) => {
 });
 
 // Store avatar url in database
-router.put("/api/avatar/create", (request, response) => {
-  const { avatarLink } = request.body;
+router.put(
+  "/api/avatar/create/:mail",
+  cors(corsOptions),
+  (request, response) => {
+    const { avatarLink } = request.body;
+    const { mail } = request.params;
+    connexion.query(
+      `UPDATE user SET avatar_url = ? WHERE email = ?`,
+      [avatarLink, mail],
+      (error, result) => {
+        if (error) {
+          response.status(500).send(error);
+        } else {
+          response.status(200).send(result);
+        }
+      }
+    );
+  }
+);
+
+router.get("/api/avatar/obtain/:mail", (request, response) => {
+  const { mail } = request.params;
   connexion.query(
-    `UPDATE user SET avatar_url = ? WHERE id = 1`,
-    [avatarLink],
+    `SELECT avatar_url FROM user WHERE email = ?`,
+    [mail],
     (error, result) => {
       if (error) {
-        response.status(500).send(error);
+        response.status(404).send(error);
       } else {
-        response.status(200).send(result);
+        response.status(200).send(result[0]);
       }
     }
   );

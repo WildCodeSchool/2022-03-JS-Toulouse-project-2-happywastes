@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalUserContext } from "../components/GlobalUserContext";
 import ConnectionForm from "../components/Form/ConnectionForm";
 import Splashscreen from "../components/Splashscreen/Splashscreen";
-import UserContext from "../components/UserContext";
 
 function Login() {
-  const { setUser } = useContext(UserContext);
+  const userContext = useContext(GlobalUserContext);
+  const [setUserValue] = userContext.user;
   const [showSplashscreen, setShowSplashscreen] = useState(true);
   const [showConnectionForm, setShowConnectionForm] = useState(false);
 
@@ -26,7 +27,7 @@ function Login() {
       {showSplashscreen && <Splashscreen />}
       <Link
         onClick={() => {
-          setUser(false);
+          setUserValue(false);
         }}
         to="/"
       />

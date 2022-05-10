@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import AvatarContext from "../AvatarContext";
+import { GlobalUserContext } from "../GlobalUserContext";
 import "./Avatar.css";
 
 function Avatar({ avatarImg, avatarName }) {
-  const { avatarLink } = useContext(AvatarContext);
+  const userContext = useContext(GlobalUserContext);
+  const [avatarLink] = userContext.avatarLink;
   return (
     <div className="avatar-container">
       <div className="hexagon-border-3">
