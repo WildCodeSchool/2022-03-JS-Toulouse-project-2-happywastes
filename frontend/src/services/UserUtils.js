@@ -3,7 +3,6 @@ import axios from "axios";
 class UserUtils {
   constructor(userID) {
     this.id = userID;
-    this.favourites = this.getFavourites();
     this.baseApiUrl = "http://localhost:5000/api";
   }
 
@@ -28,11 +27,27 @@ class UserUtils {
   }
 
   addFavourite(data) {
-    axios
-      .post(`http://localhost:5000/api/favourites/${this.id}`, data)
-      .then((response) => {
-        console.log(response.data);
-      });
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`http://localhost:5000/api/favourites/${this.id}`, data)
+        .then((response) => {
+          resolve(response.data);
+        })
+        .catch((error) => reject(error));
+    });
+  }
+
+  removeFavourite(favouriteId) {
+    return new Promise((resolve, reject) => {
+      axios
+        .delete(
+          `http://localhost:5000/api/favourites/${this.id}/${favouriteId}`
+        )
+        .then((response) => {
+          resolve(response.data);
+        })
+        .catch((error) => reject(error));
+    });
   }
 }
 
