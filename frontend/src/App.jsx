@@ -33,7 +33,6 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/create-account" element={<Form />} />
               <Route path="/influence" element={<Influence />} />
-              <Route path="/create-account" element={<Form />} />
             </Routes>
           </UserContext.Provider>
         </NotifContext.Provider>
