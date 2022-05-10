@@ -61,6 +61,24 @@ router.post("/api/create/user", cors(corsOptions), (request, response) => {
   );
 });
 
+// Store avatar url in database
+router.put("/api/avatar/create", (request, response) => {
+  const { avatarLink } = request.body;
+  const avatarString = avatarLink.toString();
+  console.log(avatarString);
+  connexion.query(
+    `UPDATE user SET avatar_url = ? WHERE id = 1`,
+    [avatarString],
+    (error, result) => {
+      if (error) {
+        response.status(500).send(error);
+      } else {
+        response.status(200).send(result);
+      }
+    }
+  );
+});
+
 // Get User infos with his ID
 router.get("/api/users/:id", (request, response) => {
   const { id } = request.params;

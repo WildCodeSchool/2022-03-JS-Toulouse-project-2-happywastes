@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./AvatarPopup.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import "../../../assets/css/popup.scss";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios";
+import AvatarContext from "../../AvatarContext";
 
 library.add(faClose);
 
 function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
+  const { avatarLink, setAvatarLink } = useContext(AvatarContext);
   const [background, setBackground] = useState(avatarInfo.options.background);
   const [eyes, setEyes] = useState(avatarInfo.options.eyes);
   const [eyebrows, setEyebrows] = useState(avatarInfo.options.eyebrows);
@@ -19,9 +22,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
   const [accessoires, setAccessoires] = useState(
     avatarInfo.options.accessoires
   );
-  const setUserAvatar = (e) => {
-    e.preventDefault();
-  };
+
   function changeAccessoiresProbability() {
     if (accessoiresProbability) {
       setAccessoiresProbability(0);
@@ -30,7 +31,27 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
     }
   }
 
+  const setUserAvatar = (e) => {
+    e.preventDefault();
+    setAvatarLink(avatarInfo.img);
+
+    axios
+      .put(`http://localhost:5000/api/avatar/create`, { avatarLink })
+      .then(() => {
+        console.log(avatarLink);
+        setShowAvatarPopup();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    setShowAvatarPopup();
+  };
+
   useEffect(() => {
+    setAvatarLink(
+      `https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`
+    );
     setAvatarInfo({
       img: `https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`,
       options: {
@@ -78,10 +99,19 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                 <div className="avatar-hexagon-border-2">
                   <div className="avatar-hexagon-border-1">
                     <div className="avatar-hexagon">
-                      <img
-                        src={`https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`}
-                        alt="Customized Avatar"
-                      />
+                      {avatarLink ? (
+                        <img
+                          src={avatarLink}
+                          alt="Customized Avatar"
+                          srcSet=""
+                        />
+                      ) : (
+                        <img
+                          src={`https://avatars.dicebear.com/api/adventurer-neutral/.svg?eyes[]=${eyes}&eyebrows[]=${eyebrows}&mouth[]=${mouth}&accessoiresProbability=${accessoiresProbability}&accessoires[]=${accessoires}&backgroundColor[]=${background}`}
+                          alt="Customized Avatar"
+                          srcSet=""
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -234,11 +264,7 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
                   <option value="birthmark">tache de naissance</option>
                 </select>
               </label>
-              <button
-                id="avatar-validate-button"
-                type="submit"
-                onClick={() => setShowAvatarPopup(false)}
-              >
+              <button id="avatar-validate-button" type="submit">
                 Valider
               </button>
             </form>

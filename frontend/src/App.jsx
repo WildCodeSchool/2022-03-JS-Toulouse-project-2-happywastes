@@ -12,29 +12,38 @@ import Login from "./pages/Login";
 import Influence from "./pages/Influence";
 import UserContext from "./components/UserContext";
 import NotifContext from "./components/NotifContext";
+import AvatarContext from "./components/AvatarContext";
 
 function App() {
   const [user, setUser] = useState(false);
-  const userHasLogged = useMemo(() => ({ user, setUser }), []);
+  const [avatarLink, setAvatarLink] = useState("");
   const [notif, setNotif] = useState(false);
+  const userHasLogged = useMemo(() => ({ user, setUser }), [user]);
+  const notifActive = useMemo(() => ({ notif, setNotif }), [notif]);
+  const avatarNewLink = useMemo(
+    () => ({ avatarLink, setAvatarLink }),
+    [avatarLink]
+  );
   const location = useLocation();
-  const notifActive = useMemo(() => ({ notif, setNotif }), []);
+
   return (
     <div className="App">
       <AnimatePresence exitBeforeEnter initial={false}>
         <NotifContext.Provider value={notifActive}>
           <UserContext.Provider value={userHasLogged}>
-            <Routes location={location} key={location.key}>
-              <Route path="/" element={user ? <Home /> : <Login />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/dashboard/my-rewards" element={<MyRewards />} />
-              <Route path="/recycler" element={<Recycler />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/create-account" element={<Form />} />
-              <Route path="/influence" element={<Influence />} />
-              <Route path="/create-account" element={<Form />} />
-            </Routes>
+            <AvatarContext.Provider value={avatarNewLink}>
+              <Routes location={location} key={location.key}>
+                <Route path="/" element={user ? <Home /> : <Login />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard/my-rewards" element={<MyRewards />} />
+                <Route path="/recycler" element={<Recycler />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/create-account" element={<Form />} />
+                <Route path="/influence" element={<Influence />} />
+                <Route path="/create-account" element={<Form />} />
+              </Routes>
+            </AvatarContext.Provider>
           </UserContext.Provider>
         </NotifContext.Provider>
       </AnimatePresence>
