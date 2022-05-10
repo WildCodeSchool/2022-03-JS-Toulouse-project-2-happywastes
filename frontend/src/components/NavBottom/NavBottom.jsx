@@ -38,7 +38,7 @@ function NavBottom() {
         <ul className="nav-bottom-bottom">
           <li>
             <Link to="/dashboard" className="navBottom-btn icon-dashboard">
-              <span className="span-dashboard">DASHBOARD</span>
+              <span className="span-dashboard">JOURNAL</span>
             </Link>
           </li>
           <li>
