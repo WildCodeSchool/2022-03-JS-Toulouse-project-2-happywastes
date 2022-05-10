@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalUserContext } from "../components/GlobalUserContext";
 import ProfileButton from "../components/ProfileButton/ProfileButton";
 import NavBottom from "../components/NavBottom/NavBottom";
 import Map from "../components/Map/Map";
@@ -9,11 +10,14 @@ import UserUtils from "../services/UserUtils";
 import variants from "../assets/js/variants";
 
 function Recycler() {
+  const userContext = useContext(GlobalUserContext);
+  const [userMail] = userContext.userMail;
+
   const [mapCenter, setMapCenter] = useState(null);
   const [apiData, setApiData] = useState([]);
   const [userFavourites, setUserFavourites] = useState([]);
 
-  const user = new UserUtils(1);
+  const user = new UserUtils(userMail);
 
   useEffect(() => {
     user.getFavourites().then((response) => {

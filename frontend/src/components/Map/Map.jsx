@@ -12,6 +12,7 @@ function Map({
   zoom = 17,
   userPos = false,
   favourites = [],
+  showTitle = true,
 }) {
   const mapCenter = true;
   return mapCenter !== null ? (
@@ -66,7 +67,7 @@ function Map({
             }}
           />
         ))}
-      <MapFavourites data={favourites} />
+      {showTitle && <MapFavourites data={favourites} showTitle={showTitle} />}
       {userPos && <UserPositionBTN newPos={center} />}
     </MapContainer>
   ) : (
