@@ -3,6 +3,7 @@ import { FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useNavigate, Link } from "react-router-dom";
 import "./Form.css";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import UserContext from "../UserContext";
 
@@ -13,6 +14,18 @@ function ConnectionForm() {
   const { setUser } = useContext(UserContext);
 
   const HandleSubmit = (e) => {
+    const notify = () => {
+      toast.error("Identifiants invalide", {
+        className: "black-background",
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    };
     e.preventDefault();
     axios
       .post(
@@ -23,19 +36,24 @@ function ConnectionForm() {
       .then(() => {
         navigate("/", { replace: true });
         setUser(true);
+      })
+      .catch((error) => {
+        console.error(error);
+        notify();
       });
   };
 
   return (
     <div className="main-container">
+      <ToastContainer />
       <img
-        className="logo-form"
+        className="logo-form-connection"
         src="src/assets/img/HW_LogoBlue-large.png"
         alt="logo"
       />
       <div className="container-form">
-        <form className="form" onSubmit={HandleSubmit}>
-          <h2>Connection</h2>
+        <form className="form-connection" onSubmit={HandleSubmit}>
+          <h2 className="title-account-form">Connection</h2>
           <div className="input-container">
             <label htmlFor={mail}>
               <span className="label-text">Email :</span>
@@ -75,8 +93,8 @@ function ConnectionForm() {
           <button type="submit" className="submit">
             Envoyer
           </button>
-          <Link to="/create-account">
-            Pas encore inscrit ? Créer votre compte ici !
+          <Link className="account-connection-link" to="/create-account">
+            Créer un compte ici
           </Link>
         </form>
       </div>
