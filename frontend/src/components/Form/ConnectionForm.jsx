@@ -20,14 +20,9 @@ function ConnectionForm() {
         { email: mail, password },
         [mail, password]
       )
-      .then((response) => {
-        console.log(response, ": bien transmis");
+      .then(() => {
         navigate("/", { replace: true });
         setUser(true);
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Identifiants invalide");
       });
   };
 

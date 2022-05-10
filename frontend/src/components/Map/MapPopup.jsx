@@ -16,13 +16,14 @@ function MapPopup({ setShowPopup, title, text, element }) {
 
   const addToFavourite = () => {
     const user = new UserUtils(1);
-    user.addFavourite([
-      {
-        id: element.recordid,
-        flux: element.flux ? element.flux : element.categorie,
-      },
-    ]);
-    navigate("/recycler");
+    user
+      .addFavourite([
+        {
+          id: element.recordid,
+          flux: element.flux ? element.flux : element.categorie,
+        },
+      ])
+      .then(() => navigate("/recycler"));
   };
   return (
     <AnimatePresence exitBeforeEnter>
