@@ -83,8 +83,10 @@ router.get("/api/favourites/:userID", (req, res) => {
     (error, result) => {
       if (error) {
         res.status(400).send(error);
-      } else {
+      } else if (result[0].favourites !== "") {
         res.status(200).send(result.map((el) => JSON.parse(el.favourites)));
+      } else {
+        res.status(200).send([]);
       }
     }
   );

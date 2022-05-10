@@ -3,7 +3,14 @@ import L from "leaflet";
 import { Marker } from "react-leaflet";
 import Popup from "./MapPopup";
 
-function MapMarker({ iconURL, position, iconSize: size, content, element }) {
+function MapMarker({
+  iconURL,
+  position,
+  iconSize: size,
+  content,
+  element,
+  fav,
+}) {
   const [showPopup, setShowPopup] = useState(false);
   const markerOptions = {
     position,
@@ -15,7 +22,6 @@ function MapMarker({ iconURL, position, iconSize: size, content, element }) {
   };
 
   const { title, text } = content || { tilte: "", text: "" };
-
   return (
     <Marker
       position={markerOptions.position}
@@ -28,6 +34,7 @@ function MapMarker({ iconURL, position, iconSize: size, content, element }) {
           text={text}
           setShowPopup={setShowPopup}
           element={element}
+          fav={fav}
         />
       )}
     </Marker>
