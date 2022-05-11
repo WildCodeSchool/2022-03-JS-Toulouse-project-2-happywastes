@@ -1,47 +1,85 @@
-import React, { useState, useEffect } from "react";
-import { utilFavourites, collectCenters } from "../services/utils";
+import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalUserContext } from "../components/GlobalUserContext";
+import ProfileButton from "../components/ProfileButton/ProfileButton";
+import NavBottom from "../components/NavBottom/NavBottom";
 import Map from "../components/Map/Map";
+import BackButton from "../components/BackButton/BackButton";
+import collectCenters from "../services/collect_centers";
+import UserUtils from "../services/UserUtils";
+import variants from "../assets/js/variants";
 
-function Influence() {
+function Recycler() {
+  const userContext = useContext(GlobalUserContext);
+  const [userMail] = userContext.userMail;
+
   const [mapCenter, setMapCenter] = useState(null);
-  const [favourites, setFavourites] = useState([]);
-  const [getData, setGetData] = useState(false);
+  const [apiData, setApiData] = useState([]);
+  const [userFavourites, setUserFavourites] = useState([]);
+
+  const user = new UserUtils(userMail);
+
+  useEffect(() => {
+    user.getFavourites().then((response) => {
+      if (response) {
+        Promise.all(
+          response.map((el) => collectCenters.getOne(el.id).then((res) => res))
+        ).then((values) => setUserFavourites(values));
+      }
+    });
+  }, []);
 
   function getGPSLocation() {
     const position = undefined;
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setMapCenter([pos.coords.latitude, pos.coords.longitude]);
-        setGetData(true);
+        collectCenters
+          .inZone(500, [pos.coords.latitude, pos.coords.longitude])
+          .then((data) => {
+            setApiData(data);
+            setMapCenter([pos.coords.latitude, pos.coords.longitude]);
+          });
       },
       (error) => error
     );
     return position;
   }
-
   useEffect(() => {
     getGPSLocation();
   }, []);
-
-  useEffect(() => {
-    if (getData) {
-      collectCenters
-        .inZone(500, mapCenter)
-        .then((result) => {
-          const parsedData = utilFavourites.parse(result);
-          setFavourites(parsedData);
-        })
-        .catch((error) => error);
-    }
-  }, [getData]);
   return (
-    <div id="influence">
-      {mapCenter && (
-        <Map center={mapCenter} userPos={mapCenter} data={favourites} />
-      )}
-      )
-    </div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        variants={variants}
+        key="Recycler"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="dashboard"
+        id="map-id"
+      >
+        <BackButton url="/" />
+        <ProfileButton />
+        {mapCenter !== null ? (
+          <Map
+            center={mapCenter}
+            userPos={mapCenter}
+            data={apiData}
+            favourites={userFavourites}
+            showTitle={false}
+          />
+        ) : (
+          ""
+        )}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.5 } }}
+        >
+          <NavBottom />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
-export default Influence;
+export default Recycler;
