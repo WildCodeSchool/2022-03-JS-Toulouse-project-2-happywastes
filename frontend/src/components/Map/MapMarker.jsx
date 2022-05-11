@@ -31,7 +31,6 @@ function MapMarker({
   };
 
   const { title, text } = content || { tilte: "", text: "" };
-  console.log(element?.fields.flux === "Récup'verre" ? "true" : "false");
   return (
     <Marker
       position={markerOptions.position}
