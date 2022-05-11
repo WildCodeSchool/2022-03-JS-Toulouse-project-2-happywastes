@@ -4,13 +4,14 @@ import { IoMail } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import "./Form.css";
 import axios from "axios";
-import UserContext from "../UserContext";
+import { GlobalUserContext } from "../GlobalUserContext";
 
 export default function Form() {
-  const { setUser } = useContext(UserContext);
+  const userContext = useContext(GlobalUserContext);
+  const setUser = userContext.user[1];
   const navigate = useNavigate();
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [firstname, setFirstname] = userContext.firstname;
+  const [lastname, setLastname] = userContext.lastname;
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

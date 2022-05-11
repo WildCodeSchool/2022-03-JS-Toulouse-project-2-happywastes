@@ -33,6 +33,7 @@ function Map({
         ? data.map((el) => (
             <MapMarker
               key={el.recordid}
+              fav={false}
               element={el}
               position={el.fields.geo_point_2d}
               content={{
@@ -48,6 +49,7 @@ function Map({
         favourites.map((favourite) => (
           <MapMarker
             key={favourite.recordid}
+            fav="true"
             element={favourite}
             iconURL="src/assets/img/carton.png"
             iconSize={[58, 50]}
