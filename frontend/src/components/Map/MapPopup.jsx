@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MapPopup.scss";
 import "../../assets/css/popup.scss";
@@ -8,14 +8,17 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import rewards from "../Dashboard/DataReward";
 import UserUtils from "../../services/UserUtils";
+import { GlobalUserContext } from "../GlobalUserContext";
 
 library.add(faClose);
 
 function MapPopup({ setShowPopup, title, text, element, fav }) {
   const navigate = useNavigate();
+  const userContext = useContext(GlobalUserContext);
+  const [userMail] = userContext.userMail;
 
   const addToFavourite = () => {
-    const user = new UserUtils(1);
+    const user = new UserUtils(userMail);
     user
       .addFavourite([
         {

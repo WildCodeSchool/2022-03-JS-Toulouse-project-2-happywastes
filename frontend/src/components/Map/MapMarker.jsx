@@ -12,12 +12,21 @@ function MapMarker({
   fav,
 }) {
   const [showPopup, setShowPopup] = useState(false);
+  const centerTypeIcon = {
+    "Récup'verre": "/src/assets/img/iconGreen-small.png",
+    "Récup'Textile": "/src/assets/img/iconRed-small.png",
+    "Collecte sélective": "/src/assets/img/iconYellow-small.png",
+  };
+
   const markerOptions = {
     position,
     eventHandlers: { click: () => setShowPopup(true) },
     icon: new L.Icon({
-      iconUrl: iconURL || "/src/assets/img/iconGrey.png",
-      iconSize: size || [40, 45],
+      iconUrl:
+        iconURL ||
+        centerTypeIcon[element?.fields.flux] ||
+        "/src/assets/img/iconGrey.png",
+      iconSize: size || [50, 45],
     }),
   };
 

@@ -115,12 +115,13 @@ router.get("/api/users/:mail", (request, response) => {
 });
 
 // FAVOURITES ROUTES
-router.get("/api/favourites/:userID", (req, res) => {
-  const { userID } = req.params;
+router.get("/api/favourites/:userMail", (req, res) => {
+  const { userMail } = req.params;
   connexion.query(
-    "SELECT favourites FROM user WHERE id = ?",
-    [userID],
+    "SELECT favourites FROM user WHERE email = ?",
+    [userMail],
     (error, result) => {
+      console.warn(result);
       if (error) {
         res.status(400).send(error);
       } else if (result[0].favourites !== "") {
@@ -132,12 +133,12 @@ router.get("/api/favourites/:userID", (req, res) => {
   );
 });
 
-router.post("/api/favourites/:userID", (req, res) => {
-  const { userID } = req.params;
+router.post("/api/favourites/:userMail", (req, res) => {
+  const { userMail } = req.params;
   const data = req.body;
   connexion.query(
-    "SELECT favourites FROM user WHERE id = ?",
-    [userID],
+    "SELECT favourites FROM user WHERE email = ?",
+    [userMail],
     (error, result) => {
       if (error) {
         res.status(400).send(error);
@@ -149,8 +150,8 @@ router.post("/api/favourites/:userID", (req, res) => {
         console.warn("fav", favourites);
         data.map((fav) => favourites.push(fav));
         connexion.query(
-          "UPDATE user SET favourites = ? WHERE id = ?",
-          [JSON.stringify(favourites), userID],
+          "UPDATE user SET favourites = ? WHERE email = ?",
+          [JSON.stringify(favourites), userMail],
           (error1, result1) => {
             if (error1) {
               res.status(400).send(error1);
@@ -164,11 +165,11 @@ router.post("/api/favourites/:userID", (req, res) => {
   );
 });
 
-router.delete("/api/favourites/:userID/:favouriteID", (req, res) => {
-  const { userID, favouriteID } = req.params;
+router.delete("/api/favourites/:userMail/:favouriteID", (req, res) => {
+  const { userMail, favouriteID } = req.params;
   connexion.query(
-    "SELECT favourites FROM user WHERE id = ?",
-    [userID],
+    "SELECT favourites FROM user WHERE email = ?",
+    [userMail],
     (error, result) => {
       if (error) {
         res.status(400).send(error);
@@ -180,8 +181,8 @@ router.delete("/api/favourites/:userID/:favouriteID", (req, res) => {
             .filter((favourite) => favourite.id !== favouriteID);
         }
         connexion.query(
-          "UPDATE user SET favourites = ? WHERE id = ?",
-          [JSON.stringify(favourites), userID],
+          "UPDATE user SET favourites = ? WHERE email = ?",
+          [JSON.stringify(favourites), userMail],
           (error1, result1) => {
             if (error1) {
               res.status(400).send(error1);
