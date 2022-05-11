@@ -31,20 +31,18 @@ export default function Settings() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -300, opacitiy: 0 }}
       >
-        <BackButton />
+        <BackButton url="/dashboard" />
         <Avatar avatarImg={avatarInfo.img} avatarName={avatarInfo.name} />
         <SettingsMenuList
           setAvatarInfo={setAvatarInfo}
           avatarInfo={avatarInfo}
         />
-        <BackButton />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.5 } }}
         >
           <NavBottom />
         </motion.div>
-        <BackButton />
       </motion.div>
     </AnimatePresence>
   );
