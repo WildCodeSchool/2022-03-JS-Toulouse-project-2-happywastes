@@ -4,6 +4,8 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import MapFavourites from "./MapFavourites";
 import MapMarker from "./MapMarker";
 import UserPositionBTN from "./UserPositionBTN";
+import inconBlue from "../../assets/img/iconBlue-small.png";
+import carton from "../../assets/img/carton.png";
 
 function Map({
   center,
@@ -24,11 +26,7 @@ function Map({
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {userPos && (
-        <MapMarker
-          position={center}
-          iconURL="/src/assets/img/iconBlue-small.png"
-          iconSize={[30, 35]}
-        />
+        <MapMarker position={center} iconURL={inconBlue} iconSize={[30, 35]} />
       )}
       {data.length > 0
         ? data.map((el) => (
@@ -56,7 +54,7 @@ function Map({
             showTitle={showTitle}
             fav="true"
             element={favourite}
-            iconURL="src/assets/img/carton.png"
+            iconURL={carton}
             iconSize={[58, 50]}
             position={favourite.fields.geo_point_2d}
             content={{
