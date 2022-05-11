@@ -1,12 +1,14 @@
-/* eslint-disable global-require */
 import React from "react";
 import SettingsMenuItem from "../SettingsMenuItem/SettingsMenuItem";
 import "./SettingsMenuList.css";
+import inconRed from "../../assets/img/iconRed-large.png";
+import iconGreen from "../../assets/img/iconGreen-large.png";
+import iconYellow from "../../assets/img/iconYellow-large.png";
 
 const settingMenuItem = [
   {
     id: 1,
-    image: require("../../assets/img/iconRed-large.png"),
+    image: inconRed,
     title: "Modifier mon avatar",
     color: "red",
     routePath: "avatar-popup",
@@ -14,14 +16,14 @@ const settingMenuItem = [
   {
     id: 2,
     title: "Mon identifiant",
-    image: require("../../assets/img/iconGreen-large.png"),
+    image: iconGreen,
     color: "green",
     routePath: "identifiant/popup",
   },
   {
     id: 3,
     title: "Mes favoris",
-    image: require("../../assets/img/iconYellow-large.png"),
+    image: iconYellow,
     color: "gold",
     routePath: "favoris/popup",
   },
