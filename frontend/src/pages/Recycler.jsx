@@ -58,7 +58,7 @@ function Recycler() {
         className="dashboard"
         id="map-id"
       >
-        <BackButton />
+        <BackButton url="/" />
         <ProfileButton />
         {mapCenter !== null ? (
           <Map

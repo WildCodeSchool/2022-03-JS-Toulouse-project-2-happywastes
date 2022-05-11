@@ -42,7 +42,7 @@ function MapPopup({ setShowPopup, title, text, element, fav }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ y: -400, opacity: 0, transition: { duration: 0.5 } }}
           transition={{ duration: 0.1 }}
-          className="popup-card"
+          className="popup-card-tacos"
         >
           <div className="map-card-header">
             <h3>{title}</h3>
@@ -74,7 +74,7 @@ function MapPopup({ setShowPopup, title, text, element, fav }) {
                   id={element.recordid}
                   onClick={addToFavourite}
                 >
-                  Ajouter aux favoris
+                  Ajouter aux favoris ⭐
                 </button>
               )}
             </div>

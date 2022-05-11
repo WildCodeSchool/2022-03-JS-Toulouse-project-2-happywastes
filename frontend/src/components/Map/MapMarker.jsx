@@ -10,6 +10,7 @@ function MapMarker({
   content,
   element,
   fav,
+  showTitle = true,
 }) {
   const [showPopup, setShowPopup] = useState(false);
   const centerTypeIcon = {
@@ -24,7 +25,7 @@ function MapMarker({
     icon: new L.Icon({
       iconUrl:
         iconURL ||
-        centerTypeIcon[element?.fields.flux] ||
+        centerTypeIcon[element?.fields?.flux] ||
         "/src/assets/img/iconGrey.png",
       iconSize: size || [50, 45],
     }),
@@ -37,7 +38,7 @@ function MapMarker({
       icon={markerOptions.icon}
       eventHandlers={markerOptions.eventHandlers}
     >
-      {content && showPopup && (
+      {content && showPopup && showTitle && (
         <Popup
           title={title}
           text={text}

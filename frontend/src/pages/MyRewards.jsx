@@ -46,7 +46,7 @@ export default function MyRewards() {
         className="dashboard"
       >
         <ProfileButton />
-        <BackButton />
+        <BackButton url="/dashboard" />
         <div className="my-rewards-container">
           <MyRewardsTitle />
           <MyRewardsList slicing={slicing} />

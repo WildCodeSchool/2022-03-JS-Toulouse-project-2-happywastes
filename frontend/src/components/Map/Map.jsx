@@ -34,14 +34,17 @@ function Map({
         ? data.map((el) => (
             <MapMarker
               key={el.recordid}
+              showTitle={showTitle}
               fav={false}
               element={el}
-              position={el.fields.geo_point_2d}
+              position={el?.fields?.geo_point_2d}
               content={{
-                title: `${el.fields.flux}`,
+                title: `${el?.fields?.flux}`,
                 text: `${
-                  el.fields.adresse ? el.fields.adresse.toLowerCase() : ""
-                } ${el.fields.commune.toLowerCase()} (${el.fields.code_insee})`,
+                  el.fields?.adresse ? el.fields?.adresse.toLowerCase() : ""
+                } ${el.fields?.commune.toLowerCase()} (${
+                  el.fields?.code_insee
+                })`,
               }}
             />
           ))
@@ -50,6 +53,7 @@ function Map({
         favourites.map((favourite) => (
           <MapMarker
             key={favourite.recordid}
+            showTitle={showTitle}
             fav="true"
             element={favourite}
             iconURL="src/assets/img/carton.png"

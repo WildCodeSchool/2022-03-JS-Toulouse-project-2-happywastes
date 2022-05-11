@@ -2,11 +2,11 @@ import React from "react";
 import "./back-button.css";
 import { useNavigate } from "react-router-dom";
 
-export default function BackButton() {
+export default function BackButton({ url }) {
   const navigate = useNavigate();
 
   function goBack() {
-    navigate(-1);
+    navigate(url || -1);
   }
 
   return (

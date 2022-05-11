@@ -44,7 +44,7 @@ export default function Dashboard() {
             userPos={[45.236, 0.8992]}
             showTitle={false}
           />
-          <BackButton />
+          <BackButton url="/" />
           <ProfileButton />
           <motion.div
             initial={{ opacity: 0 }}
