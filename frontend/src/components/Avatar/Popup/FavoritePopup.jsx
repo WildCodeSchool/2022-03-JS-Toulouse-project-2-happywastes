@@ -1,17 +1,35 @@
 import "./AvatarPopup.scss";
+import { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import "../../../assets/css/popup.scss";
+import "./FavoritePopup.scss";
 import { AnimatePresence, motion } from "framer-motion";
+import UserUtils from "../../../services/UserUtils";
+import { GlobalUserContext } from "../../GlobalUserContext";
 
 library.add(faClose);
 
 function SettingsPopup({ setShowAvatarPopup }) {
-  const setIdentifiants = (e) => {
-    e.preventDefault();
-  };
+  const userContext = useContext(GlobalUserContext);
+  const [userMail] = userContext.userMail;
+  const [favourites, setFavouries] = useState();
+  const user = new UserUtils(userMail);
 
+  useEffect(() => {
+    user.getFavourites().then((response) => {
+      setFavouries(response);
+    });
+  }, []);
+
+  const handleDelete = (favouriteId) => {
+    user.removeFavourite(favouriteId).then(() => {
+      user.getFavourites().then((response) => {
+        setFavouries(response);
+      });
+    });
+  };
   return (
     <AnimatePresence>
       <motion.div
@@ -36,7 +54,19 @@ function SettingsPopup({ setShowAvatarPopup }) {
             >
               <FontAwesomeIcon icon={faClose} />
             </button>
-            <form onSubmit={setIdentifiants}>
+            <ul className="setting-favourites">
+              {favourites &&
+                favourites.map((favourite) => (
+                  <li key={favourite.id}>
+                    {favourite.id}{" "}
+                    <FontAwesomeIcon
+                      icon={faClose}
+                      onClick={() => handleDelete(favourite.id)}
+                    />
+                  </li>
+                ))}
+            </ul>
+            {/* <form onSubmit={setIdentifiants}>
               <button
                 id="avatar-validate-button"
                 type="submit"
@@ -44,7 +74,7 @@ function SettingsPopup({ setShowAvatarPopup }) {
               >
                 Valider
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </motion.div>

@@ -42,6 +42,7 @@ export default function Dashboard() {
             size="small"
             center={[45.236, 0.8992]}
             userPos={[45.236, 0.8992]}
+            showTitle={false}
           />
           <BackButton />
           <ProfileButton />

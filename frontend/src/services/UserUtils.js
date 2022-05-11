@@ -1,15 +1,15 @@
 import axios from "axios";
 
 class UserUtils {
-  constructor(userID) {
-    this.id = userID;
+  constructor(userMail) {
+    this.mail = userMail;
     this.baseApiUrl = "http://localhost:5000/api";
   }
 
   getInfos() {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseApiUrl}/users/${this.id}`)
+        .get(`${this.baseApiUrl}/users/${this.mail}`)
         .then((response) => resolve(response.data))
         .catch((error) => reject(error));
     });
@@ -18,7 +18,7 @@ class UserUtils {
   getFavourites() {
     return new Promise((resolve, reject) => {
       axios
-        .get(`http://localhost:5000/api/favourites/${this.id}`)
+        .get(`http://localhost:5000/api/favourites/${this.mail}`)
         .then((data) => {
           return resolve(data.data[0]);
         })
@@ -29,7 +29,7 @@ class UserUtils {
   addFavourite(data) {
     return new Promise((resolve, reject) => {
       axios
-        .post(`http://localhost:5000/api/favourites/${this.id}`, data)
+        .post(`http://localhost:5000/api/favourites/${this.mail}`, data)
         .then((response) => {
           resolve(response.data);
         })
@@ -41,7 +41,7 @@ class UserUtils {
     return new Promise((resolve, reject) => {
       axios
         .delete(
-          `http://localhost:5000/api/favourites/${this.id}/${favouriteId}`
+          `http://localhost:5000/api/favourites/${this.mail}/${favouriteId}`
         )
         .then((response) => {
           resolve(response.data);
