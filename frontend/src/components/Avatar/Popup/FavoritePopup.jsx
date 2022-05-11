@@ -66,15 +66,6 @@ function SettingsPopup({ setShowAvatarPopup }) {
                   </li>
                 ))}
             </ul>
-            {/* <form onSubmit={setIdentifiants}>
-              <button
-                id="avatar-validate-button"
-                type="submit"
-                onClick={() => setShowAvatarPopup(false)}
-              >
-                Valider
-              </button>
-            </form> */}
           </div>
         </div>
       </motion.div>
