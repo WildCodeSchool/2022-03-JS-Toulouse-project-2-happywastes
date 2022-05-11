@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+
+.avatar-container {
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  padding: 2em;
+}
+
+.avatar-title {
+  font-family: var(--title-font);
+  font-size: 1.4rem;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+.hexagon {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  width: 140px;
+  height: 140px;
+}
+.hexagon img {
+  width: 140px;
+  height: 140px;
+}
+
+.hexagon-border-1 {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: black;
+}
+
+.hexagon-border-2 {
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 160px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: white;
+}
+
+.hexagon-border-3 {
+  display: grid;
+  place-items: center;
+  width: 180px;
+  height: 180px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: black;
+}

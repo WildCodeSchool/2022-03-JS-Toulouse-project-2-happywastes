@@ -1,0 +1,48 @@
+#map-list {
+  background-color: #40565a;
+  color: white;
+  padding: 1rem 0 0 0;
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 3px solid #7a998b;
+  box-shadow: 0 2px 3px #333;
+  padding-top: 3rem;
+
+  h2 {
+    text-transform: uppercase;
+    padding: 0.3rem 0.2rem;
+    font-size: 1rem;
+  }
+
+  .info-message {
+    text-align: center;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+  }
+
+  ul {
+    margin: 1rem 0 0 0;
+    width: 100%;
+    border: 1px solid geen;
+    li.favourite-item {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      background-color: #39484b;
+      &:nth-child(2n) {
+        background-color: #374142;
+      }
+      .locationIcon {
+        color: #7a998b;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

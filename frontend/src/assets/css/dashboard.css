@@ -1,0 +1,32 @@
+.dashboard {
+  height: 100vh;
+}
+
+.container-avatar {
+  height: 25vh;
+}
+
+.container-reward {
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: 35vh;
+}
+
+.container-map {
+  border-top: 4px solid #7a998b;
+  border-bottom: 4px solid #7a998b;
+  box-shadow: inset 0px 6px 4px rgba(0, 0, 0, 0.35);
+  z-index: 0;
+  height: 34vh;
+}
+
+.img-magnifying-glass {
+  z-index: 11000;
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: 90vw;
+  color: rgba(0, 0, 0, 0.678);
+}

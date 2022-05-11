@@ -1,0 +1,6 @@
+.menu-list {
+  background: url("../../assets/img/Rectangle58.png") no-repeat center;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}

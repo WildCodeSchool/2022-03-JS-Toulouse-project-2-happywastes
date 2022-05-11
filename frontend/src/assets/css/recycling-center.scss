@@ -1,0 +1,72 @@
+#recycling-center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    background-color: green;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    box-shadow: 0 1px 15px rgba($color: #000000, $alpha: 0.3);
+    margin-top: 4rem;
+  }
+
+  header {
+    background-color: #39484b;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    h2 {
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
+  }
+
+  main {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    h3 {
+      font-weight: normal;
+    }
+
+    ul {
+      width: 100%;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 3.5rem;
+        width: 100%;
+        font-size: 1.5rem;
+        span {
+          width: 100%;
+          padding-left: 5rem;
+        }
+        input {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

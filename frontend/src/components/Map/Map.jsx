@@ -1,52 +1,81 @@
 import React from "react";
-import { TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
 import "./Map.scss";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStreetView } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import marker from "../../assets/img/iconBlue-small.png";
+import { MapContainer, TileLayer } from "react-leaflet";
+import MapFavourites from "./MapFavourites";
+import MapMarker from "./MapMarker";
+import UserPositionBTN from "./UserPositionBTN";
 
-library.add(faStreetView);
-
-function Map({ userPos, data }) {
-  const map = useMap();
-  const iconDechet = new L.Icon({
-    iconUrl: marker,
-    iconSize: [30, 37],
-  });
-
-  return (
-    <>
+function Map({
+  center,
+  size = "big",
+  data = [],
+  zoom = 17,
+  userPos = false,
+  favourites = [],
+  showTitle = true,
+}) {
+  const mapCenter = true;
+  return mapCenter !== null ? (
+    <MapContainer
+      center={center}
+      zoom={zoom}
+      id={size === "big" ? "map-big" : "map-small"}
+      zoomControl={false}
+    >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <FontAwesomeIcon
-        icon={faStreetView}
-        size="2xl"
-        className="centerIcon"
-        onClick={() => {
-          map.flyTo(userPos, 17);
-        }}
-      />
-      <Marker position={userPos} icon={iconDechet} />
+      {userPos && (
+        <MapMarker
+          position={center}
+          iconURL="/src/assets/img/iconBlue-small.png"
+          iconSize={[30, 35]}
+        />
+      )}
       {data.length > 0
         ? data.map((el) => (
-            <Marker
-              eventHandlers={{ click: () => map.flyTo(el.fields.geo_point_2d) }}
+            <MapMarker
               key={el.recordid}
-              position={[
-                el.geometry.coordinates[1],
-                el.geometry.coordinates[0],
-              ]}
-            >
-              <Popup>
-                {`${el.fields.commune} (${el.fields.code_postal})`}
-                <br />
-                {`${el.fields.horaire}`}
-              </Popup>
-            </Marker>
+              showTitle={showTitle}
+              fav={false}
+              element={el}
+              position={el?.fields?.geo_point_2d}
+              content={{
+                title: `${el?.fields?.flux}`,
+                text: `${
+                  el.fields?.adresse ? el.fields?.adresse.toLowerCase() : ""
+                } ${el.fields?.commune.toLowerCase()} (${
+                  el.fields?.code_insee
+                })`,
+              }}
+            />
           ))
         : false}
-    </>
+      {favourites.length > 0 &&
+        favourites.map((favourite) => (
+          <MapMarker
+            key={favourite.recordid}
+            showTitle={showTitle}
+            fav="true"
+            element={favourite}
+            iconURL="src/assets/img/carton.png"
+            iconSize={[58, 50]}
+            position={favourite.fields.geo_point_2d}
+            content={{
+              title: `${favourite.fields.flux}`,
+              text: `${
+                favourite.fields.adresse
+                  ? favourite.fields.adresse.toLowerCase()
+                  : ""
+              } ${favourite.fields.commune.toUpperCase()} (${
+                favourite.fields.code_insee
+              })`,
+            }}
+          />
+        ))}
+      {showTitle && <MapFavourites data={favourites} showTitle={showTitle} />}
+      {userPos && <UserPositionBTN newPos={center} />}
+    </MapContainer>
+  ) : (
+    ""
   );
 }
 

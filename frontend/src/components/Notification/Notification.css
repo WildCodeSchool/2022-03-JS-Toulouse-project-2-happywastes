@@ -1,0 +1,32 @@
+.Toastify__toast {
+  background: rgba(255, 255, 255, 0.877);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.3px);
+  -webkit-backdrop-filter: blur(2.3px);
+}
+
+.Toastify__toast-body > div {
+  color: #ff6966;
+  opacity: 1;
+  font-weight: 500;
+  text-align: center;
+}
+
+.Toastify__progress-bar-theme--light {
+  background: linear-gradient(
+    to right,
+    #ef6361,
+    #ef6361,
+    #ef6361,
+    #ef6361,
+    #ef6361,
+    #ef6361
+  );
+  opacity: 1;
+  border: none;
+}
+
+.Toastify__close-button--light {
+  color: #ef6461;
+  opacity: 1;
+}

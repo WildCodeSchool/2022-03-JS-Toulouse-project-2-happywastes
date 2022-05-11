@@ -1,0 +1,186 @@
+:root {
+  --title-font: "Arvo", serif;
+  --primary-font: "Lato", sans-serif;
+}
+
+#avatar-popup {
+  position: fixed;
+  top: -20px;
+  color: white;
+}
+
+.avatar-popup-container {
+  align-self: center;
+}
+
+.avatar-hexagon {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  width: 100px;
+  height: 100px;
+}
+.avatar-hexagon img {
+  width: 100px;
+  height: 100px;
+}
+
+.avatar-hexagon-border-1 {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: black;
+}
+
+.avatar-hexagon-border-2 {
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: white;
+}
+
+.avatar-hexagon-border-3 {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: black;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+input,
+label,
+select {
+  font-family: var(--primary-font);
+  padding: 2px;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+
+input {
+  border: 2px solid white;
+}
+
+label {
+  color: white;
+}
+
+select {
+  border: 2px solid white;
+}
+
+.variant01 {
+  background-color: #f3ede8;
+}
+
+.variant02 {
+  background-color: #f2d3b1;
+}
+
+.variant03 {
+  background-color: #ecad80;
+}
+
+.variant04 {
+  background-color: #9e5622;
+}
+
+.variant05 {
+  background-color: #763900;
+}
+
+.avatar-container > form:nth-child(2) > label:nth-child(11) {
+  display: flex;
+}
+
+#is-accessoire {
+  align-self: flex-end;
+  width: auto;
+}
+
+.avatar-card {
+  width: 85%;
+}
+
+.card-body {
+  box-shadow: 3px 2.8px 155.3px rgba(0, 0, 0, 0.047),
+    7.4px 6.9px 162.9px rgba(0, 0, 0, 0.058),
+    14.7px 13.7px 151.8px rgba(0, 0, 0, 0.067),
+    29.3px 27.4px 139.7px rgba(0, 0, 0, 0.081),
+    76px 71px 173px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 1rem;
+  background: url("../img/Background_Hexagon.png") 0 -50px,
+    linear-gradient(#3f7984 -4.24%, #11323d 93.3%);
+  background-size: cover;
+}
+
+.avatar-title {
+  text-decoration: none;
+}
+
+.avatar-accessoires-container {
+  grid-column: 1 / span 2;
+}
+
+.avatar-is-accessoires-container {
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+#avatar-validate-button {
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: 900;
+  color: white;
+  width: 100%;
+  height: 2rem;
+  background-color: #629c94;
+  border-radius: 6px;
+  padding: 8px;
+  grid-column: 1 / span 2;
+  box-shadow: none;
+}
+
+.avatar-background-color-1 {
+  background-color: #000000;
+}
+
+.fa-button {
+  margin: 0;
+  color: #bbb;
+  border: none;
+  background-color: #555;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.3);
+
+  align-self: flex-end;
+}
+
+.fa-xmark {
+  width: 20px;
+  height: 20px;
+  color: #ef6461;
+}
+
+.avatar-inputs,
+#avatar-input,
+.id-inputs {
+  display: flex;
+  flex-direction: column;
+}
