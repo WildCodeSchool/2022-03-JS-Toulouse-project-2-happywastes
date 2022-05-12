@@ -6,6 +6,7 @@ import "./Form.css";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { GlobalUserContext } from "../GlobalUserContext";
+import logo from "../../assets/img/HW_LogoBlue-large.png";
 
 function ConnectionForm() {
   const userContext = useContext(GlobalUserContext);
@@ -32,7 +33,7 @@ function ConnectionForm() {
     e.preventDefault();
     axios
       .post(
-        `http://localhost:5000/api/user/${mail}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/${mail}`,
         { email: mail, password },
         [mail, password]
       )
@@ -48,7 +49,7 @@ function ConnectionForm() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/avatar/obtain/${userMail}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/avatar/obtain/${userMail}`)
       .then((response) => {
         setAvatarLink(response.data.avatar_url);
       });
@@ -57,11 +58,7 @@ function ConnectionForm() {
   return (
     <div className="main-container">
       <ToastContainer />
-      <img
-        className="logo-form-connection"
-        src="src/assets/img/HW_LogoBlue-large.png"
-        alt="logo"
-      />
+      <img className="logo-form-connection" src={logo} alt="logo" />
       <div className="container-form">
         <form className="form-connection" onSubmit={HandleSubmit}>
           <h2 className="title-account-form">Connection</h2>

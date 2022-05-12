@@ -3,7 +3,7 @@ import axios from "axios";
 class UserUtils {
   constructor(userMail) {
     this.mail = userMail;
-    this.baseApiUrl = "http://localhost:5000/api";
+    this.baseApiUrl = import.meta.env.VITE_BACKEND_URL;
   }
 
   getInfos() {
@@ -18,7 +18,7 @@ class UserUtils {
   getFavourites() {
     return new Promise((resolve, reject) => {
       axios
-        .get(`http://localhost:5000/api/favourites/${this.mail}`)
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/favourites/${this.mail}`)
         .then((data) => {
           return resolve(data.data[0]);
         })
@@ -29,7 +29,10 @@ class UserUtils {
   addFavourite(data) {
     return new Promise((resolve, reject) => {
       axios
-        .post(`http://localhost:5000/api/favourites/${this.mail}`, data)
+        .post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/favourites/${this.mail}`,
+          data
+        )
         .then((response) => {
           resolve(response.data);
         })
@@ -41,7 +44,9 @@ class UserUtils {
     return new Promise((resolve, reject) => {
       axios
         .delete(
-          `http://localhost:5000/api/favourites/${this.mail}/${favouriteId}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/favourites/${
+            this.mail
+          }/${favouriteId}`
         )
         .then((response) => {
           resolve(response.data);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBottom.css";
+import menuBtn from "../../assets/img/MENU-BTN.png";
 
 function NavBottom() {
   const [showMenu, setShowMenu] = useState(false);
@@ -30,7 +31,7 @@ function NavBottom() {
                   ? "icon-menu-btn icon-menu-btn-opened"
                   : "icon-menu-btn"
               }
-              src="/src/assets/img/MENU-BTN.png"
+              src={menuBtn}
               alt="icon Menu Btn"
             />
           </div>

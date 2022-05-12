@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
 import Popup from "./MapPopup";
+import iconGrey from "../../assets/img/iconGrey.png";
+import iconGreen from "../../assets/img/iconGreen-small.png";
+import iconRed from "../../assets/img/iconRed-small.png";
+import iconYellow from "../../assets/img/iconYellow-small.png";
 
 function MapMarker({
   iconURL,
@@ -14,19 +18,16 @@ function MapMarker({
 }) {
   const [showPopup, setShowPopup] = useState(false);
   const centerTypeIcon = {
-    "Récup'verre": "/src/assets/img/iconGreen-small.png",
-    "Récup'Textile": "/src/assets/img/iconRed-small.png",
-    "Collecte sélective": "/src/assets/img/iconYellow-small.png",
+    "Récup'verre": iconGreen,
+    "Récup'Textile": iconRed,
+    "Collecte sélective": iconYellow,
   };
 
   const markerOptions = {
     position,
     eventHandlers: { click: () => setShowPopup(true) },
     icon: new L.Icon({
-      iconUrl:
-        iconURL ||
-        centerTypeIcon[element?.fields?.flux] ||
-        "/src/assets/img/iconGrey.png",
+      iconUrl: iconURL || centerTypeIcon[element?.fields?.flux] || iconGrey,
       iconSize: size || [50, 45],
     }),
   };
