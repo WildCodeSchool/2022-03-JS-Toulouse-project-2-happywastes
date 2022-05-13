@@ -15,7 +15,7 @@ export default function Home() {
 
   const notify = () => {
     axios
-      .get(`http://localhost:5000/api/users/${userMail}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/users/${userMail}`)
       .then((response) => {
         toast.success(`Connecté en tant que ${response.data.firstName}!`, {
           position: "top-center",

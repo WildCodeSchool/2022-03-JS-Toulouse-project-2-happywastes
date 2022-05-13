@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./Form.css";
 import axios from "axios";
 import { GlobalUserContext } from "../GlobalUserContext";
+import logo from "../../assets/img/HW_LogoBlue-large.png";
 
 export default function Form() {
   const userContext = useContext(GlobalUserContext);
@@ -23,7 +24,7 @@ export default function Form() {
       setWarning("Les mots de passes ne correspondent pas !");
     } else {
       axios
-        .post("http://localhost:5000/api/create/user", {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/api/create/user`, {
           firstName: firstname,
           lastName: lastname,
           email: mail,
@@ -39,11 +40,7 @@ export default function Form() {
 
   return (
     <div className="main-container">
-      <img
-        className="logo-form"
-        src="src/assets/img/HW_LogoBlue-large.png"
-        alt="logo"
-      />
+      <img className="logo-form" src={logo} alt="logo" />
       <div className="container-form">
         <form className="form" onSubmit={HandleSubmit}>
           <h2 className="title-account-form">Inscription</h2>

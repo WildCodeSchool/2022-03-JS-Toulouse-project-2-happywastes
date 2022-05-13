@@ -1,5 +1,6 @@
 import "./Splashscreen.css";
 import { motion } from "framer-motion";
+import logo from "../../assets/img/HW_LogoBlue-large.png";
 
 function Splashscreen() {
   return (
@@ -9,11 +10,7 @@ function Splashscreen() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ ease: "easeOut", duration: 1 }}
     >
-      <img
-        className="logo"
-        src="src/assets/img/HW_LogoBlue-large.png"
-        alt="logo"
-      />
+      <img className="logo" src={logo} alt="logo" />
       <div className="lds-ellipsis">
         <div className="ellipsis" />
         <div className="ellipsis" />

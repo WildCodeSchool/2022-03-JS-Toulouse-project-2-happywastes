@@ -37,9 +37,12 @@ function AvatarPopup({ setShowAvatarPopup, title, setAvatarInfo, avatarInfo }) {
     e.preventDefault();
     setAvatarLink(avatarInfo.img);
     axios
-      .put(`http://localhost:5000/api/avatar/create/${userMail}`, {
-        avatarLink,
-      })
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/avatar/create/${userMail}`,
+        {
+          avatarLink,
+        }
+      )
       .then(() => {
         setShowAvatarPopup();
       });
