@@ -5,7 +5,7 @@ const mysql = require("mysql2");
 const nodeMailler = require("./mailler");
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: process.env.FRONTEND_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
