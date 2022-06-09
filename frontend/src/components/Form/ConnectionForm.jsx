@@ -46,6 +46,11 @@ function ConnectionForm() {
       });
   };
 
+  const handleDemo = () => {
+    setUser(true);
+    navigate("/");
+  };
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/avatar/obtain/${userMail}`)
@@ -107,6 +112,15 @@ function ConnectionForm() {
           <Link className="account-connection-link" to="/create-account">
             Créer un compte ici
           </Link>
+          <button
+            type="button"
+            className="account-connection-link"
+            onClick={() => {
+              handleDemo();
+            }}
+          >
+            <span>(démo, utiliser un format mobile) Accès sans compte</span>
+          </button>
         </form>
       </div>
     </div>
