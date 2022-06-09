@@ -6,8 +6,9 @@
 }
 
 .logo {
+  margin: 0 auto;
   height: 320px;
-  width: auto;
+  width: 340px;
 }
 
 .lds-ellipsis {
