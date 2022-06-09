@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-no-constructed-context-values */
-
 // ESLint désactivé dû au useMemo obligatoire avec le useContext
 
 import React, { useState, createContext } from "react";
